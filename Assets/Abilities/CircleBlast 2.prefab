@@ -44,11 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1349ed7e3e44b4096d3ae3b2c15772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityData: {fileID: 11400000, guid: 0d12c341f415d7148b1a9ccb721dd36c, type: 2}
-  id: 0
+  abilityData: {fileID: 11400000, guid: 791bb168321b07e488bb8679312cd6a6, type: 2}
+  level: 0
   icon: {fileID: 21300000, guid: af4f27be1e6231d499f6b24f077ab660, type: 3}
-  numberOfShoots: 2
+  name: circle2
+  numberOfShoots: 1
   shootInterval: 0.1
   projectilePrefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}
   radius: 360
-  numberOfProjectiles: 8
+  numberOfProjectiles: 16

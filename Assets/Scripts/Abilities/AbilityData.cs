@@ -30,4 +30,8 @@ public class AbilityData : ScriptableObject
     [SerializeField]
     AbilityData nextLevelData;
     public AbilityData NextLevelData { get => nextLevelData;private set => NextLevelData = value; }
+
+    [SerializeField]
+    string description;
+    public string Description { get => description; private set => description = value; }
 }

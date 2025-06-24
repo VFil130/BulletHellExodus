@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,13 +13,15 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] private int numberOfAbilitiesToPick = 4;
     [SerializeField] private List<AbilityStats> AbilitiesToChoose;
     [SerializeField] private int[] abilityLevels;
+    [SerializeField] private AbilityCard[] abilityCards = new AbilityCard[4];
 
+    [System.Serializable]
     class AbilityCard
     {
-        [SerializeField] private string name;
-        [SerializeField] private string description;
-        [SerializeField] private Image icon;
-        [SerializeField] private GameObject abilityPanel;
+        public TMP_Text name;
+        public TMP_Text description;
+        public Image icon;
+        public GameObject abilityPanel;
     }
 
     private void Awake()
@@ -31,7 +34,7 @@ public class AbilityManager : MonoBehaviour
     private void Start()
     {
         SpawnFirstAbility();
-        ChooseRandomAbilities();
+        TakeRandomAbilities();
     }
 
     public void PickAbility(AbilityStats ability)
@@ -39,12 +42,11 @@ public class AbilityManager : MonoBehaviour
         pickedAbilities = abilityCaster.ReturnAbilities();
         if (!pickedAbilities.Contains(ability))
         {
-            pickedAbilities.Add(ability);
             abilityCaster.SpawnAbility(ability);
         }
         allAbilities.Remove(ability);
     }
-    public void ChooseRandomAbilities()
+    public void TakeRandomAbilities()
     {
         List<AbilityStats> combinedAbilities = allAbilities.Concat(pickedAbilities).ToList();
 
@@ -62,14 +64,40 @@ public class AbilityManager : MonoBehaviour
 
             combinedAbilities.RemoveAt(randomIndex);
         }
+        ShowAbilities();
     }
     private void SpawnFirstAbility()
     {
         abilityCaster.SpawnAbility(startAbility);
         pickedAbilities = abilityCaster.ReturnAbilities();
     }
-    private void ChooseAbility (int index)
+    public void ChooseAbility (int index)
     {
+        if (AbilitiesToChoose[index].Level == 0)
+        {
+            PickAbility(AbilitiesToChoose[index]);
+        }
+        else if (AbilitiesToChoose[index].Level > 0)
+        {
+            AbilitiesToChoose[index].LevelUpAbiliy();
+        }
+        TakeRandomAbilities();
+    }
 
+    public void ShowAbilities()
+    {
+        for (int i = 0; i < AbilitiesToChoose.Count; i++)
+        {
+            abilityCards[i].name.text = AbilitiesToChoose[i].name;
+            abilityCards[i].icon.sprite = AbilitiesToChoose[i].icon;
+            if (AbilitiesToChoose[i].Level > 0)
+            {
+                abilityCards[i].description.text = AbilitiesToChoose[i].abilityData.NextLevelData.Description;
+            }
+            else
+            {
+                abilityCards[i].description.text = AbilitiesToChoose[i].abilityData.Description;
+            }
+        }
     }
 }

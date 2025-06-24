@@ -16,6 +16,6 @@ MonoBehaviour:
   speed: 50
   damage: 10
   abilityPrefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}
-  pierce: 1
+  pierce: 2
   level: 2
   nextLevelData: {fileID: 11400000, guid: 0d12c341f415d7148b1a9ccb721dd36c, type: 2}

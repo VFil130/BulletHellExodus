@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCaster: {fileID: 181344583}
-  startAbility: {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
+  startAbility: {fileID: 3656114576275767602, guid: a91726a2f38208945b9bdf3b3121f8bc, type: 3}
   allAbilities:
   - {fileID: 1709682673901245640, guid: 8e8d8da119fc78a4ea9ab42e7bb983d8, type: 3}
   - {fileID: 1709682673901245640, guid: ec151faa99a1afb4db117f7406087cf1, type: 3}
@@ -907,6 +907,23 @@ MonoBehaviour:
   numberOfAbilitiesToPick: 4
   AbilitiesToChoose: []
   abilityLevels: 
+  abilityCards:
+  - name: {fileID: 413743081}
+    description: {fileID: 1323961714}
+    icon: {fileID: 1291573428}
+    abilityPanel: {fileID: 988219835}
+  - name: {fileID: 1808240256}
+    description: {fileID: 1761199827}
+    icon: {fileID: 1658613826}
+    abilityPanel: {fileID: 267521241}
+  - name: {fileID: 59637223}
+    description: {fileID: 954015204}
+    icon: {fileID: 1393796809}
+    abilityPanel: {fileID: 439749159}
+  - name: {fileID: 1130822289}
+    description: {fileID: 1216633783}
+    icon: {fileID: 2064012888}
+    abilityPanel: {fileID: 1497429067}
 --- !u!58 &181344589
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1295,6 +1312,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 181344588}
+        m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
+        m_MethodName: ChooseAbility
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1432273295}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: EndLevelUp
@@ -1507,6 +1536,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 181344588}
+        m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
+        m_MethodName: ChooseAbility
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1432273295}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: EndLevelUp
@@ -2790,10 +2831,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1432273295}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: EndLevelUp
-        m_Mode: 1
+      - m_Target: {fileID: 181344588}
+        m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
+        m_MethodName: ChooseAbility
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2802,10 +2843,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 181344583}
-        m_TargetAssemblyTypeName: AbilityCaster, Assembly-CSharp
-        m_MethodName: LevelUpAbility
-        m_Mode: 3
+      - m_Target: {fileID: 1432273295}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: EndLevelUp
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4998,6 +5039,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 181344588}
+        m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
+        m_MethodName: ChooseAbility
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1432273295}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: EndLevelUp

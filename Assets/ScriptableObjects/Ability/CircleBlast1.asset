@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CircleBlast1
   m_EditorClassIdentifier: 
   castInterval: 0.5
-  speed: 50
+  speed: 10
   damage: 10
   abilityPrefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}
-  pierce: 5
+  pierce: 1
   level: 0
   nextLevelData: {fileID: 11400000, guid: e5081636ca8603b49b7f549fddcd17dc, type: 2}

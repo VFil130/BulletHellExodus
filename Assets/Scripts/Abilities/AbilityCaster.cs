@@ -59,6 +59,7 @@ public class AbilityCaster : MonoBehaviour
             timers.Add(0f);
             AbilityUi.ChangeImages(abilityCount, abilityPrefab.icon);
             abilityCount++;
+            abilityPrefab.SetLevel1();
             Debug.Log("Добавил " + abilityPrefab.name);
         }
         else
