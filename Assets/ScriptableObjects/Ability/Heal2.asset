@@ -19,3 +19,4 @@ MonoBehaviour:
   pierce: 0
   level: 2
   nextLevelData: {fileID: 11400000, guid: 19cb7fede9201b2408d15d15064b3ac7, type: 2}
+  description: HealYou more

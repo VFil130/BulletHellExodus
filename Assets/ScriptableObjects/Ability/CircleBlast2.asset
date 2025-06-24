@@ -19,3 +19,4 @@ MonoBehaviour:
   pierce: 2
   level: 2
   nextLevelData: {fileID: 11400000, guid: 0d12c341f415d7148b1a9ccb721dd36c, type: 2}
+  description: do FASTER piupiu (+40Speed)

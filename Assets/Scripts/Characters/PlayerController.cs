@@ -21,24 +21,22 @@ public class PlayerController : Character
     void FixedUpdate()
     {
         CharacterMovment();
-        
     }
 
     private void CharacterMovment()
     {
+        sprite.transform.position = transform.position;
         if (isMoving)
         {
             Vector2 direction = (_mousePosition - (Vector2)transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
             transform.Translate(new Vector2(direction.x, direction.y) * speed * Time.fixedDeltaTime, Space.World);
-            sprite.transform.position = transform.position;
-            // Условие для flipX
-            if (direction.x < 0)  // Двигаемся влево
+            if (direction.x < 0)
             {
                 sprite.flipX = true;
             }
-            else if (direction.x > 0) // Двигаемся вправо
+            else if (direction.x > 0)
             {
                 sprite.flipX = false;
             }

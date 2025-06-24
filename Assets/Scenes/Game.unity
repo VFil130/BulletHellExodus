@@ -777,7 +777,7 @@ MonoBehaviour:
   experience: 0
   level: 1
   experienceCap: 100
-  experienceCapIncerease: 0
+  experienceCapIncerease: 100
   sprite: {fileID: 1190032060}
 --- !u!4 &181344580
 Transform:
@@ -833,8 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b037a68ca04ea1b409af6c1c0a453350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilities:
-  - {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
+  abilities: []
   abilityLevels: 000000000000000000000000000000000000000000000000
   abilityCount: 0
 --- !u!114 &181344584

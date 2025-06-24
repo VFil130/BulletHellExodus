@@ -18,4 +18,5 @@ MonoBehaviour:
   abilityPrefab: {fileID: 0}
   pierce: 0
   level: 3
-  nextLevelData: {fileID: 0}
+  nextLevelData: {fileID: 11400000}
+  description: HealYou MOOOORE
