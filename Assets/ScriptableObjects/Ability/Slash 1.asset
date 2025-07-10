@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
-  m_Name: CircleBlast1
+  m_Name: Slash 1
   m_EditorClassIdentifier: 
-  castInterval: 0.5
-  speed: 10
-  damage: 5
-  abilityPrefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}
-  pierce: 1
+  castInterval: 5
+  speed: 0
+  damage: 8
+  abilityPrefab: {fileID: 2954845818976924223, guid: 1eccfacd3c16c3145bc7eebf225ee796, type: 3}
+  pierce: 0
   level: 0
-  nextLevelData: {fileID: 11400000, guid: e5081636ca8603b49b7f549fddcd17dc, type: 2}
-  description: do piupiu
+  nextLevelData: {fileID: 11400000, guid: 09746fa0c0ef53141b578c04fd80a540, type: 2}
+  description: Add 3dmg

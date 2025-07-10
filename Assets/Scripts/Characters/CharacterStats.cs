@@ -5,7 +5,7 @@ public class Character : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] private float maxhealth;
-    [SerializeField] protected float health;
+    [SerializeField] private float health;
     [SerializeField] protected float speed;
     [SerializeField] private float physArmour;
     [SerializeField] private float mageArmour;
@@ -85,5 +85,9 @@ public class Character : MonoBehaviour
 
             GameManager.instance.StartLevelUp();
         }
+    }
+    public float ReturnHealth()
+    {
+        return health / maxhealth;
     }
 }

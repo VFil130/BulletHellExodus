@@ -1,21 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class CircelBlast : ProjectileCast, IAbility
+public class CircelBlast : ProjectileCast
 {
-    [SerializeField] public float AbilityInterval { get; set; } = 4f;
     [SerializeField] private int radius = 360;
     [SerializeField] private int numberOfProjectiles = 8;
-    void Awake()
-    {
-        AbilityInterval = SetCastInterval();
-    }
-    public bool CanUseAbility()
+    public override bool CanUseAbility()
     {
         return true;
     }
 
-    public void UseAbility()
+    public override void UseAbility()
     {
         StartCoroutine(ShootMultipleTimes());
     }

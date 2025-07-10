@@ -17,10 +17,10 @@ public class AbilityCaster : MonoBehaviour
 
     [SerializeField] private int[] abilityLevels = new int[slotsCount];
     [SerializeField] private int abilityCount=0;
-    private AbilityUi AbilityUi;
+    private AbilityUi abilityUi;
     void Awake()
     {
-        AbilityUi = FindFirstObjectByType<AbilityUi>();
+        abilityUi = FindFirstObjectByType<AbilityUi>();
     }
     void FixedUpdate()
     {
@@ -29,6 +29,7 @@ public class AbilityCaster : MonoBehaviour
             if (iAbilities[i] != null)
             {
                 timers[i] += Time.deltaTime;
+                abilityUi.CDUpdate(i, timers[i], abilities[i].AbilityInterval);
 
                 if (timers[i] > iAbilities[i].AbilityInterval && iAbilities[i].CanUseAbility())
                 {
@@ -57,7 +58,7 @@ public class AbilityCaster : MonoBehaviour
             iAbilities.Add(iAbility);
             abilities.Add(abilityPrefab);
             timers.Add(0f);
-            AbilityUi.ChangeImages(abilityCount, abilityPrefab.icon);
+            abilityUi.ChangeImages(abilityCount, abilityPrefab.icon);
             abilityCount++;
             abilityPrefab.SetLevel1();
             Debug.Log("Добавил " + abilityPrefab.name);

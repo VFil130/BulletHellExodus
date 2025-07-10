@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
   m_Name: Heal2
   m_EditorClassIdentifier: 
-  castInterval: 0
+  castInterval: 1
   speed: 0
   damage: 2
   abilityPrefab: {fileID: 0}

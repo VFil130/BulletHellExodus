@@ -61,10 +61,6 @@ public class ProjectileCast : AbilityStats
             }
         }
     }
-    public float SetCastInterval()
-    {
-        return abilityData.CastInterval;
-    }
     protected virtual void SetProjectilesTransform()
     {
         projectilePosition = abilityCaster.transform.position;

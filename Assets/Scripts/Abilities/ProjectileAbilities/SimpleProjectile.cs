@@ -1,17 +1,12 @@
 using UnityEngine;
 
-public class SimpleProjectile : ProjectileCast, IAbility
+public class SimpleProjectile : ProjectileCast
 {
-    public float AbilityInterval { get; set; } = 20;
-    void Awake()
-    {
-        AbilityInterval = SetCastInterval();
-    }
-    public bool CanUseAbility()
+    public override bool CanUseAbility()
     {
         return true;
     }
-    public void UseAbility()
+    public override void UseAbility()
     {
         StartCoroutine(ShootMultipleTimes());
     }
