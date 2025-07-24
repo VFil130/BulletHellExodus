@@ -48,6 +48,8 @@ MonoBehaviour:
   level: 0
   icon: {fileID: 21300000, guid: af4f27be1e6231d499f6b24f077ab660, type: 3}
   name: circle2
+  id: 0
+  isBought: 1
   numberOfShoots: 1
   shootInterval: 0.1
   projectilePrefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}

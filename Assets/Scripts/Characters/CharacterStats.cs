@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -11,13 +13,12 @@ public class Character : MonoBehaviour
     [SerializeField] private float mageArmour;
     [Header("I-Frames")]
     [SerializeField] private float invincibilityDuration;
-    private float invincibilityTimer;
     [SerializeField] private bool isInvincible;
     public bool isDead = false;
     [Header("Experience")]
-    public int experience = 0;
+    public float experience = 0;
     public int level = 1;
-    public int experienceCap = 100;
+    public float experienceCap = 100;
     public int experienceCapIncerease;
 
 
@@ -39,7 +40,6 @@ public class Character : MonoBehaviour
         {
             float totalDmg = TakeMageDamage(mdmg) + TakePhysDamage(pdmg);
             health -= totalDmg;
-            invincibilityTimer = invincibilityDuration;
             isInvincible = true;
             StartCoroutine(Invincibility());
             if (health <= 0)
@@ -89,5 +89,9 @@ public class Character : MonoBehaviour
     public float ReturnHealth()
     {
         return health / maxhealth;
+    }
+    public float ExpToNextLevel()
+    {
+        return (experience/experienceCap);
     }
 }

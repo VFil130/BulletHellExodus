@@ -48,6 +48,7 @@ MonoBehaviour:
   level: 0
   icon: {fileID: 21300000, guid: cbf764b56472ec849a91243fdfc8d8a0, type: 3}
   name: Icicle Blast
+  id: 3
   numberOfShoots: 2
   shootInterval: 0.4
   projectilePrefab: {fileID: 2342027961020517478, guid: c4595f04a5d32d649a6776b6e604842b, type: 3}

@@ -25,7 +25,6 @@ public class PlayerController : Character
 
     private void CharacterMovment()
     {
-        //sprite.transform.position = transform.position;
         if (isMoving)
         {
             Vector2 direction = (_mousePosition - (Vector2)transform.position).normalized;

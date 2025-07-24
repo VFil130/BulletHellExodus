@@ -48,4 +48,5 @@ MonoBehaviour:
   level: 0
   icon: {fileID: 21300000, guid: e186a454b220f81458e4cb8c0f2fd743, type: 3}
   name: Slash
+  id: 5
   MelePrefab: {fileID: 2954845818976924223, guid: 1eccfacd3c16c3145bc7eebf225ee796, type: 3}

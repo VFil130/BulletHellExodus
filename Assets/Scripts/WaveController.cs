@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 
 public class WaveController : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class WaveController : MonoBehaviour
     public float timeBetweenWaves;
     public List<ResourceZone> resourceZones;
     [Range(1, 5)] public int zonesActive = 1;
+    [SerializeField] private TMP_Text waveText;
+    [SerializeField] private TMP_Text timer; 
+    private float elapsedTime = 0f;
 
     void Start()
     {
@@ -22,6 +26,8 @@ public class WaveController : MonoBehaviour
 
     void Update()
     {
+        elapsedTime += Time.deltaTime;
+        UpdateTimerDisplay();
         waveTimer += Time.deltaTime;
         if (waveTimer >= timeBetweenWaves)
         {
@@ -33,6 +39,7 @@ public class WaveController : MonoBehaviour
     {
         waveLevel += 1;
         waveTimer = 0;
+        waveText.text = waveLevel.ToString();
         ActivateRandomZones();
     }
 
@@ -60,5 +67,11 @@ public class WaveController : MonoBehaviour
                 Debug.LogWarning("Нет активных ResourceZone в списке!");
             }
         }
+    }
+    void UpdateTimerDisplay()
+    {
+        int minutes = Mathf.FloorToInt(elapsedTime / 60);
+        int seconds = Mathf.FloorToInt(elapsedTime % 60); 
+        timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
