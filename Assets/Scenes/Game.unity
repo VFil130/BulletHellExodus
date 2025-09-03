@@ -1145,13 +1145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCaster: {fileID: 181344583}
-  startAbility: {fileID: 3656114576275767602, guid: a91726a2f38208945b9bdf3b3121f8bc, type: 3}
-  allAbilities:
-  - {fileID: 1709682673901245640, guid: 8e8d8da119fc78a4ea9ab42e7bb983d8, type: 3}
-  - {fileID: 1709682673901245640, guid: ec151faa99a1afb4db117f7406087cf1, type: 3}
-  - {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
-  - {fileID: 8670569397952846824, guid: 11e9bebed9c4d134280d056f6ca6efad, type: 3}
-  - {fileID: 7728183032304661754, guid: 016cbcc368fca1b4997f2e35abe8d5be, type: 3}
+  startAbility: {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
+  allAbilities: []
   pickedAbilities: []
   numberOfAbilitiesToPick: 4
   AbilitiesToChoose: []

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1349ed7e3e44b4096d3ae3b2c15772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityData: {fileID: 11400000, guid: 791bb168321b07e488bb8679312cd6a6, type: 2}
+  abilityData: {fileID: 11400000, guid: 0d12c341f415d7148b1a9ccb721dd36c, type: 2}
   level: 0
   icon: {fileID: 21300000, guid: af4f27be1e6231d499f6b24f077ab660, type: 3}
   name: circle2
