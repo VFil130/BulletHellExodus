@@ -4,7 +4,6 @@ public class PlayerController : Character
 {
     private Vector2 _mousePosition;
     private bool isMoving = false;
-    [SerializeField]private SpriteRenderer sprite;
     void Update()
     {
         _mousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);

@@ -4,7 +4,7 @@ public class AbilityMenu : MonoBehaviour
 {
     [SerializeField] private AbilityStats[] allAbilities;
     [SerializeField] private GameObject slotPrefab;
-    [SerializeField] private AbilitySlot[] PickedAbilities;
+    [SerializeField] private AbilitySlot[] ChosedAbilities;
     private void Start()
     {
         foreach (var ability in allAbilities)
@@ -13,8 +13,5 @@ public class AbilityMenu : MonoBehaviour
             AbilitySlot slot = slotObj.GetComponent<AbilitySlot>();
             slot.Initialize(ability);
         }
-    }
-    public void PickAbility(AbilitySlot Slot)
-    {
     }
 }

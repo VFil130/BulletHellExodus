@@ -21,6 +21,8 @@ public class Character : MonoBehaviour
     public float experienceCap = 100;
     public int experienceCapIncerease;
 
+    public SpriteRenderer sprite;
+
 
     public float TakePhysDamage(float damage)
     {

@@ -37,5 +37,4 @@ public class AbilitySlot : MonoBehaviour
         lockIcon.SetActive(isLocked);
         slotButton.interactable = !isLocked;
     }
-
 }
