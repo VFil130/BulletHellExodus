@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+// здесь описанные данные создаваемого префаба для ближних атак
 public class Melee : MonoBehaviour
 {
     [SerializeField] private float currentDamage;

@@ -68,6 +68,32 @@ public class AbilityCaster : MonoBehaviour
             Debug.LogWarning($"Объект {abilityPrefab.name} не реализует интерфейс IAbility");
         }
     }
+    public Enemy FindClosestEnemyInRadius(Vector3 center, float radius)
+    {
+        Enemy closestEnemy = null;
+        float closestDistance = Mathf.Infinity;
+
+        // Используем OverlapSphere для поиска врагов в радиусе
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, radius);
+
+        foreach (Collider2D collider in hitColliders)
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                Enemy enemy = collider.GetComponent<Enemy>();
+                if (enemy != null && !enemy.IsDead)
+                {
+                    float distance = Vector3.Distance(center, enemy.transform.position);
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestEnemy = enemy;
+                    }
+                }
+            }
+        }
+        return closestEnemy;
+    }
     public void LevelUpAbility(int index)
     {
         AbilityStats abilityToUp = abilities[index].GetComponent<AbilityStats>();

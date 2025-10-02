@@ -34,4 +34,16 @@ public class AbilityData : ScriptableObject
     [SerializeField]
     string description;
     public string Description { get => description; private set => description = value; }
+
+    [SerializeField]
+    private float duration;
+    public float Duration { get => duration; private set => duration = value; }
+
+    [SerializeField]
+    private float radius;
+    public float Radius { get => radius; private set => radius = value; }
+
+    [SerializeField]
+    private float tickRate;
+    public float TickRate { get => tickRate; private set => tickRate = value; }
 }

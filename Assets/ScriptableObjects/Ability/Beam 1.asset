@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
+  m_Name: Beam 1
+  m_EditorClassIdentifier: 
+  castInterval: 1
+  speed: 0
+  damage: 10
+  abilityPrefab: {fileID: 4396760115329036476, guid: a7216fdf5023da74ab8ba1bdd2a6cdad, type: 3}
+  pierce: 0
+  level: 0
+  nextLevelData: {fileID: 11400000, guid: 9e160ba85b1d6b44ba04cfee24989583, type: 2}
+  description: BEAM
+  duration: 1
+  radius: 5
+  tickRate: 0.5

@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class Enemy : MonoBehaviour
     private float currentPhysArmour;
     [SerializeField] public bool IsDead { get; private set; }
 
+    //[SerializeField] private Image healthBar;
+
     private void Awake()
     {
         currentHealth = enemyData.MaxHealth;
@@ -22,17 +26,23 @@ public class Enemy : MonoBehaviour
     {
         Die();
     }
+    void UpdateHealthBar() // возможно не надо
+    {
+        //healthBar.fillAmount = enemyData.MaxHealth / currentHealth;
+    }
     public void TakePhysDamage(float damage)
     {
         float totalDmg = damage - currentPhysArmour;
         if (totalDmg < 0) { totalDmg = 0; }
         currentHealth -= totalDmg;
+        //UpdateHealthBar();
     }
     public void TakeMageDamage(float damage)
     {
         float totalDmg = damage - currentMageArmour;
         if (totalDmg < 0) { totalDmg = 0; }
         currentHealth -= totalDmg;
+        //UpdateHealthBar();
     }
     public void Die()
     {

@@ -41,6 +41,10 @@ public class WaveController : MonoBehaviour
         waveTimer = 0;
         waveText.text = waveLevel.ToString();
         ActivateRandomZones();
+        if (waveLevel == 2)
+        {
+            EvacZone.instance.Activate();
+        }
     }
 
     private void ActivateRandomZones()

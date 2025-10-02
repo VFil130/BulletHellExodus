@@ -3,7 +3,12 @@ using UnityEngine;
 
 public class TakenResources : MonoBehaviour
 {
-    private Dictionary<Resources, float> inventory = new Dictionary<Resources, float>();
+    public static TakenResources instance { get; private set; }
+    public void Awake()
+    {
+        instance = this;
+    }
+    public Dictionary<Resources, float> Inventory { get; private set; } = new Dictionary<Resources, float>();
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("ResZone")) 
@@ -14,13 +19,13 @@ public class TakenResources : MonoBehaviour
     }
     public void TakeResources(Resources resourceType, float amount)
     {
-        if (inventory.ContainsKey(resourceType))
+        if (Inventory.ContainsKey(resourceType))
         {
-            inventory[resourceType] += amount;
+            Inventory[resourceType] += amount;
         }
         else
         {
-            inventory.Add(resourceType, amount);
+            Inventory.Add(resourceType, amount);
         }
         Debug.Log("Получено " + amount + " " + resourceType);
     }
