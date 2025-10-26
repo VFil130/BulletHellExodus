@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: bd8f2130dbcb1b34da6353dd5fef25f1, type: 2}
+  damageColor: {r: 0.754717, g: 0.10323961, b: 0.10323961, a: 0.8862745}
   currentHealth: 5
 --- !u!50 &3550298051025569827
 Rigidbody2D:
