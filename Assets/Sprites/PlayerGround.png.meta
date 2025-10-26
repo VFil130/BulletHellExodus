@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: ac4b8bb8fca38f84f85cab9c6e814e2b
+guid: 0ce5330ddc2fc7e4e91990d09ce73620
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2572365745140355499
-    second: goblin_0
-  - first:
-      213: -5757044122727447524
-    second: goblin_1
-  - first:
-      213: -1447340708653812878
-    second: goblin_2
+      213: -7009121472305141371
+    second: PlayerGround_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  alignment: 9
+  spritePivot: {x: 0.46296296, y: 0.5}
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -132,67 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: goblin_0
+      name: PlayerGround_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 15
-        width: 106
-        height: 94
+        x: 0
+        y: 0
+        width: 108
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba159772401e2b320800000000000000
-      internalID: 2572365745140355499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: goblin_1
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 15
-        width: 106
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c14849c5fdeda10b0800000000000000
-      internalID: -5757044122727447524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: goblin_2
-      rect:
-        serializedVersion: 2
-        x: 267
-        y: 15
-        width: 106
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2733ab73b430aebe0800000000000000
-      internalID: -1447340708653812878
+      spriteID: 58960b728299abe90800000000000000
+      internalID: -7009121472305141371
       vertices: []
       indices: 
       edges: []
@@ -201,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -211,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      goblin_0: 2572365745140355499
-      goblin_1: -5757044122727447524
-      goblin_2: -1447340708653812878
+      PlayerGround_0: -7009121472305141371
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

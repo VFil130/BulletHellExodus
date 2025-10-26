@@ -250,6 +250,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1322,7 +1335,55 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_0: 7775472706705590147
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_1: 5729786341092839300
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_10: -4084819093834774957
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_11: -7533874374226870868
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_12: -5964635007764695808
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_13: -4256553984678726494
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_14: -8562899301233936716
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_15: -1967412144179847441
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_16: 6892616892598171114
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_17: 8088923139444110015
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_18: -6592422346298040965
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_19: -5368071225296390549
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_2: -1285808284336343424
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_20: 4517169671855662041
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_21: -4211499069191216482
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_22: 3863930250308013201
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_23: -1788249361446706472
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_24: -5599468373143546233
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_25: 331022041411168056
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_26: 6414128587734673384
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_27: 5362023715877717117
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_28: -6431753622500204664
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_29: -6514204722768264977
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_3: -2311485076015117645
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_30: 4374974700854718135
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_31: 3453299326356301391
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_32: 661633566045289661
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_33: -5568715043673385827
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_34: 2169260361587571884
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_35: 2116532369948281441
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_36: 2460464525207896149
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_37: -6956735446712482373
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_38: 6077191590871304664
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_39: -1559978571704327099
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_4: -2390872790309191827
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_40: 8529047278248438581
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_41: 2102214281110798486
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_42: -5476538632769940191
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_43: 2205395352913947938
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_44: -8870680140794955645
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_45: -8933846433813359256
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_46: 4000383544078130149
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_47: 2093350519209685871
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_5: -1354505508046010477
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_6: -3568466275746426978
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_7: -986886454253939536
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_8: -9083232183309859875
+      094d4c1530651e741afff82d401f8d3d-no-bg-preview (carve.photos)_9: -6284571833834820290
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
