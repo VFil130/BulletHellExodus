@@ -46,4 +46,7 @@ public class AbilityData : ScriptableObject
     [SerializeField]
     private float tickRate;
     public float TickRate { get => tickRate; private set => tickRate = value; }
+    [SerializeField]
+    private float shoots;
+    public float Shoots { get => shoots; private set => shoots = value; }
 }

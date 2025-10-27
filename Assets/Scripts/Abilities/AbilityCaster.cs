@@ -11,29 +11,26 @@ public class AbilityCaster : MonoBehaviour
     [SerializeField]
     private List<AbilityStats> abilities;
 
-    private List<IAbility> iAbilities = new List<IAbility>(slotsCount);
-
     private List<float> timers = new List<float>(slotsCount);
-
-    [SerializeField] private int[] abilityLevels = new int[slotsCount];
     [SerializeField] private int abilityCount=0;
     private AbilityUi abilityUi;
+    private Character owner;
     void Awake()
     {
         abilityUi = FindFirstObjectByType<AbilityUi>();
     }
     void FixedUpdate()
     {
-        for (int i = 0; i < iAbilities.Count; i++)
+        for (int i = 0; i < abilities.Count; i++)
         {
-            if (iAbilities[i] != null)
+            if (abilities[i] != null)
             {
                 timers[i] += Time.deltaTime;
                 abilityUi.CDUpdate(i, timers[i], abilities[i].AbilityInterval);
 
-                if (timers[i] > iAbilities[i].AbilityInterval && iAbilities[i].CanUseAbility())
+                if (timers[i] > abilities[i].AbilityInterval && abilities[i].CanUseAbility())
                 {
-                    iAbilities[i].UseAbility();
+                    abilities[i].UseAbility();
                     timers[i] = 0f;
                 }
             }
@@ -55,12 +52,12 @@ public class AbilityCaster : MonoBehaviour
         IAbility AbilityToAdd = abilityPrefab.GetComponent<IAbility>();
         if (AbilityToAdd is IAbility iAbility)
         {
-            iAbilities.Add(iAbility);
             abilities.Add(abilityPrefab);
             timers.Add(0f);
             abilityUi.ChangeImages(abilityCount, abilityPrefab.icon);
             abilityCount++;
             abilityPrefab.SetLevel1();
+            abilityPrefab.SetOwener(owner);
             Debug.Log("Добавил " + abilityPrefab.name);
         }
         else

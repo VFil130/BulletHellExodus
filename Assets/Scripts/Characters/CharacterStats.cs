@@ -88,6 +88,10 @@ public class Character : MonoBehaviour
             GameManager.instance.StartLevelUp();
         }
     }
+    public virtual void buffAbility(AbilityStats abiltiy)
+    {
+        Debug.Log(abiltiy.name + "buffed");
+    } 
     public float ReturnHealth()
     {
         return health / maxhealth;

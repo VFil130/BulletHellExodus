@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class AbilityStats : MonoBehaviour, IAbility
 {
+    private Character abilityOwner;
     [SerializeField] public AbilityData abilityData;
     [SerializeField] private int level;
     [SerializeField] public int Level { get => level; private set => level = value;}
@@ -15,10 +17,22 @@ public class AbilityStats : MonoBehaviour, IAbility
     [SerializeField] private Dictionary<Resources, float> price;
     [SerializeField] private bool isBought;
     public bool ISBought { get => isBought; private set => isBought = value; }
-    [SerializeField] public float AbilityInterval { get; set; } = 5f;
+    public Action OnChangeData;
+    public float AbilityInterval { get; set; } = 5f;
+    public float speed;
+    public float damage;
+    public float pierce;
+    public float duration;
+    public float radius;
+    public float tickRate;
+    public float shoots;
     void Awake()
     {
         AbilityInterval = SetCastInterval();
+    }
+    public void Start()
+    {
+        InitStats();
     }
     public void LevelUpAbiliy()
     {
@@ -31,9 +45,28 @@ public class AbilityStats : MonoBehaviour, IAbility
         level = 1;
         Level = 1;
     }
+    public void SetOwener(Character own)
+    {
+        abilityOwner = own;
+    }
     private float SetCastInterval()
     {
         return abilityData.CastInterval;
+    }
+    private void InitStats()
+    {
+        speed = abilityData.Speed;
+        damage = abilityData.Damage;
+        pierce = abilityData.Pierce;
+        duration = abilityData.Duration;
+        radius = abilityData.Radius;
+        tickRate = abilityData.TickRate;
+        shoots = abilityData.Shoots;
+        CharacterModif();
+    }
+    public void CharacterModif()
+    {
+        abilityOwner.buffAbility(this);
     }
     public virtual void UseAbility()
     {
