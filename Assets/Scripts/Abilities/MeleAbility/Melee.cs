@@ -12,12 +12,10 @@ public class Melee : MonoBehaviour
     [SerializeField] private float maxlifeTime = 0.2f;
     [SerializeField] private float lifeTime = 0;
     public float punchForce = 2f;
-    public AbilityData abilityData;
     [SerializeField] private List<GameObject> markedEnemies;
-    public void Initialize(AbilityData data)
+    public void Initialize(AbilityStats stats)
     {
-        abilityData = data;
-        currentDamage = abilityData.Damage;
+        currentDamage = stats.damage;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

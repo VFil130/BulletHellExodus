@@ -20,3 +20,7 @@ MonoBehaviour:
   level: 0
   nextLevelData: {fileID: 11400000, guid: 4f72e423928b93946bdcbc3e18a2430b, type: 2}
   description: Reduce cooldown by 1sec
+  duration: 0
+  radius: 0
+  tickRate: 0
+  shoots: 1

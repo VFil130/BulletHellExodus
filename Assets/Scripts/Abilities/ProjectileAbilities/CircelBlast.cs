@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CircelBlast : ProjectileCast
 {
-    [SerializeField] private int radius = 360;
     [SerializeField] private int numberOfProjectiles = 8;
     public override bool CanUseAbility()
     {
@@ -16,7 +15,7 @@ public class CircelBlast : ProjectileCast
     }
     protected override void SetProjectilesTransform()
     {
-        float characterDirection = abilityCaster.transform.eulerAngles.z;
+        float characterDirection = abilityOwner.transform.eulerAngles.z;
         float startAngle = -radius / 2f;
         float endAngle = radius / 2f;
 
@@ -42,7 +41,7 @@ public class CircelBlast : ProjectileCast
 
             float angleInDegrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0, 0, angleInDegrees);
-            Vector3 position = abilityCaster.transform.position;
+            Vector3 position = abilityOwner.transform.position;
 
             CreateProjectile(position, rotation);
         }

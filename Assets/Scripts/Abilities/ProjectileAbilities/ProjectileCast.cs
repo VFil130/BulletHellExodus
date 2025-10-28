@@ -5,25 +5,18 @@ using UnityEngine;
 
 public class ProjectileCast : AbilityStats
 {
-    [SerializeField] protected int numberOfShoots = 1;
     [SerializeField] protected float shootInterval = 0.1f;
     [SerializeField] protected GameObject projectilePrefab;
-    protected AbilityCaster abilityCaster;
     protected List<GameObject> activeProjectiles = new List<GameObject>();
     private Vector3 projectilePosition;
     private Quaternion projectileRotation;
-
-    void Start()
-    {
-        abilityCaster = GetComponentInParent<AbilityCaster>();
-    }
     protected virtual void CreateProjectile(Vector3 position, Quaternion rotation)
     {
         if (projectilePrefab != null)
         {
             GameObject projectile = Instantiate(projectilePrefab, position, rotation);
             Projectile projectileScript = projectile.GetComponent<Projectile>();
-            projectileScript.Initialize(abilityData);
+            projectileScript.Initialize(this);
             activeProjectiles.Add(projectile);
         }
         else
@@ -33,10 +26,10 @@ public class ProjectileCast : AbilityStats
     }
     protected virtual IEnumerator ShootMultipleTimes()
     {
-        for (int i = 0; i < numberOfShoots; i++)
+        for (int i = 0; i < shoots; i++)
         {
             SetProjectilesTransform();
-            if (i < numberOfShoots - 1)
+            if (i < shoots - 1)
             {
                 yield return new WaitForSeconds(shootInterval);
             }
@@ -63,8 +56,8 @@ public class ProjectileCast : AbilityStats
     }
     protected virtual void SetProjectilesTransform()
     {
-        projectilePosition = abilityCaster.transform.position;
-        projectileRotation = abilityCaster.transform.rotation;
+        projectilePosition = abilityOwner.transform.position;
+        projectileRotation = abilityOwner.transform.rotation;
         CreateProjectile(projectilePosition, projectileRotation);
     }
 }

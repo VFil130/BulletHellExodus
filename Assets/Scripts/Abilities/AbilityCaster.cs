@@ -14,7 +14,6 @@ public class AbilityCaster : MonoBehaviour
     private List<float> timers = new List<float>(slotsCount);
     [SerializeField] private int abilityCount=0;
     private AbilityUi abilityUi;
-    private Character owner;
     void Awake()
     {
         abilityUi = FindFirstObjectByType<AbilityUi>();
@@ -57,7 +56,6 @@ public class AbilityCaster : MonoBehaviour
             abilityUi.ChangeImages(abilityCount, abilityPrefab.icon);
             abilityCount++;
             abilityPrefab.SetLevel1();
-            abilityPrefab.SetOwener(owner);
             Debug.Log("Добавил " + abilityPrefab.name);
         }
         else

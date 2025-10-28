@@ -10,15 +10,13 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float maxlifeTime = 5;
     [SerializeField] private float lifeTime = 0;
     private bool hasHitEnemy = false; 
-    public AbilityData abilityData;
 
 
-    public void Initialize(AbilityData data)
+    public void Initialize(AbilityStats stats)
     {
-        abilityData = data;
-        currentDamage = abilityData.Damage;
-        currentPierce = abilityData.Pierce;
-        currentSpeed = abilityData.Speed;
+        currentDamage = stats.damage;
+        currentPierce = stats.pierce;
+        currentSpeed = stats.speed;
     }
     void FixedUpdate()
     {

@@ -20,3 +20,7 @@ MonoBehaviour:
   level: 0
   nextLevelData: {fileID: 11400000}
   description: Increase speed by 1
+  duration: 0
+  radius: 0
+  tickRate: 0
+  shoots: 1

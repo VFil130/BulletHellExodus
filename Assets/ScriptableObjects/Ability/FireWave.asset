@@ -20,3 +20,7 @@ MonoBehaviour:
   level: 0
   nextLevelData: {fileID: 11400000, guid: 4b3bb147438d6e44c9d691755de989be, type: 2}
   description: Launch Fire Wave
+  duration: 0
+  radius: 0
+  tickRate: 0
+  shoots: 1

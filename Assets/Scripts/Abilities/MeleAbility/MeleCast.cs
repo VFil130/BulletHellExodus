@@ -27,6 +27,6 @@ public class MeleCast : AbilityStats
         currentMelePrefab = Instantiate(MelePrefab, abilityCaster.transform.position, abilityCaster.transform.rotation);
         currentMelePrefab.transform.SetParent(abilityCaster.transform);
         Melee meleeScript = currentMelePrefab.GetComponent<Melee>();
-        meleeScript.Initialize(abilityData);
+        meleeScript.Initialize(this);
     }
 }

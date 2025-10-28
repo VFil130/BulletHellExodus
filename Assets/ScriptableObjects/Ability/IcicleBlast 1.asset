@@ -20,3 +20,7 @@ MonoBehaviour:
   level: 0
   nextLevelData: {fileID: 11400000, guid: 2111dd61c65851348b5eaac22a12bb30, type: 2}
   description: add 1 Damage
+  duration: 0
+  radius: 0
+  tickRate: 0
+  shoots: 1

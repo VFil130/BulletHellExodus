@@ -10,14 +10,12 @@ public abstract class AreaEffect : MonoBehaviour
     private float radius = 3f;
 
     private float tickTimer = 0f;
-    public AbilityData abilityData;
-    public void Initialize(AbilityData data)
+    public void Initialize(AbilityStats stats)
     {
-        abilityData = data;
-        currentDamage = abilityData.Damage;
-        currentDuration = abilityData.Duration;
-        currentTickRate = abilityData.TickRate;
-        radius = abilityData.Radius;
+        currentDamage = stats.damage;
+        currentDuration = stats.duration;
+        currentTickRate = stats.tickRate;
+        radius = stats.radius;
 
         // Настраиваем размер зоны визуально
         transform.localScale = Vector3.one * radius * 2;

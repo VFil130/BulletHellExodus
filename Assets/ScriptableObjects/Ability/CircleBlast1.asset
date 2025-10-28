@@ -20,3 +20,7 @@ MonoBehaviour:
   level: 0
   nextLevelData: {fileID: 11400000, guid: e5081636ca8603b49b7f549fddcd17dc, type: 2}
   description: do piupiu
+  duration: 0
+  radius: 360
+  tickRate: 0
+  shoots: 1

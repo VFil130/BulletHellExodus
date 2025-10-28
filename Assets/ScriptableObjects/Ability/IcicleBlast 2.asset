@@ -20,3 +20,7 @@ MonoBehaviour:
   level: 0
   nextLevelData: {fileID: 11400000}
   description: add 1 pierce
+  duration: 0
+  radius: 0
+  tickRate: 0
+  shoots: 1

@@ -20,3 +20,7 @@ MonoBehaviour:
   level: 3
   nextLevelData: {fileID: 11400000}
   description: DO ULTRA PIU
+  duration: 0
+  radius: 360
+  tickRate: 0
+  shoots: 1

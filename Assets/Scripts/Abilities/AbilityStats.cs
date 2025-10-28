@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AbilityStats : MonoBehaviour, IAbility
 {
-    private Character abilityOwner;
+    public Character abilityOwner;
     [SerializeField] public AbilityData abilityData;
     [SerializeField] private int level;
     [SerializeField] public int Level { get => level; private set => level = value;}
@@ -32,6 +32,7 @@ public class AbilityStats : MonoBehaviour, IAbility
     }
     public void Start()
     {
+        abilityOwner = GetComponentInParent<Character>();
         InitStats();
     }
     public void LevelUpAbiliy()
@@ -44,10 +45,6 @@ public class AbilityStats : MonoBehaviour, IAbility
     {
         level = 1;
         Level = 1;
-    }
-    public void SetOwener(Character own)
-    {
-        abilityOwner = own;
     }
     private float SetCastInterval()
     {

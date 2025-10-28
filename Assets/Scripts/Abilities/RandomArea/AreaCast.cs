@@ -25,7 +25,7 @@ public class AreaCast : AbilityStats
 
             if (areaEffect != null)
             {
-                areaEffect.Initialize(abilityData);
+                areaEffect.Initialize(this);
             }
         }
         else
