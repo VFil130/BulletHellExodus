@@ -5,6 +5,10 @@ public class HealthBarUI : MonoBehaviour
 {
     [SerializeField]private Image healthBar;
     [SerializeField]private Character character;
+    public void Start()
+    {
+        character = FindFirstObjectByType<Character>();
+    }
     void Update()
     {
         UpdateHealthBar();

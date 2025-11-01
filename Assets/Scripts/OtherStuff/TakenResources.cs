@@ -8,7 +8,7 @@ public class TakenResources : MonoBehaviour
     {
         instance = this;
     }
-    public Dictionary<Resources, float> Inventory { get; private set; } = new Dictionary<Resources, float>();
+    public Dictionary<ValResources, float> Inventory { get; private set; } = new Dictionary<ValResources, float>();
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("ResZone")) 
@@ -17,7 +17,7 @@ public class TakenResources : MonoBehaviour
             resourceZone.Capturing();
         }
     }
-    public void TakeResources(Resources resourceType, float amount)
+    public void TakeResources(ValResources resourceType, float amount)
     {
         if (Inventory.ContainsKey(resourceType))
         {

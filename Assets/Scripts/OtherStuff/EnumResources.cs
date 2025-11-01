@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum Resources
+public enum ValResources
 {
     Res1,
     Res2,

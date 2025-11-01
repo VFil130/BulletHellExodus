@@ -5,6 +5,10 @@ public class ExpBarUI : MonoBehaviour
 {
     [SerializeField] private Image expBar;
     [SerializeField] private Character character;
+    public void Start()
+    {
+        character = FindFirstObjectByType<Character>();
+    }
     void Update()
     {
         UpdateExpBar();

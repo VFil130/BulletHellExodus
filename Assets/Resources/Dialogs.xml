@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialogs>
+	<character name="Warrior">
+		<node id="1">Привет! Я воин этого города.</node>
+		<node id="2">Нужно защищать ворота от монстров.</node>
+		<node id="3">Спасибо за помощь в битве!</node>
+	</character>
+
+	<character name="Merchant">
+		<node id="1">Добро пожаловать в мой магазин!</node>
+		<node id="2">У меня есть отличные товары для тебя.</node>
+		<node id="3">Возвращайся, когда будут деньги!</node>
+	</character>
+
+	<character name="Mage">
+		<node id="1">Магия - это искусство тонкое.</node>
+		<node id="2">Могу научить тебя нескольким заклинаниям.</node>
+		<node id="3">Будь осторожен с тёмными силами.</node>
+	</character>
+</dialogs>

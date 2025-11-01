@@ -23,7 +23,7 @@ public class Menu : MonoBehaviour
     {
         for (int i = 0; i < resCount.Length; i++)
         {
-            Resources resource = (Resources)i;
+            ValResources resource = (ValResources)i;
             float amount = MainInventory.instance.GetResourceAmount(resource);
             resCount[i].text = amount.ToString();
         }

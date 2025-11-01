@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainInventory : MonoBehaviour
 {
-    private Dictionary<Resources, float> inventory = new Dictionary<Resources, float>();
+    private Dictionary<ValResources, float> inventory = new Dictionary<ValResources, float>();
     public static MainInventory instance { get; private set; }
 
 
@@ -35,13 +35,13 @@ public class MainInventory : MonoBehaviour
     public void LoadResources()
     {
         inventory.Clear();
-        foreach (Resources resource in System.Enum.GetValues(typeof(Resources)))
+        foreach (ValResources resource in System.Enum.GetValues(typeof(ValResources)))
         {
             float amount = PlayerPrefs.GetFloat($"Resource_{(int)resource}", 0f);
             inventory[resource] = amount;
         }
     }
-    public void AddResources(Dictionary<Resources, float> resourcesToAdd)
+    public void AddResources(Dictionary<ValResources, float> resourcesToAdd)
     {
         foreach (var resource in resourcesToAdd)
         {
@@ -55,7 +55,7 @@ public class MainInventory : MonoBehaviour
             }
         }
     }
-    public float GetResourceAmount(Resources resource)
+    public float GetResourceAmount(ValResources resource)
     {
         if (inventory.ContainsKey(resource))
             return inventory[resource];

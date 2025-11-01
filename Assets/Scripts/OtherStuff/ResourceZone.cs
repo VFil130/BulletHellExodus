@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ResourceZone : MonoBehaviour
 {
-    [SerializeField] private Resources resource;
+    [SerializeField] private ValResources resource;
     [SerializeField] private float amount;
     [SerializeField] private float captureTimer;
     [SerializeField] private float captureTime;
