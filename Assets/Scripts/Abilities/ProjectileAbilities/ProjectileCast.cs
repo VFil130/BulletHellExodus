@@ -12,17 +12,10 @@ public class ProjectileCast : AbilityStats
     private Quaternion projectileRotation;
     protected virtual void CreateProjectile(Vector3 position, Quaternion rotation)
     {
-        if (projectilePrefab != null)
-        {
-            GameObject projectile = Instantiate(projectilePrefab, position, rotation);
-            Projectile projectileScript = projectile.GetComponent<Projectile>();
-            projectileScript.Initialize(this);
-            activeProjectiles.Add(projectile);
-        }
-        else
-        {
-            Debug.LogWarning("снаряд не назначен");
-        }
+        GameObject projectile = Instantiate(projectilePrefab, position, rotation);
+        Projectile projectileScript = projectile.GetComponent<Projectile>();
+        projectileScript.Initialize(this);
+        activeProjectiles.Add(projectile);
     }
     protected virtual IEnumerator ShootMultipleTimes()
     {
