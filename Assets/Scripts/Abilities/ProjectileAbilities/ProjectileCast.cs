@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ProjectileCast : AbilityStats
+public class ProjectileCast : AbilityStats, IPooledObject
 {
     [SerializeField] protected float shootInterval = 0.1f;
     [SerializeField] protected GameObject projectilePrefab;
@@ -12,7 +12,8 @@ public class ProjectileCast : AbilityStats
     private Quaternion projectileRotation;
     protected virtual void CreateProjectile(Vector3 position, Quaternion rotation)
     {
-        GameObject projectile = Instantiate(projectilePrefab, position, rotation);
+        //GameObject projectile = Instantiate(projectilePrefab, position, rotation);
+        var projectile = ObjectPooler.instance.GetObject(ID, position, rotation);
         Projectile projectileScript = projectile.GetComponent<Projectile>();
         projectileScript.Initialize(this);
         activeProjectiles.Add(projectile);
@@ -42,7 +43,7 @@ public class ProjectileCast : AbilityStats
             Projectile projectileScript = projectile.GetComponent<Projectile>();
             if (projectileScript != null && projectileScript.destroy)
             {
-                Destroy(projectile);
+                DestroyProjectile(projectile);
                 activeProjectiles.RemoveAt(i);
             }
         }
@@ -52,5 +53,9 @@ public class ProjectileCast : AbilityStats
         projectilePosition = abilityOwner.transform.position;
         projectileRotation = abilityOwner.transform.rotation;
         CreateProjectile(projectilePosition, projectileRotation);
+    }
+    private void DestroyProjectile(GameObject proj)
+    {
+        ObjectPooler.instance.DestroyObject(proj);
     }
 }
