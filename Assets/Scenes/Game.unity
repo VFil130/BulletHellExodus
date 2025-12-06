@@ -1754,7 +1754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxhealth: 100
   health: 100
-  speed: 5
+  speed: 2
   physArmour: 0
   mageArmour: 0
   invincibilityDuration: 0.5

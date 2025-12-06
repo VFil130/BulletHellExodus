@@ -4,9 +4,16 @@ public class PlayerController : Character
 {
     private Vector2 _mousePosition;
     private bool isMoving = false;
+    private Camera mainCamera;
+
+    void Start()
+    {
+        mainCamera = Camera.main;
+    }
+
     void Update()
     {
-        _mousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        _mousePosition = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButton(0))
         {
             isMoving = true;
@@ -19,17 +26,19 @@ public class PlayerController : Character
 
     void FixedUpdate()
     {
-        CharacterMovment();
+        CharacterMovement();
     }
 
-    private void CharacterMovment()
+    private void CharacterMovement()
     {
         if (isMoving)
         {
-            Vector2 direction = (_mousePosition - (Vector2)transform.position).normalized;
+            // Направление определяется относительно центра экрана (позиции камеры)
+            Vector2 cameraCenter = (Vector2)mainCamera.transform.position;
+            Vector2 direction = (_mousePosition - cameraCenter).normalized;
+
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
-
             sprite.transform.rotation = Quaternion.identity;
 
             transform.Translate(new Vector2(direction.x, direction.y) * speed * Time.fixedDeltaTime, Space.World);
@@ -43,6 +52,7 @@ public class PlayerController : Character
             }
         }
     }
+
     public float ReturnSpeed()
     {
         return speed;
