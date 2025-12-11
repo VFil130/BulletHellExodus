@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ProjectileCast : AbilityStats, IPooledObject
+public class ProjectileCast : AbilityStats
 {
     [SerializeField] protected float shootInterval = 0.1f;
     [SerializeField] protected GameObject projectilePrefab;
@@ -52,7 +52,7 @@ public class ProjectileCast : AbilityStats, IPooledObject
     {
         projectilePosition = abilityOwner.transform.position;
         projectileRotation = abilityOwner.transform.rotation;
-        CreateProjectile(projectilePosition, projectileRotation);
+        CreateProjectile(abilityOwner.transform.position, projectileRotation);
     }
     private void DestroyProjectile(GameObject proj)
     {

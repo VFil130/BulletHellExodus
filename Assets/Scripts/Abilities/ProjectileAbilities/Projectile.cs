@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IPooledObject
 {
+    [SerializeField] private int id;
+    public int ID { get => id; private set => id = value; }
     [SerializeField] private float currentSpeed;
     [SerializeField] private float currentDamage;
     [SerializeField] private float currentPierce;
@@ -14,6 +16,7 @@ public class Projectile : MonoBehaviour
 
     public void Initialize(AbilityStats stats)
     {
+        ID = stats.ID;
         currentDamage = stats.damage;
         currentPierce = stats.pierce;
         currentSpeed = stats.speed;
@@ -44,5 +47,9 @@ public class Projectile : MonoBehaviour
         {
             destroy = true;
         }
+    }
+    public void SetLifeTimeZero()
+    {
+        lifeTime = 0;
     }
 }

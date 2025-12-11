@@ -54,6 +54,8 @@ public class ObjectPooler : MonoBehaviour
     {
         var obj = pools[id].Objects.Count > 0 ?
             pools[id].Objects.Dequeue(): InstantiateObject(id, pools[id].Container, position, rotation);
+        obj.transform.position = position;
+        obj.transform.rotation = rotation;
         obj.SetActive(true);
 
         return obj;
@@ -61,7 +63,13 @@ public class ObjectPooler : MonoBehaviour
 
     public void DestroyObject(GameObject obj)
     {
+        var projectile = obj.GetComponent<Projectile>();
+        if (projectile != null)
+        {
+            projectile.destroy = false;
+        }
         pools[obj.GetComponent<IPooledObject>().ID].Objects.Enqueue(obj);
+        projectile.SetLifeTimeZero();
         obj.SetActive(false);
     }
 }
