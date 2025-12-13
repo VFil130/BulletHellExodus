@@ -44,13 +44,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d953732250f31714ba9c737d50ed71ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityOwner: {fileID: 0}
   abilityData: {fileID: 11400000, guid: 627853d7cbc154a4b856381294fb7862, type: 2}
+  abilityCaster: {fileID: 0}
   level: 0
   icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   name: BEAM
   id: 6
   isBought: 0
+  speed: 0
+  damage: 0
+  pierce: 0
+  duration: 0
+  radius: 0
+  tickRate: 0
+  shoots: 0
   numberOfAreas: 2
   areaInterval: 0.1
   isRandom: 1
   areaRadius: 5
+  particleName: Beam

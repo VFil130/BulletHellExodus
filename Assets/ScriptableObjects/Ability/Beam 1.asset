@@ -20,6 +20,7 @@ MonoBehaviour:
   level: 0
   nextLevelData: {fileID: 11400000, guid: 9e160ba85b1d6b44ba04cfee24989583, type: 2}
   description: BEAM
-  duration: 1
-  radius: 5
+  duration: 0.5
+  radius: 2
   tickRate: 0.5
+  shoots: 1

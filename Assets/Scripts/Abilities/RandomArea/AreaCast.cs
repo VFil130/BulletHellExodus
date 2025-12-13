@@ -8,19 +8,14 @@ public class AreaCast : AbilityStats
     [SerializeField] protected float areaInterval = 0.1f;
     [SerializeField] protected bool isRandom;
     [SerializeField] protected float areaRadius = 5f;
-
-    protected AbilityCaster abilityCaster;
-
-    void Start()
-    {
-        abilityCaster = GetComponentInParent<AbilityCaster>();
-    }
+    [SerializeField] private string particleName;
 
     protected virtual void CreateArea(Vector3 position)
     {
         if (abilityData.AbilityPrefab != null)
         {
             GameObject area = Instantiate(abilityData.AbilityPrefab, position, Quaternion.identity);
+            ParticleManager.CreateParticle(particleName, position);
             AreaEffect areaEffect = area.GetComponent<AreaEffect>();
 
             if (areaEffect != null)

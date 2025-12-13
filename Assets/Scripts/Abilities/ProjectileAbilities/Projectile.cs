@@ -51,5 +51,6 @@ public class Projectile : MonoBehaviour, IPooledObject
     public void SetLifeTimeZero()
     {
         lifeTime = 0;
+        hasHitEnemy = false;
     }
 }

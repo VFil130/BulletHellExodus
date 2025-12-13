@@ -12,15 +12,12 @@ public abstract class AreaEffect : MonoBehaviour
     private float tickTimer = 0f;
     public void Initialize(AbilityStats stats)
     {
+        lifeTime = 0;
         currentDamage = stats.damage;
         currentDuration = stats.duration;
         currentTickRate = stats.tickRate;
         radius = stats.radius;
-
-        // Настраиваем размер зоны визуально
         transform.localScale = Vector3.one * radius * 2;
-
-        // Устанавливаем время жизни равным длительности способности
         tickTimer = currentTickRate;
     }
 
@@ -29,20 +26,17 @@ public abstract class AreaEffect : MonoBehaviour
         lifeTime += Time.deltaTime;
         tickTimer += Time.deltaTime;
 
-        // Проверяем tickRate для нанесения периодического урона
         if (tickTimer >= currentTickRate)
         {
             ApplyAreaEffect();
             tickTimer = 0f;
         }
 
-        // Проверяем время жизни
         if (lifeTime >= currentDuration)
         {
             destroy = true;
         }
 
-        // Уничтожаем если нужно
         if (destroy)
         {
             Destroy(gameObject);
@@ -51,7 +45,6 @@ public abstract class AreaEffect : MonoBehaviour
 
     private void ApplyAreaEffect()
     {
-        // Ищем всех врагов в радиусе
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, radius);
         if (hitColliders.Length > 0)
         {

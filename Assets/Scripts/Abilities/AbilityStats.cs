@@ -7,6 +7,7 @@ public class AbilityStats : MonoBehaviour, IAbility
 {
     public Character abilityOwner;
     [SerializeField] public AbilityData abilityData;
+    [SerializeField] public AbilityCaster abilityCaster;
     [SerializeField] private int level;
     [SerializeField] public int Level { get => level; private set => level = value;}
     public Sprite icon;
@@ -33,6 +34,7 @@ public class AbilityStats : MonoBehaviour, IAbility
     public void Start()
     {
         abilityOwner = GetComponentInParent<Character>();
+        abilityCaster = GetComponentInParent<AbilityCaster>();
         InitStats();
     }
     public void LevelUpAbiliy()

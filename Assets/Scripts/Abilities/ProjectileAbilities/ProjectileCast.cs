@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileCast : AbilityStats
@@ -57,5 +56,6 @@ public class ProjectileCast : AbilityStats
     private void DestroyProjectile(GameObject proj)
     {
         ObjectPooler.instance.DestroyObject(proj);
+
     }
 }
