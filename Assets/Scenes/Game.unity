@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCaster: {fileID: 181344583}
-  startAbility: {fileID: 3656114576275767602, guid: a91726a2f38208945b9bdf3b3121f8bc, type: 3}
+  startAbility: {fileID: 7728183032304661754, guid: b037cce5f881f6d4d8f293bc2d08e1d5, type: 3}
   allAbilities:
   - {fileID: -4986933657956137594, guid: 6254c4b43698c0349b7effc3ba9f6dc6, type: 3}
   - {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
@@ -1982,6 +1982,8 @@ MonoBehaviour:
   - {fileID: 8670569397952846824, guid: 11e9bebed9c4d134280d056f6ca6efad, type: 3}
   - {fileID: 1709682673901245640, guid: ec151faa99a1afb4db117f7406087cf1, type: 3}
   - {fileID: 7728183032304661754, guid: 016cbcc368fca1b4997f2e35abe8d5be, type: 3}
+  - {fileID: 7728183032304661754, guid: 0a77a211e23fdf24cb23ac733df50be8, type: 3}
+  - {fileID: 7728183032304661754, guid: b037cce5f881f6d4d8f293bc2d08e1d5, type: 3}
   pickedAbilities: []
   numberOfAbilitiesToPick: 4
   AbilitiesToChoose: []
@@ -3086,6 +3088,10 @@ MonoBehaviour:
     spawnCount: 1
     spawnStrategy: {fileID: 1078627315}
   spawnRadius: 10
+  damageNumberPrefab: {fileID: 3375825228618179330, guid: 50a8ba0807296324cb365a74cca21a09, type: 3}
+  physicalColor: {r: 1, g: 0, b: 0, a: 1}
+  magicalColor: {r: 0, g: 0, b: 1, a: 1}
+  criticalColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!4 &348031473
 Transform:
   m_ObjectHideFlags: 0
@@ -12525,7 +12531,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3a265046d8fbeb243b023dd80914be2a, type: 2}
+  - {fileID: 2100000, guid: 68727432eb985564db266f3c4652c6e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

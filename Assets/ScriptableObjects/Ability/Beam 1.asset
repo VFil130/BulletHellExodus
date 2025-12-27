@@ -17,7 +17,7 @@ MonoBehaviour:
   damage: 10
   abilityPrefab: {fileID: 4396760115329036476, guid: a7216fdf5023da74ab8ba1bdd2a6cdad, type: 3}
   pierce: 0
-  level: 0
+  level: 2
   nextLevelData: {fileID: 11400000, guid: 9e160ba85b1d6b44ba04cfee24989583, type: 2}
   description: BEAM
   duration: 0.5

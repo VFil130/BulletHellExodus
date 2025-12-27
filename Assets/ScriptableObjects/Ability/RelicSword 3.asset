@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
+  m_Name: RelicSword 3
+  m_EditorClassIdentifier: 
+  castInterval: 5
+  speed: 0
+  damage: 30
+  abilityPrefab: {fileID: 2954845818976924223, guid: 5aa242407ae4e714885e9326aa094967, type: 3}
+  pierce: 0
+  level: 3
+  nextLevelData: {fileID: 11400000, guid: fefc33e9f400ee94daefda28fdfd7183, type: 2}
+  description: +10DMG!!!!!
+  duration: 0
+  radius: 0
+  tickRate: 0
+  shoots: 0

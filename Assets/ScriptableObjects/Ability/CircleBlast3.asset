@@ -18,7 +18,7 @@ MonoBehaviour:
   abilityPrefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}
   pierce: 10
   level: 3
-  nextLevelData: {fileID: 11400000}
+  nextLevelData: {fileID: 0}
   description: DO ULTRA PIU
   duration: 0
   radius: 360

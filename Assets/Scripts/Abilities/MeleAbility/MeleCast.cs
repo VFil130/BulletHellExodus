@@ -4,13 +4,7 @@ using UnityEngine;
 public class MeleCast : AbilityStats
 {
     [SerializeField] protected GameObject MelePrefab;
-    protected AbilityCaster abilityCaster;
-    private GameObject currentMelePrefab;
-
-    void Start()
-    {
-        abilityCaster = GetComponentInParent<AbilityCaster>();
-    }
+    protected GameObject currentMelePrefab;
     void Update()
     {
         if (currentMelePrefab != null)

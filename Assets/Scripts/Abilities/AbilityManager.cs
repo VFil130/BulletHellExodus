@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,12 +50,12 @@ public class AbilityManager : MonoBehaviour
     public void TakeRandomAbilities()
     {
         List<AbilityStats> combinedAbilities = allAbilities.Concat(pickedAbilities).ToList();
-
+        combinedAbilities = combinedAbilities.Where(ability => ability.abilityData.NextLevelData != null).ToList();
         AbilitiesToChoose.Clear();
-
+        numberOfAbilitiesToPick = math.min(4, combinedAbilities.Count);
         while (AbilitiesToChoose.Count < numberOfAbilitiesToPick && combinedAbilities.Count > 0)
         {
-            int randomIndex = Random.Range(0, combinedAbilities.Count);
+            int randomIndex = UnityEngine.Random.Range(0, combinedAbilities.Count);
             AbilityStats selectedAbility = combinedAbilities[randomIndex];
 
             if (!AbilitiesToChoose.Contains(selectedAbility))
@@ -81,13 +82,21 @@ public class AbilityManager : MonoBehaviour
         {
             AbilitiesToChoose[index].LevelUpAbiliy();
         }
+        HideAbilities();
         TakeRandomAbilities();
     }
-
+    public void HideAbilities()
+    {
+        foreach(AbilityCard card in abilityCards)
+        {
+            card.abilityPanel.SetActive(false);
+        }
+    }
     public void ShowAbilities()
     {
         for (int i = 0; i < AbilitiesToChoose.Count; i++)
         {
+            abilityCards[i].abilityPanel.SetActive(true);
             abilityCards[i].name.text = AbilitiesToChoose[i].name;
             abilityCards[i].icon.sprite = AbilitiesToChoose[i].icon;
             if (AbilitiesToChoose[i].Level > 0)

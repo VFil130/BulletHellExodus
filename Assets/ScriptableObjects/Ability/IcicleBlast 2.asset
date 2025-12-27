@@ -18,7 +18,7 @@ MonoBehaviour:
   abilityPrefab: {fileID: 2342027961020517478, guid: c4595f04a5d32d649a6776b6e604842b, type: 3}
   pierce: 2
   level: 0
-  nextLevelData: {fileID: 11400000}
+  nextLevelData: {fileID: 0}
   description: add 1 pierce
   duration: 0
   radius: 0

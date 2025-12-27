@@ -18,5 +18,9 @@ MonoBehaviour:
   abilityPrefab: {fileID: 2954845818976924223, guid: 1eccfacd3c16c3145bc7eebf225ee796, type: 3}
   pierce: 0
   level: 0
-  nextLevelData: {fileID: 11400000}
+  nextLevelData: {fileID: 0}
   description: Reduce CD to 1
+  duration: 0
+  radius: 0
+  tickRate: 0
+  shoots: 0
