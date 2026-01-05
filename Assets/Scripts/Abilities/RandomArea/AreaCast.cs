@@ -47,7 +47,6 @@ public class AreaCast : AbilityStats
     {
         if (isRandom)
         {
-            // Случайная позиция вокруг персонажа
             Vector2 randomDirection = Random.insideUnitCircle.normalized;
             float randomDistance = Random.Range(areaRadius * 0.5f, areaRadius * 1.5f);
             return abilityCaster.transform.position + (Vector3)randomDirection * randomDistance;
@@ -55,7 +54,6 @@ public class AreaCast : AbilityStats
         else
         {
             Debug.Log("NAYDEN");
-            // Позиция у ближайшего врага
             Enemy closestEnemy = abilityCaster.FindClosestEnemyInRadius(abilityCaster.transform.position,areaRadius);
 
             if (closestEnemy != null)
@@ -64,7 +62,6 @@ public class AreaCast : AbilityStats
             }
             else
             {
-                // Если врагов нет, создаём зону перед персонажем
                 return abilityCaster.transform.position + abilityCaster.transform.forward * areaRadius;
             }
         }

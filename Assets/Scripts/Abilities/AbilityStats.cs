@@ -36,6 +36,7 @@ public class AbilityStats : MonoBehaviour, IAbility
         abilityOwner = GetComponentInParent<Character>();
         abilityCaster = GetComponentInParent<AbilityCaster>();
         InitStats();
+        Debug.Log(abilityOwner.name);
     }
     public void LevelUpAbiliy()
     {

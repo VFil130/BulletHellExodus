@@ -1,18 +1,15 @@
 using System.Collections;
 using UnityEngine;
-
 public class Enemy : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
-
     [SerializeField] private Color damageColor; 
     [SerializeField] private float currentHealth;
-    private float currentMoveSpeed;
+    public float currentMoveSpeed;
     private float currentDamage;
     private float currentMageArmour;
     private float currentPhysArmour;
     [SerializeField] public bool IsDead { get; private set; }
-
     private void Awake()
     {
         currentHealth = enemyData.MaxHealth;
@@ -34,6 +31,10 @@ public class Enemy : MonoBehaviour
            EnemyManager.DamageType.Physical
        );
         TakeDamageLogick();
+    }
+    public void ApplyEffect(BaseEffect newEffect)
+    {
+        
     }
     public void TakeMageDamage(float damage)
     {

@@ -1317,7 +1317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133848540}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -34.1898, y: -0.10056257, z: -0.22948027}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCaster: {fileID: 181344583}
-  startAbility: {fileID: 7728183032304661754, guid: b037cce5f881f6d4d8f293bc2d08e1d5, type: 3}
+  startAbility: {fileID: -6829016232591359995, guid: 6ef5e955a79b03b4ea71c50c582f9c12, type: 3}
   allAbilities:
   - {fileID: -4986933657956137594, guid: 6254c4b43698c0349b7effc3ba9f6dc6, type: 3}
   - {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
@@ -10185,6 +10185,9 @@ MonoBehaviour:
   - id: 4
     prefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}
     StartCount: 1
+  - id: 10
+    prefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}
+    StartCount: 15
 --- !u!4 &1347920330
 Transform:
   m_ObjectHideFlags: 0

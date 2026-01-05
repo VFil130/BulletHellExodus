@@ -66,7 +66,6 @@ public class AbilityCaster : MonoBehaviour
         Enemy closestEnemy = null;
         float closestDistance = Mathf.Infinity;
 
-        // Используем OverlapSphere для поиска врагов в радиусе
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, radius);
 
         foreach (Collider2D collider in hitColliders)

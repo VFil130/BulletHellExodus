@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyMovment : MonoBehaviour
 {
-    public EnemyScriptableObject enemyData;
+    public Enemy enemyData;
     private bool isMoving = true;
     private SpriteRenderer spriteRenderer;
     void Start()
@@ -41,7 +41,7 @@ public class EnemyMovment : MonoBehaviour
         }
         if (isMoving)
         {
-            transform.Translate(new Vector2(direction.x, direction.y) * enemyData.MoveSpeed * Time.fixedDeltaTime);
+            transform.Translate(new Vector2(direction.x, direction.y) * enemyData.currentMoveSpeed * Time.fixedDeltaTime);
         }
     }
 }

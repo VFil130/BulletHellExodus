@@ -7,8 +7,8 @@ public class ProjectileCast : AbilityStats
     [SerializeField] protected float shootInterval = 0.1f;
     [SerializeField] protected GameObject projectilePrefab;
     protected List<GameObject> activeProjectiles = new List<GameObject>();
-    private Vector3 projectilePosition;
-    private Quaternion projectileRotation;
+    protected Vector3 projectilePosition;
+    protected Quaternion projectileRotation;
     protected virtual void CreateProjectile(Vector3 position, Quaternion rotation)
     {
         //GameObject projectile = Instantiate(projectilePrefab, position, rotation);
