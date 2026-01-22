@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class AbilityStats : MonoBehaviour, IAbility
 {
-    public Character abilityOwner;
-    [SerializeField] public AbilityData abilityData;
-    [SerializeField] public AbilityCaster abilityCaster;
+    [HideInInspector] public Character abilityOwner;
+    public AbilityData abilityData;
+    [HideInInspector] public AbilityCaster abilityCaster;
     [SerializeField] private int level;
     [SerializeField] public int Level { get => level; private set => level = value;}
     public Sprite icon;

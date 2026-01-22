@@ -16,7 +16,11 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private Color physicalColor = Color.red;
     [SerializeField] private Color magicalColor = Color.blue;
     [SerializeField] private Color criticalColor = Color.magenta;
-
+    [SerializeField] private Color clearColor = Color.yellow;
+    [SerializeField] private float maxEnemyDistance = 15f;
+    [SerializeField] private float teleportDistance = 20f;
+    [SerializeField] private float pullSpeed = 5f;
+    [SerializeField] private float checkDistanceInterval = 1f;
     public event Action<Vector3, float, DamageType> OnDamageTaken;
 
     [System.Serializable]
@@ -27,13 +31,14 @@ public class EnemyManager : MonoBehaviour
         public float nextSpawn;
         public int spawnLevel;
         public int spawnCount;
-        public MonoBehaviour spawnStrategy;
+        public SpawnStrategy spawnStrategy;
     }
     public enum DamageType
     {
         Physical,
         Magical,
-        Critical
+        Critical,
+        Clear
     }
 
     void Awake()
@@ -73,8 +78,30 @@ public class EnemyManager : MonoBehaviour
         }
 
         FindAllEnemies();
+        InvokeRepeating(nameof(CheckEnemiesDistance), checkDistanceInterval, checkDistanceInterval);
     }
-    
+    private void CheckEnemiesDistance()
+    {
+        if (playerTransform == null) return;
+
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy == null || enemy.IsDead) continue;
+
+            float distance = Vector3.Distance(enemy.transform.position, playerTransform.position);
+
+            if (distance > teleportDistance)
+            {
+                Vector2 randomDirection = UnityEngine.Random.insideUnitCircle.normalized;
+                Vector2 newPosition = (Vector2)playerTransform.position + randomDirection * spawnRadius;
+                enemy.transform.position = newPosition;
+            }
+            else if (distance > maxEnemyDistance)
+            {
+                enemy.transform.position = Vector2.MoveTowards(enemy.transform.position, playerTransform.position, pullSpeed * Time.deltaTime);
+            }
+        }
+    }
     public void TriggerDamage(Vector3 position, float damage, DamageType type)
     {
         OnDamageTaken?.Invoke(position, damage, type);
@@ -121,6 +148,7 @@ public class EnemyManager : MonoBehaviour
             DamageType.Physical => physicalColor,
             DamageType.Magical => magicalColor,
             DamageType.Critical => criticalColor,
+            DamageType.Clear => clearColor,
             _ => Color.white
         };
     }
@@ -158,7 +186,6 @@ public class EnemyManager : MonoBehaviour
     {
         if (waveController == null)
         {
-            Debug.LogError("Контроллер волны не найден");
             return;
         }
 
@@ -172,32 +199,30 @@ public class EnemyManager : MonoBehaviour
                 {
                     if (spawnData.enemyPrefab != null && spawnData.spawnStrategy != null)
                     {
-                        if (spawnData.spawnStrategy is ISpawn spawnStrategy)
-                        {
-                            Vector2 randomDirection = UnityEngine.Random.insideUnitCircle.normalized;
-                            Vector2 spawnPosition = (Vector2)playerTransform.position + randomDirection * spawnRadius;
-                            Enemy[] spawnedEnemies = spawnStrategy.Spawn(spawnData.enemyPrefab, spawnPosition, spawnData.spawnCount);
+                        Vector2 randomDirection = UnityEngine.Random.insideUnitCircle.normalized;
+                        Vector2 spawnPosition = (Vector2)playerTransform.position + randomDirection * spawnRadius;
 
-                            if (spawnedEnemies != null)
+                        Enemy[] spawnedEnemies = spawnData.spawnStrategy.Spawn(
+                            spawnData.enemyPrefab,
+                            spawnPosition,
+                            spawnData.spawnCount
+                        );
+
+                        if (spawnedEnemies != null)
+                        {
+                            foreach (Enemy newEnemy in spawnedEnemies)
                             {
-                                foreach (Enemy newEnemy in spawnedEnemies)
+                                if (newEnemy != null)
                                 {
-                                    if (newEnemy != null)
-                                    {
-                                        enemies.Add(newEnemy);
-                                    }
+                                    enemies.Add(newEnemy);
                                 }
                             }
                         }
-                        else
-                        {
-                            Debug.LogError("SpawnStrategy не реализует ISpawn");
-                        }
                     }
-                else
-                {
-                    Debug.LogWarning("Надо назначить префаб врага или тратегию спавна");
-                }
+                    else
+                    {
+                        Debug.LogWarning("Надо назначить префаб врага или стратегию спавна");
+                    }
 
                     spawnData.nextSpawn = Time.time + spawnData.spawnDelay;
                 }

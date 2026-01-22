@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour // Любая логика связанная с переходом между сценами
+public class SceneController : MonoBehaviour
 {
     public static SceneController instance { get; private set; }
 

@@ -23,4 +23,13 @@ public class MeleCast : AbilityStats
         Melee meleeScript = currentMelePrefab.GetComponent<Melee>();
         meleeScript.Initialize(this);
     }
+    public void CreateMeleInLocalPosition(float x, float y)
+    {
+        Vector3 offset = new Vector3(x, y, 0);
+        currentMelePrefab = Instantiate(MelePrefab, abilityCaster.transform);
+        currentMelePrefab.transform.localPosition = offset;
+        currentMelePrefab.transform.localRotation = Quaternion.identity;
+        Melee meleeScript = currentMelePrefab.GetComponent<Melee>();
+        meleeScript.Initialize(this);
+    }
 }

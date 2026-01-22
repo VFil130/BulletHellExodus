@@ -2,9 +2,9 @@ using UnityEngine;
 
 public abstract class AreaEffect : MonoBehaviour
 {
-    private float currentDamage;
-    private float currentDuration;
-    private float currentTickRate;
+    protected float currentDamage;
+    protected float currentDuration;
+    protected float currentTickRate;
     [SerializeField] public bool destroy = false;
     [SerializeField] private float lifeTime = 0f;
     private float radius = 3f;
@@ -62,5 +62,9 @@ public abstract class AreaEffect : MonoBehaviour
     protected void PDamage(Enemy enemy)
     {
         enemy.TakePhysDamage(currentDamage);
+    }
+    protected void CorosionApply(Enemy enemy)
+    {
+        enemy.CorosionEffect(currentDamage);
     }
 }

@@ -4,15 +4,15 @@ public class Projectile : MonoBehaviour, IPooledObject
 {
     [SerializeField] private int id;
     public int ID { get => id; private set => id = value; }
-    [SerializeField] private float currentSpeed;
-    [SerializeField] private float currentDamage;
-    [SerializeField] private float currentPierce;
+    [SerializeField] protected float currentSpeed;
+    [SerializeField] protected float currentDamage;
+    [SerializeField] protected float currentPierce;
     [SerializeField] public bool destroy = false;
     [SerializeField] private Vector2 direction;
-    [SerializeField] private float maxlifeTime = 5;
-    [SerializeField] private float lifeTime = 0;
-    private bool hasHitEnemy = false; 
-
+    [SerializeField] protected float maxlifeTime = 5;
+    [SerializeField] protected float lifeTime = 0;
+    private bool hasHitEnemy = false;
+    private AbilityStats statsLink;
 
     public void Initialize(AbilityStats stats)
     {
@@ -20,6 +20,7 @@ public class Projectile : MonoBehaviour, IPooledObject
         currentDamage = stats.damage;
         currentPierce = stats.pierce;
         currentSpeed = stats.speed;
+        statsLink = stats;
     }
     void FixedUpdate()
     {
@@ -35,7 +36,7 @@ public class Projectile : MonoBehaviour, IPooledObject
         if (!hasHitEnemy && collision.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.TakeMageDamage(currentDamage);
+            ProjectileEffect(enemy);
             currentPierce -= 1;
             if (currentPierce <= 0) 
             {
@@ -48,9 +49,28 @@ public class Projectile : MonoBehaviour, IPooledObject
             destroy = true;
         }
     }
+    protected void CreateAreaEffect(Vector3 position, GameObject areaEffectPrefab)
+    {
+        if (areaEffectPrefab == null)
+        {
+            Debug.LogError("NO AreaEffect prefab");
+            return;
+        }
+
+        GameObject areaObj = Instantiate(areaEffectPrefab, position, Quaternion.identity);
+        AreaEffect areaEffect = areaObj.GetComponent<AreaEffect>();
+        if (areaEffect != null)
+        {
+            areaEffect.Initialize(statsLink);
+        }
+    }
     public void SetLifeTimeZero()
     {
         lifeTime = 0;
         hasHitEnemy = false;
+    }
+    protected virtual void ProjectileEffect(Enemy enemy)
+    {
+        enemy.TakeMageDamage(currentDamage);
     }
 }

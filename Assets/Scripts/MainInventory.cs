@@ -6,7 +6,7 @@ public class MainInventory : MonoBehaviour
 {
     private Dictionary<ValResources, float> inventory = new Dictionary<ValResources, float>();
     public static MainInventory instance { get; private set; }
-
+    public Character character;
 
     private void Awake()
     {
