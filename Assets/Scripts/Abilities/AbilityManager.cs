@@ -15,7 +15,7 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] private List<AbilityStats> AbilitiesToChoose;
     [SerializeField] private int[] abilityLevels;
     [SerializeField] private AbilityCard[] abilityCards = new AbilityCard[4];
-
+    public static AbilityManager instance;
     [System.Serializable]
     class AbilityCard
     {
@@ -24,20 +24,16 @@ public class AbilityManager : MonoBehaviour
         public Image icon;
         public GameObject abilityPanel;
     }
-
-    private void Awake()
+    public void Awake()
     {
-        if (abilityCaster == null)
-        {
-            abilityCaster = GetComponent<AbilityCaster>();
-        }
+        instance = this;
     }
-    private void Start()
+    public void Init()
     {
+        abilityCaster = FindFirstObjectByType<AbilityCaster>();
         SpawnFirstAbility();
         TakeRandomAbilities();
     }
-
     public void PickAbility(AbilityStats ability)
     {
         pickedAbilities = abilityCaster.ReturnAbilities();

@@ -1736,22 +1736,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 797481634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &181344580 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1338073855148683407, guid: 62e285e090df48d488919b5577a093c7, type: 3}
-  m_PrefabInstance: {fileID: 8245508204710985295}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &181344591 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 866423529474201547, guid: 62e285e090df48d488919b5577a093c7, type: 3}
-  m_PrefabInstance: {fileID: 8245508204710985295}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91db160883717cf4fbdfbf3ad873480f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &197573479
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,7 +2033,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181344591}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
         m_MethodName: ChooseAbility
         m_Mode: 3
@@ -2428,7 +2412,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181344591}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
         m_MethodName: ChooseAbility
         m_Mode: 3
@@ -2801,7 +2785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd647a740e01aa4e92174c7eb56e5df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 181344580}
+  playerTransform: {fileID: 0}
   enemiesToSpawn:
   - enemyPrefab: {fileID: 3205153210512187286, guid: af016addb4716384e81e183c0cf934a5, type: 3}
     spawnDelay: 1
@@ -2861,8 +2845,7 @@ Transform:
   m_LocalPosition: {x: -12.066815, y: -1.2798848, z: -0.052906856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1078627314}
+  m_Children: []
   m_Father: {fileID: 403792072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &348152497
@@ -3481,6 +3464,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 660957152}
   - {fileID: 348031473}
   - {fileID: 1357034003}
   - {fileID: 1432273296}
@@ -4514,7 +4498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157b1d5c7515eee43812a0bcce8f2de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 181344580}
+  player: {fileID: 0}
 --- !u!1 &548350437
 GameObject:
   m_ObjectHideFlags: 0
@@ -5016,6 +5000,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642624576}
   m_CullTransparentMesh: 1
+--- !u!1 &660957151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 660957152}
+  - component: {fileID: 660957153}
+  m_Layer: 0
+  m_Name: AbilityManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &660957152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660957151}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.7774951, y: 1.2297952, z: 0.07898833}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 403792072}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &660957153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660957151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91db160883717cf4fbdfbf3ad873480f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityCaster: {fileID: 0}
+  startAbility: {fileID: -6829016232591359995, guid: 6ef5e955a79b03b4ea71c50c582f9c12, type: 3}
+  allAbilities:
+  - {fileID: -4986933657956137594, guid: 6254c4b43698c0349b7effc3ba9f6dc6, type: 3}
+  - {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
+  - {fileID: 1709682673901245640, guid: 8e8d8da119fc78a4ea9ab42e7bb983d8, type: 3}
+  - {fileID: 8670569397952846824, guid: 11e9bebed9c4d134280d056f6ca6efad, type: 3}
+  - {fileID: 1709682673901245640, guid: ec151faa99a1afb4db117f7406087cf1, type: 3}
+  - {fileID: 7728183032304661754, guid: 016cbcc368fca1b4997f2e35abe8d5be, type: 3}
+  - {fileID: 7728183032304661754, guid: 0a77a211e23fdf24cb23ac733df50be8, type: 3}
+  - {fileID: 7728183032304661754, guid: b037cce5f881f6d4d8f293bc2d08e1d5, type: 3}
+  - {fileID: -6829016232591359995, guid: b642f0a41ac024b4ea4daad5bb26c242, type: 3}
+  pickedAbilities: []
+  numberOfAbilitiesToPick: 4
+  AbilitiesToChoose: []
+  abilityLevels: 
+  abilityCards:
+  - name: {fileID: 413743081}
+    description: {fileID: 1323961714}
+    icon: {fileID: 1291573428}
+    abilityPanel: {fileID: 988219835}
+  - name: {fileID: 1808240256}
+    description: {fileID: 1761199827}
+    icon: {fileID: 1658613826}
+    abilityPanel: {fileID: 267521241}
+  - name: {fileID: 59637223}
+    description: {fileID: 954015204}
+    icon: {fileID: 1393796809}
+    abilityPanel: {fileID: 439749159}
+  - name: {fileID: 1130822289}
+    description: {fileID: 1216633783}
+    icon: {fileID: 2064012888}
+    abilityPanel: {fileID: 1497429067}
 --- !u!1 &701008156
 GameObject:
   m_ObjectHideFlags: 0
@@ -6399,7 +6460,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181344591}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
         m_MethodName: ChooseAbility
         m_Mode: 3
@@ -7729,50 +7790,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 797481634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1078627313
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1078627314}
-  - component: {fileID: 1078627315}
-  m_Layer: 0
-  m_Name: SimpleSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1078627314
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078627313}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 348031473}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1078627315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078627313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b82e6fcb33fbd541862852237030039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1089334480
 GameObject:
   m_ObjectHideFlags: 0
@@ -9025,6 +9042,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224464512}
   m_CullTransparentMesh: 1
+--- !u!1 &1247421029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1247421031}
+  - component: {fileID: 1247421030}
+  m_Layer: 0
+  m_Name: MainInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1247421030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247421029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3a8a7ae2be8194284d364c93d3b7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainInventory
+  character: {fileID: -6539415552662402097, guid: 0f08f9c4e4a62ce4b8848988a6972f0c, type: 3}
+--- !u!4 &1247421031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247421029}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.13068, y: 1.91968, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1285092881
 GameObject:
   m_ObjectHideFlags: 0
@@ -10118,7 +10180,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181344591}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
         m_MethodName: ChooseAbility
         m_Mode: 3
@@ -83682,6 +83744,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 657199091835541822, guid: 62e285e090df48d488919b5577a093c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 866423529474201547, guid: 62e285e090df48d488919b5577a093c7, type: 3}
       propertyPath: abilityCards.Array.data[0].icon
       value: 
@@ -83807,3 +83873,4 @@ SceneRoots:
   - {fileID: 8245508204710985295}
   - {fileID: 797481634}
   - {fileID: 1955678576}
+  - {fileID: 1247421031}

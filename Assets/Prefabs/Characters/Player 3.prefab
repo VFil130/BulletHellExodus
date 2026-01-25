@@ -111,11 +111,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1338073855148683407}
-  - component: {fileID: 866423529474201547}
   - component: {fileID: 2764254806758176726}
   - component: {fileID: 1666417531013955594}
   - component: {fileID: 1573125928866941657}
-  - component: {fileID: -6539415552662402097}
+  - component: {fileID: -4099573245824783252}
   - component: {fileID: 8113204234202283082}
   - component: {fileID: 3966774442158779784}
   - component: {fileID: 6269775016721691054}
@@ -142,51 +141,6 @@ Transform:
   - {fileID: 8772228336157996137}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &866423529474201547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657199091835541822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91db160883717cf4fbdfbf3ad873480f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityCaster: {fileID: 2764254806758176726}
-  startAbility: {fileID: -6829016232591359995, guid: 6ef5e955a79b03b4ea71c50c582f9c12, type: 3}
-  allAbilities:
-  - {fileID: -4986933657956137594, guid: 6254c4b43698c0349b7effc3ba9f6dc6, type: 3}
-  - {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
-  - {fileID: 1709682673901245640, guid: 8e8d8da119fc78a4ea9ab42e7bb983d8, type: 3}
-  - {fileID: 8670569397952846824, guid: 11e9bebed9c4d134280d056f6ca6efad, type: 3}
-  - {fileID: 1709682673901245640, guid: ec151faa99a1afb4db117f7406087cf1, type: 3}
-  - {fileID: 7728183032304661754, guid: 016cbcc368fca1b4997f2e35abe8d5be, type: 3}
-  - {fileID: 7728183032304661754, guid: 0a77a211e23fdf24cb23ac733df50be8, type: 3}
-  - {fileID: 7728183032304661754, guid: b037cce5f881f6d4d8f293bc2d08e1d5, type: 3}
-  - {fileID: -6829016232591359995, guid: b642f0a41ac024b4ea4daad5bb26c242, type: 3}
-  pickedAbilities: []
-  numberOfAbilitiesToPick: 4
-  AbilitiesToChoose: []
-  abilityLevels: 
-  abilityCards:
-  - name: {fileID: 0}
-    description: {fileID: 0}
-    icon: {fileID: 0}
-    abilityPanel: {fileID: 0}
-  - name: {fileID: 0}
-    description: {fileID: 0}
-    icon: {fileID: 0}
-    abilityPanel: {fileID: 0}
-  - name: {fileID: 0}
-    description: {fileID: 0}
-    icon: {fileID: 0}
-    abilityPanel: {fileID: 0}
-  - name: {fileID: 0}
-    description: {fileID: 0}
-    icon: {fileID: 0}
-    abilityPanel: {fileID: 0}
 --- !u!114 &2764254806758176726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3182be9dfc9e149b357afd696f6a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-6539415552662402097
+--- !u!114 &-4099573245824783252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,14 +188,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 657199091835541822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79d38bc957b1377499ec96ef5dbb13b4, type: 3}
+  m_Script: {fileID: 11500000, guid: e5c2ee83cedb01240a2df8c3cc9eeed0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Ranger
-  maxhealth: 90
-  health: 90
-  speed: 5
-  physArmour: -1
-  mageArmour: 2
+  m_EditorClassIdentifier: Assembly-CSharp::Warrior
+  maxhealth: 120
+  health: 120
+  speed: 2
+  physArmour: 2
+  mageArmour: 0
   invincibilityDuration: 0
   isInvincible: 0
   isDead: 0
@@ -249,7 +203,7 @@ MonoBehaviour:
   level: 1
   experienceCap: 100
   experienceCapIncerease: 200
-  sprite: {fileID: 8113204234202283082}
+  sprite: {fileID: 0}
 --- !u!212 &8113204234202283082
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -452,12 +406,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 49212e6bd45e47142b5eb5ba8d442b97, type: 3}
+  m_Sprite: {fileID: 3944610533857416082, guid: 85ae9ab62f1635a4a9a4801df74810fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.4, y: 0.4}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -473,7 +427,7 @@ Animator:
   m_GameObject: {fileID: 7210062008543378582}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fdba6f60ab11fb74bac1409cb09204b3, type: 2}
+  m_Controller: {fileID: 9100000, guid: fb9f8d29565c8d84f9aeccf1b982af16, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

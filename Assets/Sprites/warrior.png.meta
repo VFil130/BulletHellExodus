@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 362044a3a1d938d499adf7942f1bd2e6
+guid: 85ae9ab62f1635a4a9a4801df74810fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8019077624459128596
-    second: "\u0412\u043E\u0438\u043D (1)_0"
+      213: 3944610533857416082
+    second: warrior_0
   - first:
-      213: -4084609718692167531
-    second: "\u0412\u043E\u0438\u043D (1)_1"
+      213: -8250692648091073042
+    second: warrior_1
   - first:
-      213: 2305891129230270086
-    second: "\u0412\u043E\u0438\u043D (1)_2"
+      213: 6082431078867552424
+    second: warrior_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,84 +102,71 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u0412\u043E\u0438\u043D (1)_0"
+      name: warrior_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 127
-        width: 122
-        height: 129
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41f6b20dc9c794f60800000000000000
-      internalID: 8019077624459128596
+      spriteID: 293d5df81621eb630800000000000000
+      internalID: 3944610533857416082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0412\u043E\u0438\u043D (1)_1"
+      name: warrior_1
       rect:
         serializedVersion: 2
-        x: 3
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee5ca9720c6af7d80800000000000000
+      internalID: -8250692648091073042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_2
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
-        width: 122
-        height: 129
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 590ce3f1a1d8057c0800000000000000
-      internalID: -4084609718692167531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u0412\u043E\u0438\u043D (1)_2"
-      rect:
-        serializedVersion: 2
-        x: 131
-        y: 127
-        width: 122
-        height: 129
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 68e9e70d3cb200020800000000000000
-      internalID: 2305891129230270086
+      spriteID: 8a842b217d2296450800000000000000
+      internalID: 6082431078867552424
       vertices: []
       indices: 
       edges: []
@@ -188,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 565b59a7d41e41044a7e13bb225bd7fa
     internalID: 0
     vertices: []
     indices: 
@@ -196,11 +183,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      "\u0412\u043E\u0438\u043D (1)_0": 8019077624459128596
-      "\u0412\u043E\u0438\u043D (1)_1": -4084609718692167531
-      "\u0412\u043E\u0438\u043D (1)_2": 2305891129230270086
+      warrior_0: 3944610533857416082
+      warrior_1: -8250692648091073042
+      warrior_2: 6082431078867552424
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Лишний" + this + "Удалён");
             Destroy(gameObject);
         }
-            DisableScreens();    
+        CreateCharacter();
+        DisableScreens();    
     }
     void Update()
     {
@@ -120,5 +121,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         levelUpScreen.SetActive(false);
         ChangeState(GameState.Gameplay);
+    }
+    public void CreateCharacter()
+    {
+        if (MainInventory.instance.character != null)
+        {
+            Instantiate(MainInventory.instance.character);
+            AbilityManager.instance.Init();
+        }
     }
 }

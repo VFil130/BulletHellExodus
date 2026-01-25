@@ -7,7 +7,8 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        playerController = FindFirstObjectByType<PlayerController>();
+        player = FindFirstObjectByType<Character>().transform;
+
     }
     void FixedUpdate()
     {

@@ -236,6 +236,10 @@ public class EnemyManager : MonoBehaviour
             return playerTransform;
         }
     }
+    public void SetPlayerTransform(Transform transform)
+    {
+        playerTransform = transform;
+    }
 
     public List<Enemy> Enemies
     {
