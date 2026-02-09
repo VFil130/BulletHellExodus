@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e540f94061ba534aaf030f758d29704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 0}
+  enemyData: {fileID: 4262161995234957982}
   movementType: 0
   meleeStopDistance: 0.2
   rangedStopDistance: 3
@@ -192,6 +192,7 @@ MonoBehaviour:
   - name: SmallExpOrb
     itemPrefab: {fileID: 472273368647102742, guid: 50121888cf9c7914b80c7291d7aafdaf, type: 3}
     dropRate: 100
+  needDrop: 1
 --- !u!95 &1193850720198371616
 Animator:
   serializedVersion: 7
@@ -226,10 +227,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01d8e48f42b81b4b8a97ecc1bc7e204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBomba
-  enemyData: {fileID: 11400000, guid: bd8f2130dbcb1b34da6353dd5fef25f1, type: 2}
+  enemyData: {fileID: 11400000, guid: ab5b4f8c08ea89a4a86165ac2e083776, type: 2}
   player: {fileID: 0}
   damageColor: {r: 0.7529412, g: 0.101960786, b: 0.101960786, a: 0.8862745}
   currentHealth: 0
+  DM: {fileID: 4715075479010075503}
   currentMoveSpeed: 0
   explosionRadius: 3
   explosionDamage: 15

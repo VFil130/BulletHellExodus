@@ -144,9 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226e8fc0e289cdc4298de04f1205d1a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: bd8f2130dbcb1b34da6353dd5fef25f1, type: 2}
+  enemyData: {fileID: 11400000, guid: 364727836d4dbb84898f2160ecbacf8a, type: 2}
+  player: {fileID: 0}
   damageColor: {r: 0.754717, g: 0.10323961, b: 0.10323961, a: 0.8862745}
   currentHealth: 5
+  DM: {fileID: 4715075479010075503}
   currentMoveSpeed: 0
 --- !u!50 &162708560499121734
 Rigidbody2D:
@@ -188,6 +190,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 3132267319117280303}
+  movementType: 0
+  meleeStopDistance: 0.2
+  rangedStopDistance: 3
+  attackRange: 5
 --- !u!114 &4715075479010075503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +210,7 @@ MonoBehaviour:
   - name: SmallExpOrb
     itemPrefab: {fileID: 472273368647102742, guid: 50121888cf9c7914b80c7291d7aafdaf, type: 3}
     dropRate: 100
+  needDrop: 1
 --- !u!95 &1193850720198371616
 Animator:
   serializedVersion: 7

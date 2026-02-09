@@ -130,7 +130,7 @@ MonoBehaviour:
   currentDamage: 0
   currentPierce: 0
   destroy: 0
-  direction: {x: 0, y: 0}
+  direction: {x: 1, y: 0}
   maxlifeTime: 5
   lifeTime: 0
   areaEffect: {fileID: 4123269389496761312, guid: 684f612a43a061c46bc1620863a65a60, type: 3}

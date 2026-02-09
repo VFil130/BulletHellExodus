@@ -6,7 +6,8 @@ public class EnemyMovment : MonoBehaviour
     {
         Melee,
         Ranged,
-        Stationary
+        Stationary,
+        LineFormation
     }
 
     public Enemy enemyData;
@@ -17,9 +18,9 @@ public class EnemyMovment : MonoBehaviour
     [SerializeField] private float rangedStopDistance = 3f;
     [SerializeField] private float attackRange = 5f;
 
-    private bool isMoving = true;
     private SpriteRenderer spriteRenderer;
     private Transform playerTransform;
+    private Vector2 lineMovementDirection;
 
     void Start()
     {
@@ -27,59 +28,80 @@ public class EnemyMovment : MonoBehaviour
         playerTransform = EnemyManager.Instance.PlayerTransform;
     }
 
-    void Update()
-    {
-        if (playerTransform == null) return;
-
-        float distance = Vector2.Distance(playerTransform.position, transform.position);
-
-        switch (movementType)
-        {
-            case MovementType.Melee:
-                isMoving = distance > meleeStopDistance;
-                break;
-
-            case MovementType.Ranged:
-                bool playerInRange = distance <= attackRange;
-                bool tooClose = distance < rangedStopDistance;
-                bool tooFar = distance > attackRange;
-
-                if (playerInRange && tooClose)
-                {
-                    Vector2 directionAway = (transform.position - playerTransform.position).normalized;
-                    transform.position = Vector2.MoveTowards(
-                        transform.position,
-                        (Vector2)transform.position + directionAway,
-                        enemyData.currentMoveSpeed * Time.deltaTime
-                    );
-                }
-                else if (tooFar)
-                {
-                    isMoving = true;
-                }
-                else
-                {
-                    isMoving = false;
-                }
-                break;
-
-            case MovementType.Stationary:
-                isMoving = false;
-                break;
-        }
-    }
-
     void FixedUpdate()
     {
         if (playerTransform == null) return;
 
-        CharacterMovement();
+        HandleMovement();
     }
 
-    private void CharacterMovement()
+    private void HandleMovement()
     {
-        Vector2 direction = (playerTransform.position - transform.position).normalized;
+        Vector2 toPlayer = playerTransform.position - transform.position;
 
+        switch (movementType)
+        {
+            case MovementType.Melee:
+                HandleMeleeMovement(toPlayer);
+                break;
+
+            case MovementType.Ranged:
+                HandleRangedMovement(toPlayer);
+                break;
+
+            case MovementType.Stationary:
+                break;
+
+            case MovementType.LineFormation:
+                MoveInLineFormation();
+                break;
+        }
+
+        UpdateSpriteDirection(toPlayer.normalized);
+    }
+
+    private void HandleMeleeMovement(Vector2 toPlayer)
+    {
+        if (toPlayer.magnitude > meleeStopDistance)
+        {
+            MoveTowardsPlayer(toPlayer.normalized);
+        }
+    }
+
+    private void HandleRangedMovement(Vector2 toPlayer)
+    {
+        float distance = toPlayer.magnitude;
+        bool playerInRange = distance <= attackRange;
+        bool tooClose = distance < rangedStopDistance;
+        bool tooFar = distance > attackRange;
+
+        if (playerInRange && tooClose)
+        {
+            Vector2 directionAway = -toPlayer.normalized;
+            transform.position = Vector2.MoveTowards(
+                transform.position,
+                (Vector2)transform.position + directionAway,
+                enemyData.currentMoveSpeed * Time.deltaTime
+            );
+        }
+        else if (tooFar)
+        {
+            MoveTowardsPlayer(toPlayer.normalized);
+        }
+    }
+
+    private void MoveTowardsPlayer(Vector2 direction)
+    {
+        transform.Translate(direction * enemyData.currentMoveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void MoveInLineFormation()
+    {
+        transform.Translate(lineMovementDirection * enemyData.currentMoveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void UpdateSpriteDirection(Vector2 direction)
+    {
         if (direction.x > 0)
         {
             spriteRenderer.flipX = false;
@@ -88,14 +110,11 @@ public class EnemyMovment : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
+    }
 
-        if (movementType == MovementType.Melee && isMoving)
-        {
-            transform.Translate(new Vector2(direction.x, direction.y) * enemyData.currentMoveSpeed * Time.fixedDeltaTime);
-        }
-        else if (movementType == MovementType.Ranged && isMoving && Vector2.Distance(playerTransform.position, transform.position) > attackRange)
-        {
-            transform.Translate(new Vector2(direction.x, direction.y) * enemyData.currentMoveSpeed * Time.fixedDeltaTime);
-        }
+    public void SetLineFormationDirection(Vector2 direction)
+    {
+        movementType = MovementType.LineFormation;
+        lineMovementDirection = direction.normalized;
     }
 }

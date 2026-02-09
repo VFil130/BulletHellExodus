@@ -4,40 +4,39 @@ using UnityEngine;
 public class LineSpawnStrategy : SpawnStrategy
 {
     [SerializeField] private float spacing = 2f;
-    [SerializeField] private LineDirection direction = LineDirection.Horizontal;
-
-    public enum LineDirection
-    {
-        Horizontal,
-        Vertical
-    }
 
     public override Enemy[] Spawn(Enemy enemyPrefab, Vector2 spawnPosition, int spawnCount)
     {
-        if (enemyPrefab == null)
+        if (enemyPrefab == null || spawnCount <= 0)
         {
             return null;
         }
 
         Enemy[] spawnedEnemies = new Enemy[spawnCount];
 
-        float startOffset = -(spawnCount - 1) * spacing * 0.5f;
+        Transform playerTransform = EnemyManager.Instance.PlayerTransform;
+        if (playerTransform == null)
+        {
+            return null;
+        }
+
+        Vector2 toPlayer = ((Vector2)playerTransform.position - spawnPosition).normalized;
+        Vector2 perpendicular = new Vector2(-toPlayer.y, toPlayer.x).normalized;
+
+        float halfLength = (spawnCount - 1) * spacing * 0.5f;
 
         for (int i = 0; i < spawnCount; i++)
         {
-            Vector2 enemyPosition = spawnPosition;
-
-            if (direction == LineDirection.Horizontal)
-            {
-                enemyPosition += new Vector2(startOffset + i * spacing, 0);
-            }
-            else
-            {
-                enemyPosition += new Vector2(0, startOffset + i * spacing);
-            }
-
+            float offset = -halfLength + i * spacing;
+            Vector2 enemyPosition = spawnPosition + perpendicular * offset;
             Enemy newEnemy = Instantiate(enemyPrefab, enemyPosition, Quaternion.identity);
             spawnedEnemies[i] = newEnemy;
+
+            var enemyMovement = newEnemy.GetComponent<EnemyMovment>();
+            if (enemyMovement != null)
+            {
+                enemyMovement.SetLineFormationDirection(toPlayer);
+            }
         }
 
         return spawnedEnemies;

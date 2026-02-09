@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c3294ec54e84314ab9651901b52cbe2, type: 3}
-  m_Name: EnemyScriptableObject
+  m_Name: Orc
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  maxHealth: 10
-  damage: 10
-  mageArmour: 0
-  physArmour: 0
+  moveSpeed: 2
+  maxHealth: 50
+  damage: 15
+  mageArmour: 1
+  physArmour: 5

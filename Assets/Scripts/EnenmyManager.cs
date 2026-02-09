@@ -17,7 +17,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private Color magicalColor = Color.blue;
     [SerializeField] private Color criticalColor = Color.magenta;
     [SerializeField] private Color clearColor = Color.yellow;
-    [SerializeField] private float maxEnemyDistance = 15f;
     [SerializeField] private float teleportDistance = 20f;
     [SerializeField] private float pullSpeed = 5f;
     [SerializeField] private float checkDistanceInterval = 1f;
@@ -92,13 +91,17 @@ public class EnemyManager : MonoBehaviour
 
             if (distance > teleportDistance)
             {
-                Vector2 randomDirection = UnityEngine.Random.insideUnitCircle.normalized;
-                Vector2 newPosition = (Vector2)playerTransform.position + randomDirection * spawnRadius;
-                enemy.transform.position = newPosition;
-            }
-            else if (distance > maxEnemyDistance)
-            {
-                enemy.transform.position = Vector2.MoveTowards(enemy.transform.position, playerTransform.position, pullSpeed * Time.deltaTime);
+                var enemyMovement = enemy.GetComponent<EnemyMovment>();
+                if (enemyMovement != null && enemyMovement.movementType == EnemyMovment.MovementType.LineFormation)
+                {
+                    enemy.DieNoEffect();
+                }
+                else
+                {
+                    Vector2 randomDirection = UnityEngine.Random.insideUnitCircle.normalized;
+                    Vector2 newPosition = (Vector2)playerTransform.position + randomDirection * spawnRadius;
+                    enemy.transform.position = newPosition;
+                }
             }
         }
     }
@@ -215,6 +218,8 @@ public class EnemyManager : MonoBehaviour
                                 if (newEnemy != null)
                                 {
                                     enemies.Add(newEnemy);
+                                    var multipliers = WaveController.instance.GetWaveMultipliers();
+                                    newEnemy.UpStatsByWave(multipliers.healthMult, multipliers.armourMult);
                                 }
                             }
                         }

@@ -31,6 +31,7 @@ public class AbilityManager : MonoBehaviour
     public void Init()
     {
         abilityCaster = FindFirstObjectByType<AbilityCaster>();
+        startAbility = abilityCaster.startAbility;
         SpawnFirstAbility();
         TakeRandomAbilities();
     }

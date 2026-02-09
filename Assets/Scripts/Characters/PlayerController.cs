@@ -5,7 +5,6 @@ public class PlayerController : Character
     private Vector2 _mousePosition;
     private bool isMoving = false;
     private Camera mainCamera;
-
     void Start()
     {
         mainCamera = Camera.main;
@@ -33,7 +32,6 @@ public class PlayerController : Character
     {
         if (isMoving)
         {
-            // Направление определяется относительно центра экрана (позиции камеры)
             Vector2 cameraCenter = (Vector2)mainCamera.transform.position;
             Vector2 direction = (_mousePosition - cameraCenter).normalized;
 

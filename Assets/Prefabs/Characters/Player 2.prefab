@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities: []
+  startAbility: {fileID: -6829016232591359995, guid: 6ef5e955a79b03b4ea71c50c582f9c12, type: 3}
   abilityCount: 0
 --- !u!114 &1666417531013955594
 MonoBehaviour:
@@ -196,14 +197,14 @@ MonoBehaviour:
   speed: 3
   physArmour: 0
   mageArmour: 0
-  invincibilityDuration: 0
+  invincibilityDuration: 0.5
   isInvincible: 0
   isDead: 0
   experience: 0
   level: 1
   experienceCap: 100
   experienceCapIncerease: 200
-  sprite: {fileID: 8113204234202283082}
+  sprite: {fileID: 6271458919213712403}
 --- !u!212 &8113204234202283082
 SpriteRenderer:
   m_ObjectHideFlags: 0

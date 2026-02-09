@@ -111,7 +111,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1338073855148683407}
-  - component: {fileID: 866423529474201547}
   - component: {fileID: 1696789292453160233}
   - component: {fileID: 2764254806758176726}
   - component: {fileID: 1666417531013955594}
@@ -142,51 +141,6 @@ Transform:
   - {fileID: 8772228336157996137}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &866423529474201547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657199091835541822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91db160883717cf4fbdfbf3ad873480f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityCaster: {fileID: 2764254806758176726}
-  startAbility: {fileID: -6829016232591359995, guid: 6ef5e955a79b03b4ea71c50c582f9c12, type: 3}
-  allAbilities:
-  - {fileID: -4986933657956137594, guid: 6254c4b43698c0349b7effc3ba9f6dc6, type: 3}
-  - {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
-  - {fileID: 1709682673901245640, guid: 8e8d8da119fc78a4ea9ab42e7bb983d8, type: 3}
-  - {fileID: 8670569397952846824, guid: 11e9bebed9c4d134280d056f6ca6efad, type: 3}
-  - {fileID: 1709682673901245640, guid: ec151faa99a1afb4db117f7406087cf1, type: 3}
-  - {fileID: 7728183032304661754, guid: 016cbcc368fca1b4997f2e35abe8d5be, type: 3}
-  - {fileID: 7728183032304661754, guid: 0a77a211e23fdf24cb23ac733df50be8, type: 3}
-  - {fileID: 7728183032304661754, guid: b037cce5f881f6d4d8f293bc2d08e1d5, type: 3}
-  - {fileID: -6829016232591359995, guid: b642f0a41ac024b4ea4daad5bb26c242, type: 3}
-  pickedAbilities: []
-  numberOfAbilitiesToPick: 4
-  AbilitiesToChoose: []
-  abilityLevels: 
-  abilityCards:
-  - name: {fileID: 0}
-    description: {fileID: 0}
-    icon: {fileID: 0}
-    abilityPanel: {fileID: 0}
-  - name: {fileID: 0}
-    description: {fileID: 0}
-    icon: {fileID: 0}
-    abilityPanel: {fileID: 0}
-  - name: {fileID: 0}
-    description: {fileID: 0}
-    icon: {fileID: 0}
-    abilityPanel: {fileID: 0}
-  - name: {fileID: 0}
-    description: {fileID: 0}
-    icon: {fileID: 0}
-    abilityPanel: {fileID: 0}
 --- !u!114 &1696789292453160233
 MonoBehaviour:
   m_ObjectHideFlags: 0

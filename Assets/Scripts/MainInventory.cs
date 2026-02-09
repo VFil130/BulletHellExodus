@@ -55,6 +55,10 @@ public class MainInventory : MonoBehaviour
             }
         }
     }
+    public void SetCharacter(Character ch)
+    {
+        character = ch;
+    }
     public float GetResourceAmount(ValResources resource)
     {
         if (inventory.ContainsKey(resource))

@@ -5,6 +5,8 @@ using TMPro;
 
 public class WaveController : MonoBehaviour
 {
+    [SerializeField] private float baseHealthIncrease = 0.2f;
+    [SerializeField] private float baseArmourIncrease = 0.1f;
     public int waveLevel;
     private float waveTimer;
     public float timeBetweenWaves;
@@ -14,6 +16,12 @@ public class WaveController : MonoBehaviour
     [SerializeField] private TMP_Text timer; 
     private float elapsedTime = 0f;
 
+    public static WaveController instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         if (resourceZones == null || resourceZones.Count == 0)
@@ -46,7 +54,6 @@ public class WaveController : MonoBehaviour
             EvacZone.instance.Activate();
         }
     }
-
     private void ActivateRandomZones()
     {
         foreach (var zone in resourceZones)
@@ -77,5 +84,13 @@ public class WaveController : MonoBehaviour
         int minutes = Mathf.FloorToInt(elapsedTime / 60);
         int seconds = Mathf.FloorToInt(elapsedTime % 60); 
         timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+    public (float healthMult, float armourMult) GetWaveMultipliers()
+    {
+        int tenWaveCount = waveLevel / 10;
+        float healthMult = 1f + (baseHealthIncrease * tenWaveCount);
+        float armourMult = 1f + (baseArmourIncrease * tenWaveCount);
+
+        return (healthMult, armourMult);
     }
 }

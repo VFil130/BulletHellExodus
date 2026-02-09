@@ -6,9 +6,8 @@ using UnityEngine;
 public class AbilityCaster : MonoBehaviour
 {
     [SerializeField] static private int slotsCount = 10;
-    [SerializeField]
-    private List<AbilityStats> abilities;
-
+    [SerializeField]private List<AbilityStats> abilities;
+    public AbilityStats startAbility;
     private List<float> timers = new List<float>(slotsCount);
     [SerializeField] private int abilityCount=0;
     private AbilityUi abilityUi;

@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.Localization.PropertyVariants.TrackedProperties;
+using UnityEngine.Rendering;
 public class Enemy : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
     public GameObject player;
     [SerializeField] private Color damageColor; 
     [SerializeField] private float currentHealth;
+    [SerializeField] private DropManager DM;
     public float currentMoveSpeed;
     private float currentDamage;
     private float currentMageArmour;
     private float currentPhysArmour;
     private Dictionary<int, Coroutine> activeEffects;
     [SerializeField] public bool IsDead { get; private set; }
+    [SerializeField]private bool tmpEnemy = false;
+    [SerializeField]private float enemyLifeTime;
+    private float timer = 0;
     private void Awake()
     {
         currentHealth = enemyData.MaxHealth;
@@ -26,8 +33,31 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Update()
     {
-        
+        if (tmpEnemy == true)
+        {
+            timer += Time.deltaTime;
+            if (timer >= enemyLifeTime)
+            {
+                DieEffect();
+            }
+        }
     }
+    public virtual void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("есть");
+            Character character = collision.gameObject.GetComponent<Character>();
+            character.TakeDamage(currentDamage, 0);
+        }
+    }
+    public void UpStatsByWave(float healthMult, float armourMult)
+    {
+        currentHealth *= healthMult;
+        currentMageArmour *= armourMult;
+        currentPhysArmour *= armourMult;
+    }
+    #region Takeingdamage
     public void TakePhysDamage(float damage)
     {
         float totalDmg = damage - currentPhysArmour;
@@ -90,19 +120,17 @@ public class Enemy : MonoBehaviour
             return;
         }
     }
+    public void DieNoEffect()
+    {
+        DM.DropNo();
+        IsDead = true;
+    }
     public virtual void DieEffect()
     {
 
     }
-    public virtual void OnCollisionStay2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("есть");
-            Character character = collision.gameObject.GetComponent<Character>();
-            character.TakeDamage(currentDamage,0);
-        }
-    }
+    #endregion
+    #region EnemyEffects
     public void EmberEffect(float emberPower)
     {
         if (currentMageArmour <= 0)
@@ -265,4 +293,5 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+    #endregion
 }
