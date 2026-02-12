@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -95,18 +96,23 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamageLogick()
     {
-        StartCoroutine(DamageFeedBack());
+        DamageFeedBack();
         Die();
     }
-    private IEnumerator DamageFeedBack()
+    public void DamageFeedBack()
     {
-        Vector3 prevSize;
-        prevSize = transform.localScale; 
-        transform.localScale *= 1.1f;
-        GetComponent<SpriteRenderer>().color = damageColor;
-        yield return new WaitForSeconds(0.2f);
-        transform.localScale = prevSize;
-        GetComponent<SpriteRenderer>().color = Color.white;
+        Vector3 originalScale = transform.localScale;
+
+        transform.DOKill();
+        GetComponent<SpriteRenderer>().DOKill();
+
+        Sequence damageSequence = DOTween.Sequence();
+
+        damageSequence.Append(transform.DOScale(originalScale * 1.1f, 0.1f).SetEase(Ease.OutQuad));
+        damageSequence.Join(GetComponent<SpriteRenderer>().DOColor(damageColor, 0.1f));
+        damageSequence.AppendInterval(0.1f);
+        damageSequence.Append(transform.DOScale(originalScale, 0.1f).SetEase(Ease.InQuad));
+        damageSequence.Join(GetComponent<SpriteRenderer>().DOColor(Color.white, 0.1f));
     }
     public void Die()
     {
