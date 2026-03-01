@@ -20,8 +20,8 @@ MonoBehaviour:
   level: 0
   nextLevelData: {fileID: 11400000, guid: 1c06dfe550cfe304b87445edcce5f4d2, type: 2}
   description: "\u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
-    \u0440\u0430\u0434\u0438\u0443\u0441 \u043D\u0430 2"
+    \u0440\u0430\u0434\u0438\u0443\u0441 \u043D\u0430 1"
   duration: 7
-  radius: 5
+  radius: 2
   tickRate: 1
   shoots: 1

@@ -13,9 +13,9 @@ public class WaveController : MonoBehaviour
     public List<ResourceZone> resourceZones;
     [Range(1, 5)] public int zonesActive = 1;
     [SerializeField] private TMP_Text waveText;
-    [SerializeField] private TMP_Text timer; 
+    [SerializeField] private TMP_Text timer;
+    [SerializeField] private TMP_Text notyfytxt;
     private float elapsedTime = 0f;
-
     public static WaveController instance;
 
     private void Awake()
@@ -48,11 +48,13 @@ public class WaveController : MonoBehaviour
         waveLevel += 1;
         waveTimer = 0;
         waveText.text = waveLevel.ToString();
-        ActivateRandomZones();
         if (waveLevel == 2)
         {
             EvacZone.instance.Activate();
+            notyfytxt.text += $"Evacuation Active!\n";
         }
+        ActivateRandomZones();
+        ShowNotify();
     }
     private void ActivateRandomZones()
     {
@@ -67,10 +69,12 @@ public class WaveController : MonoBehaviour
             if (validZones.Count > 0)
             {
                 List<ResourceZone> zonesToActivate = validZones.OrderBy(x => Random.value).Take(zonesActive).ToList();
-
+                notyfytxt.text += "Active Zones: ";
                 foreach (var zone in zonesToActivate)
                 {
                     zone.ActivateZone();
+                    int zoneIndex = resourceZones.IndexOf(zone);
+                    notyfytxt.text += $"Zone {zoneIndex}: {zone.resource} ";
                 }
             }
             else
@@ -78,6 +82,11 @@ public class WaveController : MonoBehaviour
                 Debug.LogWarning("Нет активных ResourceZone в списке!");
             }
         }
+    }
+    private void HideNotify()
+    {
+        notyfytxt.text = "";
+        notyfytxt.gameObject.SetActive(false);
     }
     void UpdateTimerDisplay()
     {
@@ -92,5 +101,10 @@ public class WaveController : MonoBehaviour
         float armourMult = 1f + (baseArmourIncrease * tenWaveCount);
 
         return (healthMult, armourMult);
+    }
+    private void ShowNotify()
+    {
+        notyfytxt.gameObject.SetActive(true);
+        Invoke(nameof(HideNotify), 10f);
     }
 }

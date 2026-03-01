@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
@@ -10,16 +11,24 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject charactersPanel;
     [SerializeField] private GameObject abilitiesPanel;
     [SerializeField] private GameObject mainPanel;
+
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider sfxSlider;
+    public string sceneToLoad = "Game";
     public void Start()
     {
         UpdateResourceCount();
         HideAllPanels();
+        SetupSoundSliders();
     }
-    public void StartGame(string name)
+    public void StartGame()
     {
-        SceneController.instance.SceneChange(name);
+        SceneController.instance.SceneChange(sceneToLoad);
     }
-
+    public void SetSceneToLoad(string name)
+    {
+        sceneToLoad = name;
+    }
     public void Exit()
     {
         Application.Quit();
@@ -32,6 +41,17 @@ public class Menu : MonoBehaviour
             ValResources resource = (ValResources)i;
             float amount = MainInventory.instance.GetResourceAmount(resource);
             resCount[i].text = amount.ToString();
+        }
+    }
+    private void SetupSoundSliders()
+    {
+        if (SoundManager.Instance != null)
+        {
+            musicSlider.value = SoundManager.Instance.GetMusicVolume();
+            sfxSlider.value = SoundManager.Instance.GetSFXVolume();
+
+            musicSlider.onValueChanged.AddListener(SoundManager.Instance.SetMusicVolume);
+            sfxSlider.onValueChanged.AddListener(SoundManager.Instance.SetSFXVolume);
         }
     }
     public void ShowPanel(string panelName)
@@ -54,7 +74,6 @@ public class Menu : MonoBehaviour
                 break;
         }
     }
-
     private void HideAllPanels()
     {
         if (mapsPanel != null) mapsPanel.SetActive(false);

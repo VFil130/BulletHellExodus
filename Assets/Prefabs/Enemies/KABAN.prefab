@@ -114,6 +114,8 @@ MonoBehaviour:
   currentHealth: 5
   DM: {fileID: 2594498658849231211}
   currentMoveSpeed: 0
+  tmpEnemy: 0
+  enemyLifeTime: 15
 --- !u!50 &3550298051025569827
 Rigidbody2D:
   serializedVersion: 5

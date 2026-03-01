@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c762dcc3c68520743b18d1079f6b9147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Wizzard
+  activeEffects: []
   maxhealth: 90
   health: 90
   speed: 3
@@ -202,8 +203,7 @@ MonoBehaviour:
   isDead: 0
   experience: 0
   level: 1
-  experienceCap: 100
-  experienceCapIncerease: 200
+  experienceCap: 200
   sprite: {fileID: 6271458919213712403}
 --- !u!212 &8113204234202283082
 SpriteRenderer:

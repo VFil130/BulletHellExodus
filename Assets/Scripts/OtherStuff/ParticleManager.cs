@@ -35,7 +35,13 @@ public class ParticleManager : MonoBehaviour
 
         if (effectPrefab != null)
         {
-            Instantiate(effectPrefab, position, Quaternion.identity);
+            GameObject particle = Instantiate(effectPrefab, position, Quaternion.identity);
+            ParticleSystem ps = particle.GetComponent<ParticleSystem>();
+            if (ps != null)
+            {
+                float duration = ps.main.duration + ps.main.startLifetime.constantMax;
+                Destroy(particle, duration);
+            }
         }
     }
     public static void CreateParticle(string effectName, Transform spawnPoint)

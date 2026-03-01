@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class TakenResources : MonoBehaviour
 {
@@ -28,5 +29,14 @@ public class TakenResources : MonoBehaviour
             Inventory.Add(resourceType, amount);
         }
         Debug.Log("Получено " + amount + " " + resourceType);
+    }
+    public string ReturnCapturedResources()
+    {
+        string result = "";
+        foreach (var res in Inventory)
+        {
+            result += $"Ресурс: {res.Key}, Количество: {res.Value}\n";
+        }
+        return result;
     }
 }

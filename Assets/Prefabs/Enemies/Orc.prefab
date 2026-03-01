@@ -85,12 +85,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 2542704997803980703, guid: 3a7d6971fa44b2244b3ef4c0f2e693ec, type: 3}
+  m_Sprite: {fileID: 9053490055562309000, guid: eec4bbbd43580e14aab54c4c48b189b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.15, y: 1.29}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -150,6 +150,8 @@ MonoBehaviour:
   currentHealth: 5
   DM: {fileID: 4715075479010075503}
   currentMoveSpeed: 0
+  tmpEnemy: 0
+  enemyLifeTime: 0
 --- !u!50 &162708560499121734
 Rigidbody2D:
   serializedVersion: 5
@@ -221,7 +223,7 @@ Animator:
   m_GameObject: {fileID: 4587524924326954962}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2d77fe8b30a87a140b7e5201e198a4c5, type: 2}
+  m_Controller: {fileID: 9100000, guid: e96d8c204c891b84d8c9161e03cf0dad, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

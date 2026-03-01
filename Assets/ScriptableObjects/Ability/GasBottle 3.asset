@@ -22,6 +22,6 @@ MonoBehaviour:
   description: "\u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
     \u0443\u0440\u043E\u043D\u0430 \u043D\u0430 1"
   duration: 7
-  radius: 5
+  radius: 2
   tickRate: 1
   shoots: 1

@@ -289,6 +289,8 @@ public class Character : MonoBehaviour
     }
     public void Die()
     {
+        GameManager.instance.SetWinLose(false);
+        GameManager.instance.EndGame();
         Destroy(gameObject);
     }
     private IEnumerator Invincibility()

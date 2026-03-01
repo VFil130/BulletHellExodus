@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -13,13 +14,16 @@ public class GameManager : MonoBehaviour
     }
 
     public GameState currentState;
-
     public GameState previousState;
 
     [Header("UI")]
     public GameObject pauseScreen;
     public GameObject levelUpScreen;
-
+    public GameObject endGameScreen;
+    public TMP_Text endGameInfo;
+    private float totalDamge = 0;
+    private float totalKills = 0;
+    private bool gameIsWin = false;
     public bool choosingUpgrade;
 
     void Awake()
@@ -67,7 +71,58 @@ public class GameManager : MonoBehaviour
     {
         currentState = newState;
     }
-
+    public void EndGame()
+    {
+        if(currentState != GameState.GameOver)
+        {
+            AddInfoToEndText(TakenResources.instance.ReturnCapturedResources());
+            AddDamageInfo();
+            AddKillsInfo();
+            previousState = currentState;
+            ChangeState(GameState.GameOver);
+            Time.timeScale = 0f;
+            endGameScreen.SetActive(true);
+        }
+    }
+    public void AddTotalDamage(float dmg)
+    {
+        totalDamge += dmg;
+    }
+    public void AddTotalKills()
+    {
+        totalKills += 1;
+    }
+    public void AddDamageInfo()
+    {
+        string text = "\nCurrentDamage: ";
+        text += totalDamge.ToString();
+        AddInfoToEndText(text);
+    }
+    public void AddKillsInfo()
+    {
+        string text = "\nCurrentKills: ";
+        text += totalKills.ToString();
+        AddInfoToEndText(text);
+    }
+    public void SetWinLose(bool state)
+    {
+        gameIsWin = state;
+    }
+    public void ToMenu()
+    {
+        if (gameIsWin)
+        {
+            SceneController.instance.Evacuate();
+        }
+        else
+        {
+            SceneController.instance.SceneChange("Menu");
+        }
+    }
+    public void AddInfoToEndText(string txt)
+    {
+        endGameInfo.text += txt;
+    }
     public void PauseGame()
     {
         if (currentState != GameState.Pause)
@@ -79,7 +134,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("Игра остановленна");
         }
     }
-
     public void ResumeGame()
     {
         if (currentState == GameState.Pause)
@@ -107,6 +161,7 @@ public class GameManager : MonoBehaviour
     }
     void DisableScreens()
     {
+        endGameScreen.SetActive(false);
         pauseScreen.SetActive(false);
         levelUpScreen.SetActive(false);
     }
@@ -117,10 +172,13 @@ public class GameManager : MonoBehaviour
     }
     public void EndLevelUp()
     {
-        choosingUpgrade = false;
-        Time.timeScale = 1f;
-        levelUpScreen.SetActive(false);
-        ChangeState(GameState.Gameplay);
+        if (currentState != GameState.Gameplay)
+        {
+            choosingUpgrade = false;
+            Time.timeScale = 1f;
+            levelUpScreen.SetActive(false);
+            ChangeState(GameState.Gameplay);
+        }
     }
     public void CreateCharacter()
     {

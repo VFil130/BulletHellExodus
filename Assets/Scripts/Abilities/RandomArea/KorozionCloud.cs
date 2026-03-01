@@ -4,7 +4,10 @@ public class KorozionCloud : AreaEffect
 {
     public override void DoEffect(Collider2D col)
     {
-        PDamage(col.GetComponent<Enemy>());
-        CorosionApply(col.GetComponent<Enemy>());
+        Enemy enemy = col.GetComponent<Enemy>();
+        if (enemy == null) return;
+
+        PDamage(enemy);
+        CorosionApply(enemy);
     }
 }

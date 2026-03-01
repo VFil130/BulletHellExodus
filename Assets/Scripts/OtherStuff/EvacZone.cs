@@ -38,7 +38,8 @@ public class EvacZone : MonoBehaviour
         UpdateFiller();
         if (captureTimer >= captureTime)
         {
-            SceneController.instance.Evacuate();
+            GameManager.instance.SetWinLose(true);
+            GameManager.instance.EndGame();
         }
     }
     private void UpdateFiller()

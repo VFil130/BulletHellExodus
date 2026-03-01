@@ -82,10 +82,8 @@ public class DialogueSystem : MonoBehaviour
 
     void ShowCharacterDialog(string characterName, string text)
     {
-        // Устанавливаем спрайт персонажа
         SetCharacterSprite(characterName);
 
-        // Показываем текст
         typingCoroutine = StartCoroutine(TypeText(text));
     }
 
@@ -144,7 +142,6 @@ public class DialogueSystem : MonoBehaviour
         isTyping = false;
     }
 
-    // Методы для быстрого тестирования
     public void TestWarriorDialog(int id) => StartDialog("Warrior", id);
     public void TestMerchantDialog(int id) => StartDialog("Merchant", id);
     public void TestMageDialog(int id) => StartDialog("Mage", id);

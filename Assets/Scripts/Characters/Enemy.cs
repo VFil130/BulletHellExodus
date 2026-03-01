@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     private float currentDamage;
     private float currentMageArmour;
     private float currentPhysArmour;
+    private Vector3 originalScale;
     private Dictionary<int, Coroutine> activeEffects;
     [SerializeField] public bool IsDead { get; private set; }
     [SerializeField]private bool tmpEnemy = false;
@@ -27,6 +28,7 @@ public class Enemy : MonoBehaviour
         currentMoveSpeed = enemyData.MoveSpeed;
         currentDamage = enemyData.Damage;
         activeEffects = new Dictionary<int, Coroutine>();
+        originalScale = transform.localScale;
     }
     public void Start()
     {
@@ -47,7 +49,6 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("есть");
             Character character = collision.gameObject.GetComponent<Character>();
             character.TakeDamage(currentDamage, 0);
         }
@@ -64,6 +65,7 @@ public class Enemy : MonoBehaviour
         float totalDmg = damage - currentPhysArmour;
         if (totalDmg < 0) { totalDmg = 0; }
         currentHealth -= totalDmg;
+        GameManager.instance.AddTotalDamage(totalDmg);
         EnemyManager.Instance.TriggerDamage(
            transform.position,
            totalDmg,
@@ -76,6 +78,7 @@ public class Enemy : MonoBehaviour
         float totalDmg = damage - currentMageArmour;
         if (totalDmg < 0) { totalDmg = 0; }
         currentHealth -= totalDmg;
+        GameManager.instance.AddTotalDamage(totalDmg);
         EnemyManager.Instance.TriggerDamage(
             transform.position,
             totalDmg,
@@ -87,6 +90,7 @@ public class Enemy : MonoBehaviour
     public void TakeClearDamage(float damage)
     {
         currentHealth = Mathf.Max(0, currentHealth - damage);
+        GameManager.instance.AddTotalDamage(damage);
         EnemyManager.Instance.TriggerDamage(
             transform.position,
             currentDamage,
@@ -98,11 +102,13 @@ public class Enemy : MonoBehaviour
     {
         DamageFeedBack();
         Die();
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayEnemyDamageSound(transform.position);
+        }
     }
     public void DamageFeedBack()
     {
-        Vector3 originalScale = transform.localScale;
-
         transform.DOKill();
         GetComponent<SpriteRenderer>().DOKill();
 
@@ -119,6 +125,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             DieEffect();
+            GameManager.instance.AddTotalKills();
             IsDead = true;
         }
         else
