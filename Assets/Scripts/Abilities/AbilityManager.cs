@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -62,7 +63,6 @@ public class AbilityManager : MonoBehaviour
 
             combinedAbilities.RemoveAt(randomIndex);
         }
-        ShowAbilities();
     }
     private void SpawnFirstAbility()
     {
@@ -79,23 +79,35 @@ public class AbilityManager : MonoBehaviour
         {
             AbilitiesToChoose[index].LevelUpAbiliy();
         }
-        HideAbilities();
         TakeRandomAbilities();
     }
     public void HideAbilities()
     {
-        foreach(AbilityCard card in abilityCards)
+        foreach (AbilityCard card in abilityCards)
         {
             card.abilityPanel.SetActive(false);
         }
     }
     public void ShowAbilities()
     {
+        Debug.Log("показ");
         for (int i = 0; i < AbilitiesToChoose.Count; i++)
         {
             abilityCards[i].abilityPanel.SetActive(true);
+
+            RectTransform panelRect = abilityCards[i].abilityPanel.GetComponent<RectTransform>();
+            Vector2 originalPosition = panelRect.anchoredPosition;
+
+            panelRect.anchoredPosition = new Vector2(originalPosition.x, originalPosition.y - 1000f);
+
+            panelRect.DOAnchorPosY(originalPosition.y, 0.5f)
+                .SetEase(Ease.OutBack)
+                .SetDelay(i * 0.15f)
+                .SetUpdate(true);
+
             abilityCards[i].name.text = AbilitiesToChoose[i].name;
             abilityCards[i].icon.sprite = AbilitiesToChoose[i].icon;
+
             if (AbilitiesToChoose[i].Level > 0)
             {
                 abilityCards[i].description.text = AbilitiesToChoose[i].abilityData.NextLevelData.Description;
@@ -104,6 +116,11 @@ public class AbilityManager : MonoBehaviour
             {
                 abilityCards[i].description.text = AbilitiesToChoose[i].abilityData.Description;
             }
+        }
+
+        for (int i = AbilitiesToChoose.Count; i < abilityCards.Length; i++)
+        {
+            abilityCards[i].abilityPanel.SetActive(false);
         }
     }
 }

@@ -49,7 +49,7 @@ MonoBehaviour:
   abilityCaster: {fileID: 0}
   level: 0
   icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  name: BEAM
+  name: "\u041C\u043E\u043B\u043D\u0438\u044F"
   id: 6
   isBought: 0
   speed: 0

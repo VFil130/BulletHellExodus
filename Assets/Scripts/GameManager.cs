@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
                     choosingUpgrade = true;
                     Time.timeScale = 0f;
                     levelUpScreen.SetActive(true);
+                    AbilityManager.instance.ShowAbilities();
                 }
                 break;
 
@@ -175,6 +177,7 @@ public class GameManager : MonoBehaviour
         if (currentState != GameState.Gameplay)
         {
             choosingUpgrade = false;
+            AbilityManager.instance.HideAbilities();
             Time.timeScale = 1f;
             levelUpScreen.SetActive(false);
             ChangeState(GameState.Gameplay);

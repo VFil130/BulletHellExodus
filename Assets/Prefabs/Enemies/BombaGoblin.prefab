@@ -63,7 +63,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 2e8e565565506764fb9ef25951f210a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -233,5 +233,7 @@ MonoBehaviour:
   currentHealth: 0
   DM: {fileID: 4715075479010075503}
   currentMoveSpeed: 0
+  tmpEnemy: 0
+  enemyLifeTime: 0
   explosionRadius: 3
   explosionDamage: 15

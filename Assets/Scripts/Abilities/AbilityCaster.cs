@@ -36,9 +36,7 @@ public class AbilityCaster : MonoBehaviour
     {
         if (abilityCount <= slotsCount - 1)
         {
-            Debug.Log("Додо1 ");
             AbilityStats spawnedAbility = Instantiate(ability, transform.position, Quaternion.identity);
-            Debug.Log("Додо2 ");
             spawnedAbility.transform.SetParent(transform);
             AddAbility(spawnedAbility);
         }
