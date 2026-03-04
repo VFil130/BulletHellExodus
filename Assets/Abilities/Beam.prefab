@@ -48,7 +48,7 @@ MonoBehaviour:
   abilityData: {fileID: 11400000, guid: 627853d7cbc154a4b856381294fb7862, type: 2}
   abilityCaster: {fileID: 0}
   level: 0
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: -6950973007941179836, guid: 540ea16131f3e9645a8e4622fbd6afd3, type: 3}
   name: "\u041C\u043E\u043B\u043D\u0438\u044F"
   id: 6
   isBought: 0
