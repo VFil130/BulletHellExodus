@@ -21,6 +21,6 @@ MonoBehaviour:
   nextLevelData: {fileID: 11400000, guid: 037857d6c765d1344861397300d6832b, type: 2}
   description: Launch 8 Icicles around you
   duration: 0
-  radius: 0
+  radius: 360
   tickRate: 0
   shoots: 1

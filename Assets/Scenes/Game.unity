@@ -5147,7 +5147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCaster: {fileID: 0}
-  startAbility: {fileID: -6829016232591359995, guid: 6ef5e955a79b03b4ea71c50c582f9c12, type: 3}
+  startAbility: {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
   allAbilities:
   - {fileID: -4986933657956137594, guid: 6254c4b43698c0349b7effc3ba9f6dc6, type: 3}
   - {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}

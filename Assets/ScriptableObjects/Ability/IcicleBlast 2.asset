@@ -21,6 +21,6 @@ MonoBehaviour:
   nextLevelData: {fileID: 0}
   description: add 1 pierce
   duration: 0
-  radius: 0
+  radius: 360
   tickRate: 0
   shoots: 1
