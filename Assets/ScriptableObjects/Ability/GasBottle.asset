@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
   m_Name: GasBottle
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
-  castInterval: 5
+  castInterval: 7
   speed: 3
   damage: 3
   abilityPrefab: {fileID: 6702379083915196915, guid: d2415749c6193a44cbdf43a25ffa461d, type: 3}

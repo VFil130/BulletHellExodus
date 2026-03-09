@@ -19,4 +19,9 @@ MonoBehaviour:
   pierce: 0
   level: 1
   nextLevelData: {fileID: 11400000, guid: 43dfb6f9f9221494abcd52354e177ff0, type: 2}
-  description: HealYou
+  description: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442
+    \u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+  duration: 0
+  radius: 0
+  tickRate: 0
+  shoots: 0

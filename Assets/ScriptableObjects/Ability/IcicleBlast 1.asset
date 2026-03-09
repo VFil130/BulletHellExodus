@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
   m_Name: IcicleBlast 1
   m_EditorClassIdentifier: 
-  castInterval: 3
+  castInterval: 5
   speed: 10
-  damage: 3
+  damage: 5
   abilityPrefab: {fileID: 2342027961020517478, guid: c4595f04a5d32d649a6776b6e604842b, type: 3}
   pierce: 1
   level: 0
   nextLevelData: {fileID: 11400000, guid: 2111dd61c65851348b5eaac22a12bb30, type: 2}
-  description: add 1 Damage
+  description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0443\u0440\u043E\u043D \u043D\u0430 2"
   duration: 0
   radius: 360
   tickRate: 0

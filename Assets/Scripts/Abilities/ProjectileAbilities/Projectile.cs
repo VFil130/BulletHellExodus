@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour, IPooledObject
@@ -14,6 +15,9 @@ public class Projectile : MonoBehaviour, IPooledObject
     private bool hasHitEnemy = false;
     private AbilityStats statsLink;
 
+    private HashSet<Enemy> hitEnemies = new HashSet<Enemy>();
+    [SerializeField] private CustomCollider customCollider;
+    [SerializeField] private LayerMask targetLayerMask;
     public void Initialize(AbilityStats stats)
     {
         ID = stats.ID;
@@ -24,6 +28,7 @@ public class Projectile : MonoBehaviour, IPooledObject
     }
     void FixedUpdate()
     {
+        CheckCollisions();
         transform.Translate(direction * currentSpeed * Time.fixedDeltaTime);
         lifeTime += Time.deltaTime;
         if (lifeTime >= maxlifeTime)
@@ -31,22 +36,41 @@ public class Projectile : MonoBehaviour, IPooledObject
             destroy = true;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void CheckCollisions()
     {
-        if (!hasHitEnemy && collision.gameObject.CompareTag("Enemy"))
+        if (destroy || hasHitEnemy || customCollider == null) return;
+
+        Collider2D[] hits = customCollider.CheckCollisions(targetLayerMask);
+
+        foreach (var hit in hits)
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            ProjectileEffect(enemy);
-            currentPierce -= 1;
-            if (currentPierce <= 0) 
+            if (hit == null) continue;
+
+            if (hit.CompareTag("Enemy"))
             {
-                hasHitEnemy = true;
-                destroy = true;
+                Enemy enemy = hit.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    if (!hitEnemies.Contains(enemy))
+                    {
+                        hitEnemies.Add(enemy);
+                        ProjectileEffect(enemy);
+                        currentPierce -= 1;
+
+                        if (currentPierce <= 0)
+                        {
+                            hasHitEnemy = true;
+                            destroy = true;
+                            break;
+                        }
+                    }
+                }
             }
-        }
-        else if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            destroy = true;
+            else if (hit.CompareTag("Obstacle"))
+            {
+                destroy = true;
+                break;
+            }
         }
     }
     protected void CreateAreaEffect(Vector3 position, GameObject areaEffectPrefab)

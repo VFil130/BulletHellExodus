@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
   m_Name: Beam 2
   m_EditorClassIdentifier: 
-  castInterval: 1
+  castInterval: 10
   speed: 0
-  damage: 15
+  damage: 30
   abilityPrefab: {fileID: 4396760115329036476, guid: a7216fdf5023da74ab8ba1bdd2a6cdad, type: 3}
   pierce: 0
   level: 3
   nextLevelData: {fileID: 11400000, guid: 1fd5b7470b5e0c740a4c51b830b2973e, type: 2}
-  description: BEAM
+  description: "\u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0443\u0440\u043E\u043D \u043D\u0430 10"
   duration: 0.5
-  radius: 2
+  radius: 3
   tickRate: 0.5
   shoots: 1

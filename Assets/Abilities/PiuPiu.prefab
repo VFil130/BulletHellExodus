@@ -48,7 +48,7 @@ MonoBehaviour:
   abilityData: {fileID: 11400000, guid: 791bb168321b07e488bb8679312cd6a6, type: 2}
   abilityCaster: {fileID: 0}
   level: 0
-  icon: {fileID: 21300000, guid: af4f27be1e6231d499f6b24f077ab660, type: 3}
+  icon: {fileID: 21300000, guid: fa2ad958505525048912d4baef22da09, type: 3}
   name: PiuPiu
   id: 4
   isBought: 0

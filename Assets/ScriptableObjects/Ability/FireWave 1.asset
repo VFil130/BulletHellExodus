@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castInterval: 4
   speed: 2
-  damage: 5
+  damage: 12
   abilityPrefab: {fileID: 268602509449990257, guid: 0df63b8e137b1ad40b8732b8dbe41c63, type: 3}
   pierce: 50
   level: 0
   nextLevelData: {fileID: 11400000, guid: 4f72e423928b93946bdcbc3e18a2430b, type: 2}
-  description: Reduce cooldown by 1sec
+  description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0443\u0440\u043E\u043D \u043D\u0430 4"
   duration: 0
   radius: 0
   tickRate: 0

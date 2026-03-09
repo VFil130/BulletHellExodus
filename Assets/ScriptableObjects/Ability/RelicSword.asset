@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
   m_Name: RelicSword
   m_EditorClassIdentifier: 
-  castInterval: 1
+  castInterval: 5
   speed: 0
   damage: 10
   abilityPrefab: {fileID: 2954845818976924223, guid: 5aa242407ae4e714885e9326aa094967, type: 3}
   pierce: 0
   level: 0
-  nextLevelData: {fileID: 11400000, guid: fefc33e9f400ee94daefda28fdfd7183, type: 2}
-  description: Cool Sword
+  nextLevelData: {fileID: 11400000, guid: 7ddf2075f99114043847e488b6a795f7, type: 2}
+  description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 \u043E\u0433\u0440\u043E\u043C\u043D\u044B\u0439
+    \u0447\u0438\u0441\u0442\u044B\u0439 \u0443\u0440\u043E\u043D"
   duration: 0
   radius: 0
   tickRate: 0

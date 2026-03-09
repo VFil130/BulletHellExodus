@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
   m_Name: Slash 3
   m_EditorClassIdentifier: 
-  castInterval: 1
+  castInterval: 4
   speed: 0
   damage: 10
   abilityPrefab: {fileID: 2954845818976924223, guid: 1eccfacd3c16c3145bc7eebf225ee796, type: 3}
   pierce: 0
   level: 0
-  nextLevelData: {fileID: 0}
-  description: Reduce CD to 1
+  nextLevelData: {fileID: 11400000, guid: cf7bc406382069e468aeb280b2ea244f, type: 2}
+  description: "\u0423\u043C\u0435\u043D\u0448\u044C\u0448\u0430\u0435\u0442 \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0443
+    \u043D\u0430 1"
   duration: 0
   radius: 0
   tickRate: 0

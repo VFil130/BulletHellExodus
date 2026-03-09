@@ -28,7 +28,6 @@ public class WaveController : MonoBehaviour
         {
             resourceZones = FindObjectsOfType<ResourceZone>().ToList();
         }
-
         ActivateRandomZones();
     }
 
@@ -55,6 +54,7 @@ public class WaveController : MonoBehaviour
         }
         ActivateRandomZones();
         ShowNotify();
+        EnemyManager.Instance.UpdateSpawnDelaysForWave(waveLevel);
     }
     private void ActivateRandomZones()
     {

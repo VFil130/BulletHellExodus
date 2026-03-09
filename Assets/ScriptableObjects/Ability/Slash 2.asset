@@ -19,4 +19,9 @@ MonoBehaviour:
   pierce: 0
   level: 0
   nextLevelData: {fileID: 11400000, guid: 2aa6c7d3059ef844f91bd583048bcb59, type: 2}
-  description: Add 2dmg
+  description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0443\u0440\u043E\u043D \u043D\u0430 3"
+  duration: 0
+  radius: 0
+  tickRate: 0
+  shoots: 0

@@ -21,7 +21,9 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float pullSpeed = 5f;
     [SerializeField] private float checkDistanceInterval = 1f;
     public event Action<Vector3, float, DamageType> OnDamageTaken;
-
+    [Header("Spawn Delay Reduction")]
+    [SerializeField] private float spawnDelayReductionPerWave = 0.05f;
+    [SerializeField] private float minSpawnDelay = 0.2f;
     [System.Serializable]
     public class EnemyToSpawn
     {
@@ -31,6 +33,7 @@ public class EnemyManager : MonoBehaviour
         public int spawnLevel;
         public int spawnCount;
         public SpawnStrategy spawnStrategy;
+        [HideInInspector] public float baseSpawnDelay;
     }
     public enum DamageType
     {
@@ -73,11 +76,44 @@ public class EnemyManager : MonoBehaviour
             {
                 Debug.LogError("Игрок не найден");
             }
-
+            SaveBaseSpawnDelays();
         }
 
         FindAllEnemies();
         InvokeRepeating(nameof(CheckEnemiesDistance), checkDistanceInterval, checkDistanceInterval);
+    }
+    public void SaveBaseSpawnDelays()
+    {
+        foreach (var enemyToSpawn in enemiesToSpawn)
+        {
+            enemyToSpawn.baseSpawnDelay = enemyToSpawn.spawnDelay;
+        }
+    }
+    public void UpdateSpawnDelaysForWave(int waveLevel)
+    {
+        foreach (var enemyToSpawn in enemiesToSpawn)
+        {
+            if (enemyToSpawn.spawnLevel <= waveLevel)
+            {
+                int wavesPassed = waveLevel - enemyToSpawn.spawnLevel;
+                if (wavesPassed >= 0)
+                {
+                    float reductionFactor = Mathf.Pow(1f - spawnDelayReductionPerWave, wavesPassed);
+                    float newDelay = enemyToSpawn.baseSpawnDelay * reductionFactor;
+
+                    enemyToSpawn.spawnDelay = Mathf.Max(newDelay, minSpawnDelay);
+
+                    Debug.Log($"Волна {waveLevel}: {enemyToSpawn.enemyPrefab.name} задержка = {enemyToSpawn.spawnDelay:F2}с");
+                }
+            }
+        }
+    }
+    public void ResetSpawnDelays()
+    {
+        foreach (var enemyToSpawn in enemiesToSpawn)
+        {
+            enemyToSpawn.spawnDelay = enemyToSpawn.baseSpawnDelay;
+        }
     }
     private void CheckEnemiesDistance()
     {

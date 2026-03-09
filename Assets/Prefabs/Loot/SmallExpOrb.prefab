@@ -140,4 +140,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8fa35972145c3741b6eb3fd6f5d04d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experiecneGranted: 100
+  experiecneGranted: 25

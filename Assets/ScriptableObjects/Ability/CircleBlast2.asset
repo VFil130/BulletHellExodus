@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
   m_Name: CircleBlast2
   m_EditorClassIdentifier: 
-  castInterval: 0.2
-  speed: 50
+  castInterval: 1
+  speed: 10
   damage: 10
   abilityPrefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}
-  pierce: 2
-  level: 2
+  pierce: 1
+  level: 1
   nextLevelData: {fileID: 11400000, guid: 0d12c341f415d7148b1a9ccb721dd36c, type: 2}
-  description: do FASTER piupiu (+40Speed)
+  description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0443\u0440\u043E\u043D \u043D\u0430 5"
   duration: 0
   radius: 360
   tickRate: 0

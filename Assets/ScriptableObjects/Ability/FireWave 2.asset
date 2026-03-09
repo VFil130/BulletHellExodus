@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
   m_Name: FireWave 2
   m_EditorClassIdentifier: 
-  castInterval: 5
+  castInterval: 4
   speed: 3
-  damage: 5
+  damage: 12
   abilityPrefab: {fileID: 268602509449990257, guid: 0df63b8e137b1ad40b8732b8dbe41c63, type: 3}
   pierce: 50
   level: 0
-  nextLevelData: {fileID: 0}
-  description: Increase speed by 1
+  nextLevelData: {fileID: 11400000, guid: cb9738af012c94e419ba583dd3eec79a, type: 2}
+  description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043D\u0430 1"
   duration: 0
   radius: 0
   tickRate: 0

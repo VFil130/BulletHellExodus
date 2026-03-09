@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
   m_Name: GasBottle 3
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
-  castInterval: 5
+  castInterval: 7
   speed: 3
   damage: 4
   abilityPrefab: {fileID: 6702379083915196915, guid: d2415749c6193a44cbdf43a25ffa461d, type: 3}
   pierce: 0
   level: 0
-  nextLevelData: {fileID: 0}
+  nextLevelData: {fileID: 11400000, guid: 533d723908aa21741ace290b885d0fc3, type: 2}
   description: "\u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
     \u0443\u0440\u043E\u043D\u0430 \u043D\u0430 1"
   duration: 7

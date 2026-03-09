@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castInterval: 5
   speed: 0
-  damage: 30
+  damage: 50
   abilityPrefab: {fileID: 2954845818976924223, guid: 5aa242407ae4e714885e9326aa094967, type: 3}
   pierce: 0
   level: 3
-  nextLevelData: {fileID: 11400000, guid: fefc33e9f400ee94daefda28fdfd7183, type: 2}
-  description: +10DMG!!!!!
+  nextLevelData: {fileID: 11400000, guid: d32ac82a4bb6556428052f3ca7314195, type: 2}
+  description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0443\u0440\u043E\u043D \u043D\u0430 20"
   duration: 0
   radius: 0
   tickRate: 0
