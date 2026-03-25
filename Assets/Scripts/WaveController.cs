@@ -10,25 +10,28 @@ public class WaveController : MonoBehaviour
     public int waveLevel;
     private float waveTimer;
     public float timeBetweenWaves;
-    public List<ResourceZone> resourceZones;
-    [Range(1, 5)] public int zonesActive = 1;
+    [SerializeField] private int maxActiveZones = 3;
+    [SerializeField] private float spawnRadiusMin = 10f;
+    [SerializeField] private float spawnRadiusMax = 20f;
+    [SerializeField] private List<GameObject> resourceZonePrefabs;
+    [SerializeField] private Transform centerPoint;
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private TMP_Text timer;
-    [SerializeField] private TMP_Text notyfytxt;
+    [SerializeField] private TMP_Text notifyText;
     private float elapsedTime = 0f;
     public static WaveController instance;
+
+    private List<ResourceZone> activeResourceZones = new List<ResourceZone>();
+    private Queue<ResourceZone> zoneQueue = new Queue<ResourceZone>();
 
     private void Awake()
     {
         instance = this;
     }
+
     void Start()
     {
-        if (resourceZones == null || resourceZones.Count == 0)
-        {
-            resourceZones = FindObjectsOfType<ResourceZone>().ToList();
-        }
-        ActivateRandomZones();
+        SpawnResourceZone();
     }
 
     void Update()
@@ -47,64 +50,118 @@ public class WaveController : MonoBehaviour
         waveLevel += 1;
         waveTimer = 0;
         waveText.text = waveLevel.ToString();
+
         if (waveLevel == 2)
         {
             EvacZone.instance.Activate();
-            notyfytxt.text += $"Evacuation Active!\n";
-        }
-        ActivateRandomZones();
-        ShowNotify();
-        EnemyManager.Instance.UpdateSpawnDelaysForWave(waveLevel);
-    }
-    private void ActivateRandomZones()
-    {
-        foreach (var zone in resourceZones)
-        {
-            zone.DeactivateZone();
+            ShowNotify("EVACUATION ACTIVE!");
         }
 
-        if (resourceZones != null && resourceZones.Count > 0)
+        SpawnResourceZone();
+        EnemyManager.Instance.UpdateSpawnDelaysForWave(waveLevel);
+    }
+
+    private void SpawnResourceZone()
+    {
+        if (resourceZonePrefabs == null || resourceZonePrefabs.Count == 0 || centerPoint == null)
         {
-            List<ResourceZone> validZones = resourceZones.Where(z => z != null).ToList();
-            if (validZones.Count > 0)
+            Debug.LogWarning("Не назначены префабы зон или центр карты!");
+            return;
+        }
+
+        GameObject selectedPrefab = resourceZonePrefabs[Random.Range(0, resourceZonePrefabs.Count)];
+
+        Vector2 spawnPos = GetRandomPositionFromCenter();
+        GameObject newZoneObj = Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
+        ResourceZone newZone = newZoneObj.GetComponent<ResourceZone>();
+
+        if (newZone != null)
+        {
+            activeResourceZones.Add(newZone);
+            zoneQueue.Enqueue(newZone);
+            ShowNotify($"Resource zone appeared! (+{newZone.GetAmount()} {newZone.GetResourceType()})");
+
+            if (activeResourceZones.Count > maxActiveZones)
             {
-                List<ResourceZone> zonesToActivate = validZones.OrderBy(x => Random.value).Take(zonesActive).ToList();
-                notyfytxt.text += "Active Zones: ";
-                foreach (var zone in zonesToActivate)
-                {
-                    zone.ActivateZone();
-                    int zoneIndex = resourceZones.IndexOf(zone);
-                    notyfytxt.text += $"Zone {zoneIndex}: {zone.resource} ";
-                }
-            }
-            else
-            {
-                Debug.LogWarning("Нет активных ResourceZone в списке!");
+                RemoveOldestZone();
             }
         }
     }
+
+    private Vector2 GetRandomPositionFromCenter()
+    {
+        Vector2 center = centerPoint.position;
+        float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+        float distance = Random.Range(spawnRadiusMin, spawnRadiusMax);
+
+        float x = center.x + Mathf.Cos(angle) * distance;
+        float y = center.y + Mathf.Sin(angle) * distance;
+
+        return new Vector2(x, y);
+    }
+
+    private void RemoveOldestZone()
+    {
+        if (zoneQueue.Count > 0)
+        {
+            ResourceZone oldestZone = zoneQueue.Dequeue();
+            if (oldestZone != null && activeResourceZones.Contains(oldestZone))
+            {
+                activeResourceZones.Remove(oldestZone);
+                ShowNotify("Resource zone disappeared!");
+                Destroy(oldestZone.gameObject);
+            }
+        }
+    }
+
+    public void OnZoneCollected(ResourceZone zone)
+    {
+        if (activeResourceZones.Contains(zone))
+        {
+            activeResourceZones.Remove(zone);
+
+            if (zoneQueue.Contains(zone))
+            {
+                zoneQueue = new Queue<ResourceZone>(zoneQueue.Where(z => z != zone));
+            }
+
+            ShowNotify($"Collected {zone.GetAmount()} {zone.GetResourceType()}!");
+            Destroy(zone.gameObject);
+        }
+    }
+
+    private void ShowNotify(string message)
+    {
+        if (notifyText != null)
+        {
+            notifyText.text = message;
+            notifyText.gameObject.SetActive(true);
+            CancelInvoke(nameof(HideNotify));
+            Invoke(nameof(HideNotify), 5f);
+        }
+    }
+
     private void HideNotify()
     {
-        notyfytxt.text = "";
-        notyfytxt.gameObject.SetActive(false);
+        if (notifyText != null)
+        {
+            notifyText.text = "";
+            notifyText.gameObject.SetActive(false);
+        }
     }
+
     void UpdateTimerDisplay()
     {
         int minutes = Mathf.FloorToInt(elapsedTime / 60);
-        int seconds = Mathf.FloorToInt(elapsedTime % 60); 
+        int seconds = Mathf.FloorToInt(elapsedTime % 60);
         timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
     public (float healthMult, float armourMult) GetWaveMultipliers()
     {
         int tenWaveCount = waveLevel / 10;
         float healthMult = 1f + (baseHealthIncrease * tenWaveCount);
         float armourMult = 1f + (baseArmourIncrease * tenWaveCount);
-
         return (healthMult, armourMult);
-    }
-    private void ShowNotify()
-    {
-        notyfytxt.gameObject.SetActive(true);
-        Invoke(nameof(HideNotify), 10f);
     }
 }

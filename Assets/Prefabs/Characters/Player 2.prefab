@@ -203,7 +203,7 @@ MonoBehaviour:
   isDead: 0
   experience: 0
   level: 1
-  experienceCap: 200
+  experienceCap: 100
   sprite: {fileID: 6271458919213712403}
 --- !u!212 &8113204234202283082
 SpriteRenderer:

@@ -109,7 +109,7 @@ MonoBehaviour:
   maxlifeTime: 0.4
   lifeTime: 0
   speed: 0
-  punchForce: 2
+  punchForce: 4
   markedEnemies: []
 --- !u!61 &6746778855049459920
 BoxCollider2D:
