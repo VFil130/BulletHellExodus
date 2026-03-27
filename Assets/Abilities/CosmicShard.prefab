@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4236101643181046401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5152968868024748502}
+  - component: {fileID: -3889746551794723889}
+  m_Layer: 0
+  m_Name: CosmicShard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5152968868024748502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236101643181046401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7192703, y: 1.2176738, z: -0.075614244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3889746551794723889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236101643181046401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6e2a6202800014dbfd220f52ac011a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingProjectiles
+  abilityOwner: {fileID: 0}
+  abilityData: {fileID: 11400000, guid: e25c3f091661e8f40b5828e7c1dfb0ab, type: 2}
+  abilityCaster: {fileID: 0}
+  level: 0
+  icon: {fileID: 21300000, guid: 7819a39f60839214dbb639dab5986491, type: 3}
+  name: "\u041A\u043E\u0441\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u041E\u0441\u043A\u043E\u043B\u043E\u043A"
+  id: 12
+  isBought: 0
+  speed: 0
+  damage: 0
+  pierce: 0
+  duration: 0
+  radius: 0
+  tickRate: 0
+  shoots: 0
+  shootInterval: 0.1
+  projectilePrefab: {fileID: 2342027961020517478, guid: 8ce2d9f6fdd35dc4ab628e59ea1b41cf, type: 3}
+  spawnHeight: 5
+  spawnAreaWidth: 15
+  spawnOneByOne: 1
+  spawnDelayBetween: 0.1

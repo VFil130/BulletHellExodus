@@ -9683,25 +9683,28 @@ MonoBehaviour:
   objectsInfos:
   - id: 0
     prefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}
-    StartCount: 100
+    StartCount: 5
   - id: 1
     prefab: {fileID: 268602509449990257, guid: 0df63b8e137b1ad40b8732b8dbe41c63, type: 3}
-    StartCount: 16
+    StartCount: 5
   - id: 2
     prefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}
     StartCount: 50
   - id: 3
     prefab: {fileID: 2342027961020517478, guid: c4595f04a5d32d649a6776b6e604842b, type: 3}
-    StartCount: 32
+    StartCount: 5
   - id: 4
     prefab: {fileID: 2342027961020517478, guid: 5ca754d9fd3f9c64db1e8e2861870db3, type: 3}
-    StartCount: 1
+    StartCount: 5
   - id: 10
     prefab: {fileID: 2342027961020517478, guid: 54fdf3f9cc42d3f478b643a02af1da54, type: 3}
     StartCount: 15
   - id: 11
     prefab: {fileID: 6702379083915196915, guid: d2415749c6193a44cbdf43a25ffa461d, type: 3}
     StartCount: 5
+  - id: 12
+    prefab: {fileID: 2342027961020517478, guid: 8ce2d9f6fdd35dc4ab628e59ea1b41cf, type: 3}
+    StartCount: 10
 --- !u!4 &1347920330
 Transform:
   m_ObjectHideFlags: 0
@@ -11631,7 +11634,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.7
+  m_fontSize: 69.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

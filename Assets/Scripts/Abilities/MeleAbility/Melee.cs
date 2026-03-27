@@ -23,7 +23,6 @@ public class Melee : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("ВОШЛО");
         if (collision.gameObject.CompareTag("Enemy") && !markedEnemies.Contains(collision.gameObject))
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();

@@ -42,6 +42,7 @@ public class AbilityStats : MonoBehaviour, IAbility
         level++;
         abilityData = abilityData.NextLevelData;
         AbilityInterval = SetCastInterval();
+        InitStats();
     }
     public void SetLevel1()
     {
