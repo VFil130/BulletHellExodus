@@ -102,8 +102,6 @@ public class EnemyManager : MonoBehaviour
                     float newDelay = enemyToSpawn.baseSpawnDelay * reductionFactor;
 
                     enemyToSpawn.spawnDelay = Mathf.Max(newDelay, minSpawnDelay);
-
-                    Debug.Log($"Волна {waveLevel}: {enemyToSpawn.enemyPrefab.name} задержка = {enemyToSpawn.spawnDelay:F2}с");
                 }
             }
         }

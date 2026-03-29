@@ -25,7 +25,9 @@ public class PlayerController : Character
 
     void FixedUpdate()
     {
+        if (isDead) return;
         CharacterMovement();
+        UpdateEffects();
     }
 
     private void CharacterMovement()

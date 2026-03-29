@@ -29,14 +29,9 @@ public class Character : MonoBehaviour
     public SpriteRenderer sprite;
 
 
-    private void Start()
+    void Awake()
     {
         baseSpeed = speed;
-    }
-    private void Update()
-    {
-        if (isDead) return;
-        UpdateEffects(Time.deltaTime);
     }
     #region Effects System
     [System.Serializable]
@@ -76,10 +71,18 @@ public class Character : MonoBehaviour
             return false;
         }
     }
-
-    public void ApplyEffect(string effectName, float duration, float power,
-                          bool refreshIfExists = true, int maxStacks = 1,
-                          float stackPowerBonus = 0)
+    public void UpdateStats()
+    {
+        Debug.Log(speed);
+        speed = baseSpeed;
+        foreach (ActiveEffect effect in activeEffects)
+        {
+            ApplyEffect(effect);
+        }
+        Debug.Log(speed);
+    }
+    public void AddEffect(string effectName, float duration, float power,
+                          bool refreshIfExists = true, int maxStacks = 1)
     {
         ActiveEffect existingEffect = activeEffects.Find(e => e.effectName == effectName);
 
@@ -88,85 +91,60 @@ public class Character : MonoBehaviour
             if (refreshIfExists)
             {
                 existingEffect.Refresh(duration);
-                existingEffect.TryStack(stackPowerBonus);
+                existingEffect.TryStack(power);
             }
             else if (maxStacks > 1)
             {
-                existingEffect.TryStack(stackPowerBonus);
+                existingEffect.TryStack(power);
             }
             return;
         }
 
         ActiveEffect newEffect = new ActiveEffect(effectName, duration, power, maxStacks);
         activeEffects.Add(newEffect);
-
-        switch (effectName.ToLower())
+        UpdateStats();
+    }
+    public void ApplyEffect(ActiveEffect effect)
+    {
+        switch (effect.effectName.ToLower())
         {
             case "slow":
-                ApplySlowEffect(newEffect);
+                ApplySlowEffect(effect);
                 break;
             case "poison":
-                StartCoroutine(PoisonEffect(newEffect));
+                StartCoroutine(PoisonEffect(effect));
                 break;
             case "healover":
-                StartCoroutine(HealOverTimeEffect(newEffect));
+                StartCoroutine(HealOverTimeEffect(effect));
                 break;
             case "stun":
-                ApplyStunEffect(newEffect);
+                ApplyStunEffect(effect);
                 break;
             case "speedboost":
-                ApplySpeedBoostEffect(newEffect);
+                ApplySpeedBoostEffect(effect);
                 break;
             case "armorbuff":
-                ApplyArmorBuffEffect(newEffect);
+                ApplyArmorBuffEffect(effect);
                 break;
         }
     }
-
-    private void UpdateEffects(float deltaTime)
+    public void UpdateEffects()
     {
         for (int i = activeEffects.Count - 1; i >= 0; i--)
         {
             ActiveEffect effect = activeEffects[i];
-            effect.duration -= deltaTime;
+            effect.duration -= Time.deltaTime;
 
             if (effect.duration <= 0)
             {
-                RemoveEffect(effect.effectName);
                 activeEffects.RemoveAt(i);
-            }
-        }
-    }
-
-    public void RemoveEffect(string effectName)
-    {
-        ActiveEffect effect = activeEffects.Find(e => e.effectName == effectName);
-        if (effect != null)
-        {
-            switch (effectName.ToLower())
-            {
-                case "slow":
-                    speed = baseSpeed;
-                    break;
-                case "stun":
-                    break;
-                case "speedboost":
-                    speed = baseSpeed;
-                    break;
-                case "armorbuff":
-                    physArmour = 0;
-                    mageArmour = 0;
-                    break;
+                UpdateStats();
             }
         }
     }
 
     public void ClearAllEffects()
     {
-        foreach (ActiveEffect effect in activeEffects)
-        {
-            RemoveEffect(effect.effectName);
-        }
         activeEffects.Clear();
     }
 
@@ -216,8 +194,8 @@ public class Character : MonoBehaviour
 
     private void ApplySpeedBoostEffect(ActiveEffect effect)
     {
-        float boostPercent = Mathf.Min(effect.power * effect.stacks, 100f);
-        speed = baseSpeed * (1f + boostPercent / 100f);
+        float boost = effect.power * effect.stacks;
+        speed *= boost;
 
         if (sprite != null)
             StartCoroutine(FlashColor(Color.yellow, 0.5f));

@@ -4788,6 +4788,7 @@ MonoBehaviour:
   - {fileID: -6829016232591359995, guid: c0c2dccb152ba5c48af31c1dce1d07b5, type: 3}
   - {fileID: -3889746551794723889, guid: 2a5686df9ab791441b2affc0ce03f91a, type: 3}
   - {fileID: 1709682673901245640, guid: db3a17c9833899d42aa156408acced38, type: 3}
+  - {fileID: -5546961019697785252, guid: ef13a052c5690024c90efb17a4d5a464, type: 3}
   pickedAbilities: []
   numberOfAbilitiesToPick: 4
   AbilitiesToChoose: []
