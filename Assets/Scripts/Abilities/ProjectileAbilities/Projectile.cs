@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour, IPooledObject
     [SerializeField] protected float currentSpeed;
     [SerializeField] protected float currentDamage;
     [SerializeField] protected float currentPierce;
+    [SerializeField] protected float currentRadius;
     [SerializeField] public bool destroy = false;
     [SerializeField] private Vector2 direction;
     [SerializeField] protected float maxlifeTime = 5;
@@ -24,6 +25,7 @@ public class Projectile : MonoBehaviour, IPooledObject
         currentDamage = stats.damage;
         currentPierce = stats.pierce;
         currentSpeed = stats.speed;
+        currentRadius = stats.radius;
         statsLink = stats;
     }
     void FixedUpdate()

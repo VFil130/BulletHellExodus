@@ -118,7 +118,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5415221874097496720, guid: 2775cec535746324c8de602fa65c698a, type: 3}
   attackRange: 15
   attackCooldown: 2
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 768581502297863683}
 --- !u!50 &7453804711712921619
 Rigidbody2D:
   serializedVersion: 5

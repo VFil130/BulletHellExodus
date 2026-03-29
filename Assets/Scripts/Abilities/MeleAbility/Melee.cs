@@ -14,12 +14,18 @@ public class Melee : MonoBehaviour
     [SerializeField] private float speed;
     public float punchForce = 2f;
     [SerializeField] private List<GameObject> markedEnemies;
-    private AbilityStats parentAbility;
+    protected AbilityStats parentAbility;
     public void Initialize(AbilityStats stats)
     {
+        maxlifeTime = stats.duration;
         parentAbility = stats;
         currentDamage = stats.damage;
-        speed = maxlifeTime/2 - 0.1f;
+        speed = SetSpeed();
+    }
+    public virtual float SetSpeed()
+    {
+        float speed = maxlifeTime / 2 - 0.1f;
+        return speed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -37,6 +43,7 @@ public class Melee : MonoBehaviour
         {
             destroy = true;
         }
+        DoMove();
     }
     protected virtual void Punch(Enemy enemy)
     {
@@ -69,5 +76,10 @@ public class Melee : MonoBehaviour
     {
         transform.DOPunchPosition(Vector2.right * 0.8f, parentAbility.duration, 1, 0.8f)
              .SetRelative(true);
+    }
+    public virtual void DoMove() { }
+    public void RotateAction()
+    {
+        transform.RotateAround(parentAbility.transform.position, Vector3.forward, speed * Time.deltaTime);
     }
 }

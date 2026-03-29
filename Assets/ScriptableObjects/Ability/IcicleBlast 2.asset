@@ -17,7 +17,7 @@ MonoBehaviour:
   damage: 7
   abilityPrefab: {fileID: 2342027961020517478, guid: c4595f04a5d32d649a6776b6e604842b, type: 3}
   pierce: 1
-  level: 0
+  level: 3
   nextLevelData: {fileID: 11400000, guid: f8bbb4b7479510d4f99bfd89b82222c0, type: 2}
   description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
     \u0443\u0440\u043E\u043D \u043D\u0430 2"

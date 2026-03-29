@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities: []
-  startAbility: {fileID: -3889746551794723889, guid: 2a5686df9ab791441b2affc0ce03f91a, type: 3}
+  startAbility: {fileID: -5701323619031950155, guid: 0a47b126006c2cf4dab20fe3a2e78068, type: 3}
   abilityCount: 0
 --- !u!114 &1666417531013955594
 MonoBehaviour:
