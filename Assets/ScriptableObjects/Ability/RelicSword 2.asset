@@ -21,7 +21,7 @@ MonoBehaviour:
   nextLevelData: {fileID: 11400000, guid: 93c43c6e5a4929f4995596742aabe768, type: 2}
   description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
     \u0443\u0440\u043E\u043D \u043D\u0430 10"
-  duration: 0
+  duration: 0.4
   radius: 0
   tickRate: 0
   shoots: 0

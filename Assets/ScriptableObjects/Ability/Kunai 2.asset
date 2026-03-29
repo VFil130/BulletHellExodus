@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
-  m_Name: Shiled 4
+  m_Name: Kunai 2
   m_EditorClassIdentifier: 
-  castInterval: 16
-  speed: 70
-  damage: 4
-  abilityPrefab: {fileID: 2954845818976924223, guid: da3ac71f467d677469538687cd14925b, type: 3}
-  pierce: 0
-  level: 5
-  nextLevelData: {fileID: 0}
+  castInterval: 2
+  speed: 9
+  damage: 6
+  abilityPrefab: {fileID: 8014887911311544568, guid: 2b614f4cd13685a4ebdab9f127d8d2af, type: 3}
+  pierce: 1
+  level: 3
+  nextLevelData: {fileID: 11400000, guid: 81dd7022345376e4fb4e177881b6f92b, type: 2}
   description: "\u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
     \u0443\u0440\u043E\u043D \u043D\u0430 3"
-  duration: 8
-  radius: 0
+  duration: 0
+  radius: 60
   tickRate: 0
-  shoots: 0
+  shoots: 1

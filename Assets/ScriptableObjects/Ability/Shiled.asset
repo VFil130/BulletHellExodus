@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
   m_Name: Shiled
   m_EditorClassIdentifier: 
-  castInterval: 5
-  speed: 68
+  castInterval: 20
+  speed: 70
   damage: 1
   abilityPrefab: {fileID: 2954845818976924223, guid: da3ac71f467d677469538687cd14925b, type: 3}
   pierce: 0

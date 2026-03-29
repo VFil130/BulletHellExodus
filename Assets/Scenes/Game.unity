@@ -4784,6 +4784,10 @@ MonoBehaviour:
   - {fileID: 7728183032304661754, guid: 0a77a211e23fdf24cb23ac733df50be8, type: 3}
   - {fileID: 7728183032304661754, guid: b037cce5f881f6d4d8f293bc2d08e1d5, type: 3}
   - {fileID: -6829016232591359995, guid: b642f0a41ac024b4ea4daad5bb26c242, type: 3}
+  - {fileID: -5701323619031950155, guid: 0a47b126006c2cf4dab20fe3a2e78068, type: 3}
+  - {fileID: -6829016232591359995, guid: c0c2dccb152ba5c48af31c1dce1d07b5, type: 3}
+  - {fileID: -3889746551794723889, guid: 2a5686df9ab791441b2affc0ce03f91a, type: 3}
+  - {fileID: 1709682673901245640, guid: db3a17c9833899d42aa156408acced38, type: 3}
   pickedAbilities: []
   numberOfAbilitiesToPick: 4
   AbilitiesToChoose: []
@@ -9708,6 +9712,9 @@ MonoBehaviour:
     StartCount: 10
   - id: 13
     prefab: {fileID: 1080059562009781240, guid: 6a2e8c5355b34e245a8ed8c07ff99b45, type: 3}
+    StartCount: 5
+  - id: 15
+    prefab: {fileID: 8014887911311544568, guid: 2b614f4cd13685a4ebdab9f127d8d2af, type: 3}
     StartCount: 5
 --- !u!4 &1347920330
 Transform:
