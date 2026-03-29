@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpeedUp
   m_EditorClassIdentifier: 
   castInterval: 12
-  speed: 2
+  speed: 1.2
   damage: 0
   abilityPrefab: {fileID: 0}
   pierce: 0
