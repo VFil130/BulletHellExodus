@@ -8,7 +8,7 @@ public abstract class AreaEffect : MonoBehaviour
     [SerializeField] public bool destroy = false;
     [SerializeField] private float lifeTime = 0f;
     private float radius = 3f;
-
+    private float speed = 3f;
     private float tickTimer = 0f;
     public void Initialize(AbilityStats stats)
     {
@@ -17,6 +17,7 @@ public abstract class AreaEffect : MonoBehaviour
         currentDuration = stats.duration;
         currentTickRate = stats.tickRate;
         radius = stats.radius;
+        speed = stats.speed;
         transform.localScale = Vector3.one * radius * 2;
         tickTimer = currentTickRate;
     }
@@ -31,18 +32,22 @@ public abstract class AreaEffect : MonoBehaviour
             ApplyAreaEffect();
             tickTimer = 0f;
         }
-
         if (lifeTime >= currentDuration)
         {
             destroy = true;
         }
-
         if (destroy)
         {
             Destroy(gameObject);
         }
+        TimedEffect();
     }
-
+    public virtual void TimedEffect() { }
+    public void RandomPush()
+    {
+        Vector2 randomDirection = Random.insideUnitCircle.normalized;
+        transform.Translate(randomDirection * speed);
+    }
     private void ApplyAreaEffect()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, radius);

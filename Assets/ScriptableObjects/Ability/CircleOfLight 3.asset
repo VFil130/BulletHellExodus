@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43db8b3a843541b4cab47f85cb386c8d, type: 3}
+  m_Name: CircleOfLight 3
+  m_EditorClassIdentifier: 
+  castInterval: 6
+  speed: 0
+  damage: 8
+  abilityPrefab: {fileID: 8704434028834616616, guid: 79c32994b9a4d9f44be061a6b65b3cd3, type: 3}
+  pierce: 0
+  level: 4
+  nextLevelData: {fileID: 11400000, guid: 22bc560037a1ae549909a89df3b0690a, type: 2}
+  description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0440\u0430\u0434\u0438\u0443\u0441 \u043D\u0430 3"
+  duration: 4
+  radius: 4
+  tickRate: 0
+  shoots: 0
+  power: 0

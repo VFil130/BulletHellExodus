@@ -27,6 +27,7 @@ public class AbilityStats : MonoBehaviour, IAbility
     public float radius;
     public float tickRate;
     public float shoots;
+    public float power;
     void Awake()
     {
         AbilityInterval = SetCastInterval();
@@ -55,6 +56,7 @@ public class AbilityStats : MonoBehaviour, IAbility
     }
     private void InitStats()
     {
+        power = abilityData.Power;
         speed = abilityData.Speed;
         damage = abilityData.Damage;
         pierce = abilityData.Pierce;

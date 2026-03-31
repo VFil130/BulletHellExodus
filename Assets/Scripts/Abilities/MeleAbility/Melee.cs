@@ -60,6 +60,17 @@ public class Melee : MonoBehaviour
             enemy.transform.Translate(pushDirection*punchForce);
         }
     }
+    public float CritHit(float damage, float critChance)
+    {
+        float randomValue = UnityEngine.Random.Range(0f, 100f);
+
+        if (randomValue <= critChance)
+        {
+            return damage * parentAbility.power;
+        }
+
+        return damage;
+    }
     private void ClearMarkedEnemies()
     {
         markedEnemies.Clear();
@@ -71,6 +82,17 @@ public class Melee : MonoBehaviour
         ClearMarkedEnemies();
         transform.DORotate(new Vector3(0, 0, -180), speed, RotateMode.LocalAxisAdd);
         yield return null;
+    }
+    public IEnumerator PulseScale(float duration)
+    {
+        transform.DOScale(parentAbility.radius, duration).SetEase(Ease.OutQuad);
+        Debug.Log("0");
+        yield return new WaitForSeconds(duration);
+        Debug.Log("1");
+        ClearMarkedEnemies();
+        Debug.Log("2");
+        transform.DOScale(0.25f, duration).SetEase(Ease.InQuad);
+        Debug.Log("3");
     }
     public void Poke()
     {
