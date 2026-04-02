@@ -12,7 +12,6 @@ public class Character : MonoBehaviour
     [SerializeField] private float maxhealth;
     [SerializeField] private float health;
     [SerializeField] protected float speed;
-    private float baseSpeed;
     [SerializeField] private float physArmour;
     [SerializeField] private float mageArmour;
     [Header("I-Frames")]
@@ -25,13 +24,21 @@ public class Character : MonoBehaviour
     public float experienceCap = 100;
     private int experienceCapBase = 100;
     private float experienceGrowthRate = 1.15f;
-
     public SpriteRenderer sprite;
-
-
+    private float baseSpeed = 1;
+    private float ampDamage = 1;
+    private float ampSpeed = 1;
+    private float ampRadius = 1;
+    private float ampDuration = 1;
+    private float ampInterval = 1;
+    private float ampPower = 1;
+    private float ampPierce = 0;
+    private float ampShoot = 0;
+    private float ampTickRate = 1;
     void Awake()
     {
         baseSpeed = speed;
+        LoadUpgrades();
     }
     #region Effects System
     [System.Serializable]
@@ -295,9 +302,59 @@ public class Character : MonoBehaviour
             GameManager.instance.StartLevelUp();
         }
     }
-    public virtual void buffAbility(AbilityStats abiltiy)
+    private void LoadUpgrades()
     {
-        Debug.Log(abiltiy.name + "buffed");
+        var upgrades = UpgradeManager.instance.GetAllUpgrades();
+
+        foreach (var kvp in upgrades)
+        {
+            UpgradeData upgrade = kvp.Key;
+            int level = kvp.Value;
+            float totalValue = upgrade.valuePerLevel * level;
+
+            switch (upgrade.stat)
+            {
+                case UpgradeStat.Damage:
+                    ampDamage += totalValue;
+                    break;
+                case UpgradeStat.Radius:
+                    ampRadius += totalValue;
+                    break;
+                case UpgradeStat.Duration:
+                    ampDuration += totalValue;
+                    break;
+                case UpgradeStat.Pierce:
+                    ampPierce += totalValue;
+                    break;
+                case UpgradeStat.Shoots:
+                    ampShoot += totalValue;
+                    break;
+                case UpgradeStat.Power:
+                    ampPower += totalValue;
+                    break;
+                case UpgradeStat.TickRate:
+                    ampTickRate += totalValue;
+                    break;
+                case UpgradeStat.Interval:
+                    ampInterval += totalValue;
+                    break;
+                case UpgradeStat.Speed:
+                    ampSpeed += totalValue;
+                    break;
+            }
+        }
+    }
+    public virtual void buffAbility(AbilityStats ability)
+    {
+        ability.damage *= ampDamage;
+        ability.speed *= ampSpeed;
+        ability.radius *= ampRadius;
+        ability.duration *= ampDuration;
+        ability.AbilityInterval /= ampInterval;
+        ability.power *= ampPower;
+        ability.pierce += ampPierce;
+        ability.shoots += ampShoot;
+        ability.tickRate /= ampTickRate;
     } 
     public float ReturnHealth()
     {

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Wizzard : PlayerController
 {
-    public override void buffAbility(AbilityStats abiltiy)
+    public override void buffAbility(AbilityStats ability)
     {
-        abiltiy.shoots += 1;
-        abiltiy.damage *= 1.1f;
+        ability.shoots += 1;
+        ability.damage *= 1.1f;
     }
 }

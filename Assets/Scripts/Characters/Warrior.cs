@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Warrior : PlayerController
 {
-    public override void buffAbility(AbilityStats abiltiy)
+    public override void buffAbility(AbilityStats ability)
     {
-        abiltiy.damage *= 1.5f;
+        ability.damage *= 1.5f;
     }
 }

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Ranger : PlayerController
 {
-    public override void buffAbility(AbilityStats abiltiy)
+    public override void buffAbility(AbilityStats ability)
     {
-        abiltiy.shoots += 1;
-        abiltiy.pierce += 1;
+        ability.shoots += 1;
+        ability.pierce += 1;
     }
 }
