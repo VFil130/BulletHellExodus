@@ -21,6 +21,10 @@ public class Menu : MonoBehaviour
         HideAllPanels();
         SetupSoundSliders();
     }
+    public void Update()
+    {
+        UpdateResourceCount();
+    }
     public void StartGame()
     {
         SceneController.instance.SceneChange(sceneToLoad);

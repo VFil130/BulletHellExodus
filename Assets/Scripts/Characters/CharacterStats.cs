@@ -316,6 +316,7 @@ public class Character : MonoBehaviour
             {
                 case UpgradeStat.Damage:
                     ampDamage += totalValue;
+                    
                     break;
                 case UpgradeStat.Radius:
                     ampRadius += totalValue;

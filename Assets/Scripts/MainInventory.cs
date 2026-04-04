@@ -23,6 +23,11 @@ public class MainInventory : MonoBehaviour
     public void Start()
     {
         LoadResources();
+        AddResource(ValResources.Res1, 10000);
+        AddResource(ValResources.Res2, 10000);
+        AddResource(ValResources.Res3, 10000);
+        AddResource(ValResources.Res4, 10000);
+        SaveResources();
     }
     public void SaveResources()
     {
@@ -64,5 +69,12 @@ public class MainInventory : MonoBehaviour
         if (inventory.ContainsKey(resource))
             return inventory[resource];
         return 0f;
+    }
+    public void AddResource(ValResources resource, float amount)
+    {
+        if (inventory.ContainsKey(resource))
+            inventory[resource] += amount;
+        else
+            inventory[resource] = amount;
     }
 }
