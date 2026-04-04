@@ -14,12 +14,14 @@ public class UpgradeManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            LoadUpgrades();
         }
         else
         {
             Destroy(gameObject);
         }
     }
+
     public int GetLevel(UpgradeData upgrade)
     {
         return upgradeLevels.ContainsKey(upgrade) ? upgradeLevels[upgrade] : 0;
@@ -55,9 +57,38 @@ public class UpgradeManager : MonoBehaviour
         MainInventory.instance.AddResources(resourcesToSpend);
 
         upgradeLevels[upgrade] = currentLevel + 1;
+        SaveUpgrades();
     }
+
     public Dictionary<UpgradeData, int> GetAllUpgrades()
     {
         return new Dictionary<UpgradeData, int>(upgradeLevels);
+    }
+
+    private void SaveUpgrades()
+    {
+        foreach (var kvp in upgradeLevels)
+        {
+            string key = kvp.Key.name;
+            PlayerPrefs.SetInt(key, kvp.Value);
+        }
+        PlayerPrefs.Save();
+    }
+
+    private void LoadUpgrades()
+    {
+        upgradeLevels.Clear();
+
+        UpgradeData[] allUpgrades = Resources.LoadAll<UpgradeData>("");
+
+        foreach (var upgrade in allUpgrades)
+        {
+            string key = upgrade.name;
+            int level = PlayerPrefs.GetInt(key, 0);
+            if (level > 0)
+            {
+                upgradeLevels[upgrade] = level;
+            }
+        }
     }
 }

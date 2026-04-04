@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e540f94061ba534aaf030f758d29704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 0}
+  enemyData: {fileID: 4410341269735653026}
   movementType: 1
   meleeStopDistance: 0.2
   rangedStopDistance: 3

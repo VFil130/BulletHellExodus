@@ -304,6 +304,7 @@ public class Character : MonoBehaviour
     }
     private void LoadUpgrades()
     {
+        if(UpgradeManager.instance == null) return;
         var upgrades = UpgradeManager.instance.GetAllUpgrades();
 
         foreach (var kvp in upgrades)
