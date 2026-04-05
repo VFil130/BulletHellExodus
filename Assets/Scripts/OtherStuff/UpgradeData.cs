@@ -20,7 +20,12 @@ public enum UpgradeStat
     Power,
     TickRate,
     Interval,
-    Speed
+    Speed,
+    MaxHealth,
+    PhysArmour,
+    MageArmour,
+    MoveSpeed,
+    HealthRegen
 }
 
 [Serializable]

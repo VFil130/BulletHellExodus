@@ -7,10 +7,12 @@ public class ShootToClosest : ProjectileCast
     private Transform closestEnemy;
     public override bool CanUseAbility()
     {
-        closestEnemy = abilityCaster.FindClosestEnemyInRadius(transform.position,10f).transform;
-        if (closestEnemy == null) return false;
-        else return true;
+        Enemy enemy = abilityCaster.FindClosestEnemyInRadius(transform.position, 10f);
+        if (enemy == null) return false;
+        closestEnemy = enemy.transform;
+        return true;
     }
+
 
     public override void UseAbility()
     {
@@ -18,12 +20,16 @@ public class ShootToClosest : ProjectileCast
     }
     protected override void SetProjectilesTransform()
     {
-        closestEnemy = abilityCaster.FindClosestEnemyInRadius(transform.position, 10f).transform;
+        Enemy enemy = abilityCaster.FindClosestEnemyInRadius(transform.position, 10f);
+        if (enemy == null) return;
+
+        closestEnemy = enemy.transform;
         projectilePosition = abilityOwner.transform.position;
         RotateTowardsTarget();
         projectileRotation = transform.rotation;
         CreateProjectile(projectilePosition, projectileRotation);
     }
+
     void RotateTowardsTarget()
     {
         Vector3 direction = closestEnemy.position - transform.position;

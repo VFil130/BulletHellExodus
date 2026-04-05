@@ -35,10 +35,13 @@ public class Character : MonoBehaviour
     private float ampPierce = 0;
     private float ampShoot = 0;
     private float ampTickRate = 1;
+    private float ampMoveSpeed = 1;
+    private float ampHealthRegen = 0;
     void Awake()
     {
         baseSpeed = speed;
         LoadUpgrades();
+        ApplyCharacterUpgrades();
     }
     #region Effects System
     [System.Serializable]
@@ -317,7 +320,6 @@ public class Character : MonoBehaviour
             {
                 case UpgradeStat.Damage:
                     ampDamage += totalValue;
-                    
                     break;
                 case UpgradeStat.Radius:
                     ampRadius += totalValue;
@@ -343,8 +345,27 @@ public class Character : MonoBehaviour
                 case UpgradeStat.Speed:
                     ampSpeed += totalValue;
                     break;
+                case UpgradeStat.MaxHealth:
+                    maxhealth += totalValue;
+                    break;
+                case UpgradeStat.PhysArmour:
+                    physArmour += totalValue;
+                    break;
+                case UpgradeStat.MageArmour:
+                    mageArmour += totalValue;
+                    break;
+                case UpgradeStat.MoveSpeed:
+                    ampMoveSpeed += totalValue;
+                    break;
+                case UpgradeStat.HealthRegen:
+                    ampHealthRegen += totalValue;
+                    break;
             }
         }
+    }
+    private void ApplyCharacterUpgrades()
+    {
+        speed = baseSpeed * ampMoveSpeed;
     }
     public virtual void buffAbility(AbilityStats ability)
     {

@@ -64,7 +64,7 @@ public class AbilityCaster : MonoBehaviour
         float closestDistance = Mathf.Infinity;
 
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, radius);
-
+        if (hitColliders == null || hitColliders.Length == 0) return null;
         foreach (Collider2D collider in hitColliders)
         {
             if (collider.CompareTag("Enemy"))
