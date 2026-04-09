@@ -1,12 +1,16 @@
 using UnityEngine;
 
-public class ExpOrb : MonoBehaviour, ICollectable
+public class ExpOrb : MagnetCollectable
 {
-    public int experiecneGranted;
-    public void Collect()
+    [SerializeField] private int experiecneGranted = 10;
+
+    public override void Collect()
     {
         PlayerController player = FindFirstObjectByType<PlayerController>();
-        player.IncreaseExperience(experiecneGranted);
+        if (player != null)
+        {
+            player.IncreaseExperience(experiecneGranted);
+        }
         Destroy(gameObject);
     }
 }

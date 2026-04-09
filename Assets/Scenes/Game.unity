@@ -4897,7 +4897,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.75
+  m_fontSize: 59
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6287,7 +6287,7 @@ MonoBehaviour:
   sfxSourcePrefab: {fileID: 5362197005514576454, guid: c378320239ef90c43894244af458d72b, type: 3}
   menuMusic: {fileID: 0}
   gameplayMusic: {fileID: 0}
-  enemyDamageSound: {fileID: 0}
+  enemyDamageSound: {fileID: 8300000, guid: 3c32b8c3b7b67ec4faca9205a0907ce2, type: 3}
 --- !u!4 &926426941
 Transform:
   m_ObjectHideFlags: 0
@@ -9782,15 +9782,13 @@ MonoBehaviour:
   baseHealthIncrease: 0.2
   baseArmourIncrease: 0.1
   waveLevel: 1
-  timeBetweenWaves: 20
+  timeBetweenWaves: 120
   maxActiveZones: 3
   spawnRadiusMin: 10
   spawnRadiusMax: 20
   resourceZonePrefabs:
   - {fileID: 3954495524126156285, guid: 9a940f69766bddb4b8600463fb8ba9b7, type: 3}
   - {fileID: 3954495524126156285, guid: da7920f57221b00418859a877311e8b6, type: 3}
-  - {fileID: 3954495524126156285, guid: 6acfb764c71dde447b772420c7ab258a, type: 3}
-  - {fileID: 3954495524126156285, guid: cff3bd1e2d1fb414f9c7599fc29a63b0, type: 3}
   centerPoint: {fileID: 1624031782}
   waveText: {fileID: 1601666108}
   timer: {fileID: 971452861}
@@ -11649,7 +11647,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 69.35
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

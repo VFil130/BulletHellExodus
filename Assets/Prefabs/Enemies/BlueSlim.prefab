@@ -212,6 +212,9 @@ MonoBehaviour:
   - name: SmallExpOrb
     itemPrefab: {fileID: 472273368647102742, guid: 50121888cf9c7914b80c7291d7aafdaf, type: 3}
     dropRate: 100
+  - name: SmallExpOrb
+    itemPrefab: {fileID: 472273368647102742, guid: 50121888cf9c7914b80c7291d7aafdaf, type: 3}
+    dropRate: 100
   needDrop: 1
 --- !u!95 &1193850720198371616
 Animator:
