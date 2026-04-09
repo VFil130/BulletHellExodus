@@ -2594,7 +2594,14 @@ MonoBehaviour:
     spawnDelay: 3
     nextSpawn: 1
     spawnLevel: 1
-    spawnCount: 3
+    spawnCount: 5
+    spawnStrategy: {fileID: 11400000, guid: 323418c26e1cc5542a11579f22791e15, type: 2}
+    baseSpawnDelay: 0
+  - enemyPrefab: {fileID: 3205153210512187286, guid: af016addb4716384e81e183c0cf934a5, type: 3}
+    spawnDelay: 60
+    nextSpawn: 3
+    spawnLevel: 2
+    spawnCount: 15
     spawnStrategy: {fileID: 11400000, guid: 323418c26e1cc5542a11579f22791e15, type: 2}
     baseSpawnDelay: 0
   - enemyPrefab: {fileID: 3205153210512187286, guid: af016addb4716384e81e183c0cf934a5, type: 3}
@@ -6286,7 +6293,7 @@ MonoBehaviour:
   musicSource: {fileID: 0}
   sfxSourcePrefab: {fileID: 5362197005514576454, guid: c378320239ef90c43894244af458d72b, type: 3}
   menuMusic: {fileID: 0}
-  gameplayMusic: {fileID: 0}
+  gameplayMusic: {fileID: 8300000, guid: bd12df5ba9fe7244fbe5dac458b1855f, type: 3}
   enemyDamageSound: {fileID: 8300000, guid: 3c32b8c3b7b67ec4faca9205a0907ce2, type: 3}
 --- !u!4 &926426941
 Transform:
