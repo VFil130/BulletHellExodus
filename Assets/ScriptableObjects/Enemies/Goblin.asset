@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3294ec54e84314ab9651901b52cbe2, type: 3}
   m_Name: Goblin
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 1.5
   maxHealth: 10
   damage: 10
   mageArmour: 0

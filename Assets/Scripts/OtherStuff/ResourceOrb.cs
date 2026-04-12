@@ -7,7 +7,7 @@ public class ResourceOrb : MagnetCollectable
 
     public override void Collect()
     {
-        MainInventory.instance?.AddResource(resourceType, amount);
+        TakenResources.instance?.TakeResources(resourceType, amount);
         Destroy(gameObject);
     }
 }

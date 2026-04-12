@@ -186,6 +186,7 @@ MonoBehaviour:
     itemPrefab: {fileID: 736011707630988628, guid: 006b9b8d796489344a2698d4736bef29, type: 3}
     dropRate: 5
   needDrop: 1
+  spreadRadius: 0.5
 --- !u!61 &1281206894641023000
 BoxCollider2D:
   m_ObjectHideFlags: 0

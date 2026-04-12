@@ -219,6 +219,7 @@ MonoBehaviour:
     itemPrefab: {fileID: 736011707630988628, guid: 006b9b8d796489344a2698d4736bef29, type: 3}
     dropRate: 10
   needDrop: 1
+  spreadRadius: 0.5
 --- !u!95 &1193850720198371616
 Animator:
   serializedVersion: 7

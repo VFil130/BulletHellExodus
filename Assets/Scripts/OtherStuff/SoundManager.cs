@@ -8,10 +8,13 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSourcePrefab;
-
+    [SerializeField] private AudioClip buttonHoverSound;
+    [SerializeField] private AudioClip buttonClickSound;
+    private AudioSource uiSource;
+    private float uiVolume = 1f;
     [SerializeField] private AudioClip menuMusic;
-    [SerializeField] private AudioClip gameplayMusic;
-
+    [SerializeField] private AudioClip lawnMusic;
+    [SerializeField] private AudioClip undeadMusic;
     [SerializeField] private AudioClip enemyDamageSound;
 
     private void Awake()
@@ -39,6 +42,17 @@ public class SoundManager : MonoBehaviour
             musicSource.playOnAwake = false;
         }
         musicSource.volume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+
+        if (uiSource == null)
+        {
+            GameObject uiObj = new GameObject("UISource");
+            uiObj.transform.SetParent(transform);
+            uiSource = uiObj.AddComponent<AudioSource>();
+            uiSource.playOnAwake = false;
+        }
+        uiVolume = PlayerPrefs.GetFloat("UIVolume", 1f);
+        uiSource.volume = uiVolume;
+
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -46,23 +60,19 @@ public class SoundManager : MonoBehaviour
     {
         if (scene.name == "Menu")
         {
-            PlayMenuMusic();
+            PlayMusic(menuMusic);
         }
         else if (scene.name == "Game")
         {
-            PlayGameplayMusic();
+            PlayMusic(lawnMusic);
+        }
+        else if (scene.name == "Undead")
+        {
+            PlayMusic(undeadMusic);
         }
     }
 
-    public void PlayMenuMusic()
-    {
-        PlayMusic(menuMusic);
-    }
 
-    public void PlayGameplayMusic()
-    {
-        PlayMusic(gameplayMusic);
-    }
     private void PlayMusic(AudioClip clip)
     {
         if (clip == null || musicSource == null) return;
@@ -135,7 +145,37 @@ public class SoundManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Destroy(obj);
     }
+    public void PlayButtonHover()
+    {
+        if (buttonHoverSound != null && uiSource != null)
+        {
+            uiSource.PlayOneShot(buttonHoverSound, uiVolume);
+        }
+    }
 
+    public void PlayButtonClick()
+    {
+        if (buttonClickSound != null && uiSource != null)
+        {
+            uiSource.PlayOneShot(buttonClickSound, uiVolume);
+        }
+    }
+
+    public void SetUIVolume(float volume)
+    {
+        uiVolume = Mathf.Clamp01(volume);
+        if (uiSource != null)
+        {
+            uiSource.volume = uiVolume;
+        }
+        PlayerPrefs.SetFloat("UIVolume", uiVolume);
+        PlayerPrefs.Save();
+    }
+
+    public float GetUIVolume()
+    {
+        return uiVolume;
+    }
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;

@@ -83,13 +83,11 @@ public class Character : MonoBehaviour
     }
     public void UpdateStats()
     {
-        Debug.Log(speed);
         speed = baseSpeed;
         foreach (ActiveEffect effect in activeEffects)
         {
             ApplyEffect(effect);
         }
-        Debug.Log(speed);
     }
     public void AddEffect(string effectName, float duration, float power,
                           bool refreshIfExists = true, int maxStacks = 1)
@@ -118,6 +116,9 @@ public class Character : MonoBehaviour
     {
         switch (effect.effectName.ToLower())
         {
+            case "zone_slow":
+                ApplySlowEffect(effect);
+                break;
             case "slow":
                 ApplySlowEffect(effect);
                 break;
@@ -162,9 +163,6 @@ public class Character : MonoBehaviour
     {
         float slowPercent = Mathf.Min(effect.power * effect.stacks, 80f);
         speed = baseSpeed * (1f - slowPercent / 100f);
-
-        if (sprite != null)
-            StartCoroutine(FlashColor(Color.blue, 0.5f));
     }
 
     private IEnumerator PoisonEffect(ActiveEffect effect)
