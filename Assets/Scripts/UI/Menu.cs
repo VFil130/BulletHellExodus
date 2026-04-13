@@ -11,7 +11,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject charactersPanel;
     [SerializeField] private GameObject abilitiesPanel;
     [SerializeField] private GameObject mainPanel;
-
+    [SerializeField] private Image backGround;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
     public string sceneToLoad = "Game";
@@ -46,6 +46,10 @@ public class Menu : MonoBehaviour
             float amount = MainInventory.instance.GetResourceAmount(resource);
             resCount[i].text = amount.ToString();
         }
+    }
+    public void SetBackGround(Sprite back)
+    {
+        backGround.sprite = back;
     }
     private void SetupSoundSliders()
     {
