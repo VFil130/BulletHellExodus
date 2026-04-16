@@ -1,11 +1,11 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     public enum GameState
     {
         Gameplay,
@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
             AddDamageInfo();
             AddKillsInfo();
             previousState = currentState;
+            SaveRecords();
             ChangeState(GameState.GameOver);
             Time.timeScale = 0f;
             endGameScreen.SetActive(true);
@@ -191,4 +192,50 @@ public class GameManager : MonoBehaviour
             AbilityManager.instance.Init();
         }
     }
+    #region Records System
+    private void SaveRecords()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        int currentWave = WaveController.instance.waveLevel;
+
+        int savedMaxWave = PlayerPrefs.GetInt($"MaxWaveRecord_{sceneName}", 0);
+        float savedMaxDamage = PlayerPrefs.GetFloat($"MaxDamageRecord_{sceneName}", 0);
+        float savedMaxKills = PlayerPrefs.GetFloat($"MaxKillsRecord_{sceneName}", 0);
+
+        if (currentWave > savedMaxWave)
+        {
+            PlayerPrefs.SetInt($"MaxWaveRecord_{sceneName}", currentWave);
+        }
+
+        if (totalDamge > savedMaxDamage)
+        {
+            PlayerPrefs.SetFloat($"MaxDamageRecord_{sceneName}", totalDamge);
+        }
+
+        if (totalKills > savedMaxKills)
+        {
+            PlayerPrefs.SetFloat($"MaxKillsRecord_{sceneName}", totalKills);
+        }
+
+        PlayerPrefs.Save();
+    }
+
+    public int GetMaxWaveRecord()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        return PlayerPrefs.GetInt($"MaxWaveRecord_{sceneName}", 0);
+    }
+
+    public float GetMaxDamageRecord()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        return PlayerPrefs.GetFloat($"MaxDamageRecord_{sceneName}", 0);
+    }
+
+    public float GetMaxKillsRecord()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        return PlayerPrefs.GetFloat($"MaxKillsRecord_{sceneName}", 0);
+    }
+    #endregion
 }

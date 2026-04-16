@@ -14,6 +14,7 @@ public class Character : MonoBehaviour
     [SerializeField] protected float speed;
     [SerializeField] private float physArmour;
     [SerializeField] private float mageArmour;
+    [SerializeField] private string charInfo;
     [Header("I-Frames")]
     [SerializeField] private float invincibilityDuration;
     [SerializeField] private bool isInvincible;
@@ -83,7 +84,6 @@ public class Character : MonoBehaviour
     }
     public void UpdateStats()
     {
-        speed = baseSpeed;
         foreach (ActiveEffect effect in activeEffects)
         {
             ApplyEffect(effect);
@@ -363,7 +363,7 @@ public class Character : MonoBehaviour
     }
     private void ApplyCharacterUpgrades()
     {
-        speed = baseSpeed * ampMoveSpeed;
+        baseSpeed = baseSpeed * ampMoveSpeed;
     }
     public virtual void buffAbility(AbilityStats ability)
     {
@@ -376,7 +376,15 @@ public class Character : MonoBehaviour
         ability.pierce += ampPierce;
         ability.shoots += ampShoot;
         ability.tickRate /= ampTickRate;
-    } 
+    }
+    public string GetCharacterInfo()
+    {
+        return $"Здоровье: {maxhealth}\n" +
+               $"Скорость: {speed}\n" +
+               $"Физическая броня: {physArmour}\n" +
+               $"Магическая броня: {mageArmour}\n" +
+               $"\n{charInfo}";
+    }
     public float ReturnHealth()
     {
         return health / maxhealth;

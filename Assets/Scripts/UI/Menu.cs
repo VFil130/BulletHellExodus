@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField]private TMP_Text[] resCount;
+    [SerializeField] private TMP_Text[] resCount;
+    [SerializeField] private TMP_Text charInfo;
+    [SerializeField] private Image charImage;
     [SerializeField] private GameObject mapsPanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject charactersPanel;
@@ -14,12 +16,15 @@ public class Menu : MonoBehaviour
     [SerializeField] private Image backGround;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
+    [SerializeField] private TMP_Text recordsText;
+    [SerializeField] private Image mapImage;
     public string sceneToLoad = "Game";
     public void Start()
     {
         UpdateResourceCount();
         HideAllPanels();
         SetupSoundSliders();
+        LoadSelectedCharacter();
     }
     public void Update()
     {
@@ -82,6 +87,34 @@ public class Menu : MonoBehaviour
                 break;
         }
     }
+    public void TakeCharacter(Character character)
+    {
+        MainInventory.instance.SetCharacter(character);
+        LoadCharInfo(character);
+
+        PlayerPrefs.SetString("SelectedCharacter", character.gameObject.name);
+        PlayerPrefs.Save();
+    }
+    private void LoadSelectedCharacter()
+    {
+        string savedCharacterName = PlayerPrefs.GetString("SelectedCharacter", "");
+        if (string.IsNullOrEmpty(savedCharacterName)) return;
+
+        GameObject characterPrefab = Resources.Load<GameObject>($"Characters/{savedCharacterName}");
+        if (characterPrefab == null) return;
+
+        Character character = characterPrefab.GetComponent<Character>();
+        if (character != null)
+        {
+            MainInventory.instance.SetCharacter(character);
+            LoadCharInfo(character);
+        }
+    }
+    public void LoadCharInfo(Character character)
+    {
+        charInfo.text = character.GetCharacterInfo();
+        charImage.sprite = character.sprite.sprite;
+    }
     private void HideAllPanels()
     {
         if (mapsPanel != null) mapsPanel.SetActive(false);
@@ -89,5 +122,12 @@ public class Menu : MonoBehaviour
         if (charactersPanel != null) charactersPanel.SetActive(false);
         if (abilitiesPanel != null) abilitiesPanel.SetActive(false);
         if (mainPanel !=null) mainPanel.SetActive(false);
+    }
+    public void ShowRecords(string sceneName, Image image)
+    {
+        int maxWave = PlayerPrefs.GetInt($"MaxWaveRecord_{sceneName}", 0);
+        float maxDamage = PlayerPrefs.GetFloat($"MaxDamageRecord_{sceneName}", 0);
+        recordsText.text = $"Максимальная волна {maxWave}\n\nМаксимальный урон {maxDamage}";
+        mapImage.sprite = image.sprite;
     }
 }

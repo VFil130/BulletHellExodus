@@ -114,12 +114,12 @@ GameObject:
   - component: {fileID: 2764254806758176726}
   - component: {fileID: 1666417531013955594}
   - component: {fileID: 1573125928866941657}
-  - component: {fileID: -4099573245824783252}
+  - component: {fileID: -4512837778638836695}
   - component: {fileID: 8113204234202283082}
   - component: {fileID: 3966774442158779784}
   - component: {fileID: 6269775016721691054}
   m_Layer: 8
-  m_Name: Player 3
+  m_Name: Player 2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities: []
-  startAbility: {fileID: 2776526180342261129, guid: d70643e08a166b44abec738b8f973bc2, type: 3}
+  startAbility: {fileID: -6829016232591359995, guid: 6ef5e955a79b03b4ea71c50c582f9c12, type: 3}
   abilityCount: 0
 --- !u!114 &1666417531013955594
 MonoBehaviour:
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magnetSpeed: 8
   magnetRange: 2
---- !u!114 &-4099573245824783252
+--- !u!114 &-4512837778638836695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,15 +191,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 657199091835541822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5c2ee83cedb01240a2df8c3cc9eeed0, type: 3}
+  m_Script: {fileID: 11500000, guid: c762dcc3c68520743b18d1079f6b9147, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Warrior
+  m_EditorClassIdentifier: Assembly-CSharp::Wizzard
   activeEffects: []
-  maxhealth: 120
-  health: 120
-  speed: 2
-  physArmour: 2
+  maxhealth: 90
+  health: 90
+  speed: 3
+  physArmour: 0
   mageArmour: 0
+  charInfo: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0447\u0438\u0441\u043B\u043E
+    \u0441\u043D\u0430\u0440\u044F\u0434\u043E\u0432 \u043D\u0430 1"
   invincibilityDuration: 0.5
   isInvincible: 0
   isDead: 0
@@ -409,12 +411,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 3944610533857416082, guid: 85ae9ab62f1635a4a9a4801df74810fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49212e6bd45e47142b5eb5ba8d442b97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 0.4, y: 0.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -430,7 +432,7 @@ Animator:
   m_GameObject: {fileID: 7210062008543378582}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fb9f8d29565c8d84f9aeccf1b982af16, type: 2}
+  m_Controller: {fileID: 9100000, guid: fdba6f60ab11fb74bac1409cb09204b3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
