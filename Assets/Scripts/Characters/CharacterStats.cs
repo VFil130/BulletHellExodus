@@ -84,6 +84,7 @@ public class Character : MonoBehaviour
     }
     public void UpdateStats()
     {
+        speed = baseSpeed;
         foreach (ActiveEffect effect in activeEffects)
         {
             ApplyEffect(effect);

@@ -33,7 +33,10 @@ public class EnemyProjectile : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
-
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
     private void FixedUpdate()
     {
         if (direction == Vector2.zero) return;
