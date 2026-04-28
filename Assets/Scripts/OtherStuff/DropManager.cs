@@ -10,44 +10,59 @@ public class DropManager : MonoBehaviour
     {
         public string name;
         public GameObject itemPrefab;
-        public float dropRate;
+        public float baseDropRate;
+        public bool useFixedDropRate = false;
     }
 
     public List<Drops> drops;
     public bool needDrop = true;
     public float spreadRadius = 0.5f;
-
+    [SerializeField] private float dropRateIncreasePerWave = 0.1f;
+    [SerializeField] private int maxWaveForDrop = 30;
     public void DropNo()
     {
         needDrop = false;
     }
-
     private void OnDestroy()
     {
         if (!needDrop) return;
         if (!gameObject.scene.isLoaded) return;
 
-        float waveMultiplier = GetWaveMultiplier();
-        float randomNumber = Random.Range(0f, 100f);
+        int currentWave = WaveController.instance != null ? WaveController.instance.waveLevel : 0;
+        int cappedWave = Mathf.Min(currentWave, maxWaveForDrop);
+        float waveMultiplier = 1f + (dropRateIncreasePerWave * cappedWave);
 
         foreach (Drops drop in drops)
         {
-            float finalDropRate = drop.dropRate * waveMultiplier;
-            if (randomNumber <= finalDropRate)
+            float finalDropRate;
+
+            if (drop.useFixedDropRate)
             {
-                Vector3 randomOffset = Random.insideUnitCircle * spreadRadius;
-                Vector3 dropPosition = transform.position + new Vector3(randomOffset.x, 0, randomOffset.y);
-                Instantiate(drop.itemPrefab, dropPosition, Quaternion.identity);
+                finalDropRate = drop.baseDropRate;
+            }
+            else
+            {
+                finalDropRate = drop.baseDropRate * waveMultiplier;
+            }
+
+            float remainingChance = finalDropRate;
+
+            while (remainingChance > 0)
+            {
+                float roll = Random.Range(0f, 100f);
+
+                if (roll <= remainingChance)
+                {
+                    Vector3 randomOffset = Random.insideUnitCircle * spreadRadius;
+                    Vector3 dropPosition = transform.position + new Vector3(randomOffset.x, 0, randomOffset.y);
+                    Instantiate(drop.itemPrefab, dropPosition, Quaternion.identity);
+                    remainingChance -= 100f;
+                }
+                else
+                {
+                    break;
+                }
             }
         }
-    }
-
-    private float GetWaveMultiplier()
-    {
-        if (WaveController.instance == null) return 1f;
-
-        int waveLevel = WaveController.instance.waveLevel;
-        float multiplier = 1f + (waveLevel / 15f);
-        return Mathf.Min(multiplier, 3f);
     }
 }

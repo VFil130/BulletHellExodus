@@ -211,15 +211,20 @@ MonoBehaviour:
   drops:
   - name: SmallExpOrb
     itemPrefab: {fileID: 472273368647102742, guid: 50121888cf9c7914b80c7291d7aafdaf, type: 3}
-    dropRate: 100
+    baseDropRate: 100
+    useFixedDropRate: 1
   - name: "\u041C\u0430\u0433\u0421\u043B\u0438\u0442\u043E\u043A"
     itemPrefab: {fileID: 8091038260763524624, guid: 34ca867126008a74698add1f4dca29c2, type: 3}
-    dropRate: 1
+    baseDropRate: 1
+    useFixedDropRate: 0
   - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
     itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
-    dropRate: 1
+    baseDropRate: 2
+    useFixedDropRate: 0
   needDrop: 1
   spreadRadius: 0.5
+  dropRateIncreasePerWave: 0.1
+  maxWaveForDrop: 30
 --- !u!95 &1193850720198371616
 Animator:
   serializedVersion: 7
