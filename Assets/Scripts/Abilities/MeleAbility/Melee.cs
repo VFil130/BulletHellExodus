@@ -86,13 +86,9 @@ public class Melee : MonoBehaviour
     public IEnumerator PulseScale(float duration)
     {
         transform.DOScale(parentAbility.radius, duration).SetEase(Ease.OutQuad);
-        Debug.Log("0");
         yield return new WaitForSeconds(duration);
-        Debug.Log("1");
         ClearMarkedEnemies();
-        Debug.Log("2");
         transform.DOScale(0.25f, duration).SetEase(Ease.InQuad);
-        Debug.Log("3");
     }
     public void Poke()
     {

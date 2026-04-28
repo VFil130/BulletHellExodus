@@ -195,7 +195,7 @@ MonoBehaviour:
   - name: "\u0416\u0435\u043B\u0435\u0437\u043E"
     itemPrefab: {fileID: 1574776983669037209, guid: 62434bdfb3dd543488ca48c27d5195be, type: 3}
     dropRate: 10
-  - name: "\u041C\u0435\u0434\u044C"
+  - name: "\u041A\u0440\u0430\u0441\u043D\u043E\u0435 \u0437\u043E\u043B\u043E\u0442\u043E"
     itemPrefab: {fileID: 736011707630988628, guid: 006b9b8d796489344a2698d4736bef29, type: 3}
     dropRate: 5
   needDrop: 1

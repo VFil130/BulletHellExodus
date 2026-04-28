@@ -17,9 +17,9 @@ public class EnemyRanged : Enemy
         }
     }
 
-    public void Update()
+    public override void Update()
     {
-
+        base.Update();
         if (IsDead) return;
         if (player != null)
         {

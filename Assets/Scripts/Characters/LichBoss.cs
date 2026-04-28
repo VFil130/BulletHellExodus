@@ -79,6 +79,7 @@ public class LichBoss : Enemy
         GameObject proj = Instantiate(projectilePrefab, spawnPoint.position, Quaternion.identity);
         Vector2 direction = (player.transform.position - spawnPoint.position).normalized;
         proj.GetComponent<EnemyProjectile>().SetDirection(direction);
+        proj.GetComponent<EnemyProjectile>().SetSpeed(projectileSpeed);
     }
 
     private void HandleSpecialAttack()

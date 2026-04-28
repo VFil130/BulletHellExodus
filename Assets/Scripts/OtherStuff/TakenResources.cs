@@ -32,10 +32,22 @@ public class TakenResources : MonoBehaviour
     }
     public string ReturnCapturedResources()
     {
+        var russianNames = new Dictionary<ValResources, string>
+    {
+        { ValResources.Res1, "Железо" },
+        { ValResources.Res2, "Красное золото" },
+        { ValResources.Res3, "Платина" },
+        { ValResources.Res4, "Магслиток" }
+    };
+
         string result = "";
         foreach (var res in Inventory)
         {
-            result += $"Ресурс: {res.Key}, Количество: {res.Value}\n";
+            string resourceName = russianNames.ContainsKey(res.Key)
+                ? russianNames[res.Key]
+                : res.Key.ToString();
+
+            result += $"Ресурс: {resourceName}, Количество: {res.Value}\n";
         }
         return result;
     }

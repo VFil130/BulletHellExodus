@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1074488ebc0616849ae57299c218f6b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceType: 2
+  resourceType: 1
   amount: 5
   collectionTime: 10
   filler: {fileID: 1736123639262036613}

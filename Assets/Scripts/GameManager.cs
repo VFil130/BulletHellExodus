@@ -97,13 +97,13 @@ public class GameManager : MonoBehaviour
     }
     public void AddDamageInfo()
     {
-        string text = "\nCurrentDamage: ";
+        string text = "\nНанесённый урон: ";
         text += totalDamge.ToString();
         AddInfoToEndText(text);
     }
     public void AddKillsInfo()
     {
-        string text = "\nCurrentKills: ";
+        string text = "\nВсего убийств: ";
         text += totalKills.ToString();
         AddInfoToEndText(text);
     }

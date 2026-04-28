@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,12 +109,12 @@ TextureImporter:
       name: "\u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D\u043D\u043E\u0435 (1)_0"
       rect:
         serializedVersion: 2
-        x: 75
-        y: 0
-        width: 110
-        height: 512
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -131,12 +131,12 @@ TextureImporter:
       name: "\u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D\u043D\u043E\u0435 (1)_1"
       rect:
         serializedVersion: 2
-        x: 339
-        y: 255
-        width: 98
-        height: 254
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: "\u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D\u043D\u043E\u0435 (1)_2"
       rect:
         serializedVersion: 2
-        x: 331
+        x: 0
         y: 0
-        width: 110
-        height: 253
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,11 +171,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "\u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D\u043D\u043E\u0435 (1)_3"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff544d1839a61cb4698e80dd83e239ce
+      internalID: 1637762118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f7c2449769281ab4aa8657325c756efb
     internalID: 0
     vertices: []
     indices: 
@@ -183,11 +205,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       "\u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D\u043D\u043E\u0435 (1)_0": -7289227161979362636
       "\u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D\u043D\u043E\u0435 (1)_1": 8288435733513721601
       "\u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D\u043D\u043E\u0435 (1)_2": -4564926638092582559
+      "\u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D\u043D\u043E\u0435 (1)_3": 1637762118
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -225,12 +225,48 @@ MonoBehaviour:
   - name: SmallExpOrb
     itemPrefab: {fileID: 472273368647102742, guid: 50121888cf9c7914b80c7291d7aafdaf, type: 3}
     dropRate: 100
-  - name: "\u0416\u0435\u043B\u0435\u0437\u043E"
-    itemPrefab: {fileID: 1574776983669037209, guid: 62434bdfb3dd543488ca48c27d5195be, type: 3}
-    dropRate: 10
-  - name: "\u041C\u0435\u0434\u044C"
-    itemPrefab: {fileID: 736011707630988628, guid: 006b9b8d796489344a2698d4736bef29, type: 3}
-    dropRate: 5
+  - name: "\u041C\u0430\u0433\u0421\u043B\u0438\u0442\u043E\u043A"
+    itemPrefab: {fileID: 8091038260763524624, guid: 34ca867126008a74698add1f4dca29c2, type: 3}
+    dropRate: 100
+  - name: "\u041C\u0430\u0433\u0421\u043B\u0438\u0442\u043E\u043A"
+    itemPrefab: {fileID: 8091038260763524624, guid: 34ca867126008a74698add1f4dca29c2, type: 3}
+    dropRate: 100
+  - name: "\u041C\u0430\u0433\u0421\u043B\u0438\u0442\u043E\u043A"
+    itemPrefab: {fileID: 8091038260763524624, guid: 34ca867126008a74698add1f4dca29c2, type: 3}
+    dropRate: 100
+  - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
+    itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
+    dropRate: 100
+  - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
+    itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
+    dropRate: 100
+  - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
+    itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
+    dropRate: 100
+  - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
+    itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
+    dropRate: 100
+  - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
+    itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
+    dropRate: 100
+  - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
+    itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
+    dropRate: 100
+  - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
+    itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
+    dropRate: 100
+  - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
+    itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
+    dropRate: 100
+  - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
+    itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
+    dropRate: 100
+  - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
+    itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
+    dropRate: 100
+  - name: "\u041F\u043B\u0430\u0442\u0438\u043D\u0430"
+    itemPrefab: {fileID: 2105452228249131256, guid: c238a126958644547a0998a94d69075a, type: 3}
+    dropRate: 100
   needDrop: 1
   spreadRadius: 0.5
 --- !u!95 &8400323411092728181

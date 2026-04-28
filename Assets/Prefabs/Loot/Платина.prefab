@@ -165,5 +165,5 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   lifeTime: 60
-  resourceType: 1
+  resourceType: 2
   amount: 1
