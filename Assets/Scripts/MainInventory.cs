@@ -23,11 +23,6 @@ public class MainInventory : MonoBehaviour
     public void Start()
     {
         LoadResources();
-        AddResource(ValResources.Res1, 10000);
-        AddResource(ValResources.Res2, 10000);
-        AddResource(ValResources.Res3, 10000);
-        AddResource(ValResources.Res4, 10000);
-        SaveResources();
     }
     public void SaveResources()
     {

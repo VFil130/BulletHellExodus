@@ -1,13 +1,15 @@
-using UnityEditor;
+#if UNITY_EDITOR
 using UnityEngine;
+using UnityEditor;
 
-public class ClearPlayerPrefs : MonoBehaviour
+public class ToolsMenu
 {
     [MenuItem("Tools/Очистить PlayerPrefs")]
-    static void Clear()
+    static void ClearPlayerPrefs()
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
         Debug.Log("PlayerPrefs очищены через меню!");
     }
 }
+#endif
