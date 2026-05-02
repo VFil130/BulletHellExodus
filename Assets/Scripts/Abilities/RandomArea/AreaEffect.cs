@@ -46,7 +46,7 @@ public abstract class AreaEffect : MonoBehaviour
     public void RandomPush()
     {
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
-        transform.Translate(randomDirection * speed);
+        transform.Translate(randomDirection * speed * Time.deltaTime);
     }
     private void ApplyAreaEffect()
     {

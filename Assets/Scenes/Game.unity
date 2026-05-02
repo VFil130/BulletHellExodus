@@ -4476,6 +4476,13 @@ MonoBehaviour:
     spawnCount: 1
     spawnStrategy: {fileID: 11400000, guid: 3a88de797cd08bf4a9eaca46c25e428e, type: 2}
     baseSpawnDelay: 0
+  - enemyPrefab: {fileID: 6507311661795251682, guid: 9071b224c9cfbbd49a8e9408d80af1fc, type: 3}
+    spawnDelay: 60
+    nextSpawn: 10
+    spawnLevel: 10
+    spawnCount: 1
+    spawnStrategy: {fileID: 11400000, guid: 323418c26e1cc5542a11579f22791e15, type: 2}
+    baseSpawnDelay: 0
   spawnRadius: 10
   damageNumberPrefab: {fileID: 3375825228618179330, guid: 50a8ba0807296324cb365a74cca21a09, type: 3}
   physicalColor: {r: 1, g: 0, b: 0, a: 1}
@@ -10046,7 +10053,6 @@ MonoBehaviour:
   startAbility: {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
   allAbilities:
   - {fileID: -4986933657956137594, guid: 6254c4b43698c0349b7effc3ba9f6dc6, type: 3}
-  - {fileID: 1709682673901245640, guid: 811d3f01d470a54488a42b79af7d3a19, type: 3}
   - {fileID: 1709682673901245640, guid: 8e8d8da119fc78a4ea9ab42e7bb983d8, type: 3}
   - {fileID: 8670569397952846824, guid: 11e9bebed9c4d134280d056f6ca6efad, type: 3}
   - {fileID: 1709682673901245640, guid: ec151faa99a1afb4db117f7406087cf1, type: 3}

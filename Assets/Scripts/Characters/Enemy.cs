@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float currentHealth;
     [SerializeField] private DropManager DM;
     public float currentMoveSpeed;
-    private float currentDamage;
+    protected float currentDamage;
     private float currentMageArmour;
     private float currentPhysArmour;
     private Vector3 originalScale;
