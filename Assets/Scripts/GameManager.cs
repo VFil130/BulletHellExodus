@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Лишний" + this + "Удалён");
             Destroy(gameObject);
         }
+        DisableScreens();
         CreateCharacter();
-        DisableScreens();    
     }
     void Update()
     {
@@ -189,7 +189,9 @@ public class GameManager : MonoBehaviour
         if (MainInventory.instance.character != null)
         {
             Instantiate(MainInventory.instance.character);
-            AbilityManager.instance.Init();
+
+            AbilityManager.instance ??= FindObjectOfType<AbilityManager>();
+            AbilityManager.instance?.Init();
         }
     }
     #region Records System

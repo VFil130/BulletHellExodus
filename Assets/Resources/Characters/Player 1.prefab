@@ -195,8 +195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ranger
   activeEffects: []
-  maxhealth: 9000
-  health: 9000
+  maxhealth: 90
+  health: 90
   speed: 4
   physArmour: 0
   mageArmour: 0

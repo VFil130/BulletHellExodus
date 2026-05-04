@@ -66,7 +66,7 @@ public class SoundManager : MonoBehaviour
         {
             PlayMusic(lawnMusic);
         }
-        else if (scene.name == "Undead")
+        else if (scene.name == "UNDEAD")
         {
             PlayMusic(undeadMusic);
         }

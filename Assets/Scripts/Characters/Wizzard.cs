@@ -6,6 +6,5 @@ public class Wizzard : PlayerController
     {
         base.buffAbility(ability);
         ability.shoots += 1;
-        ability.damage *= 1.1f;
     }
 }

@@ -49,7 +49,7 @@ MonoBehaviour:
   abilityCaster: {fileID: 0}
   level: 0
   icon: {fileID: 21300000, guid: 7912bb65816454840be01c87d54fa017, type: 3}
-  name: RelicSword
+  name: "\u0420\u0435\u043B\u0438\u043A\u0442\u043E\u0432\u044B\u0439 \u043C\u0435\u0447"
   id: 7
   isBought: 0
   speed: 0
@@ -59,4 +59,5 @@ MonoBehaviour:
   radius: 0
   tickRate: 0
   shoots: 0
+  power: 0
   MelePrefab: {fileID: 2954845818976924223, guid: 5aa242407ae4e714885e9326aa094967, type: 3}

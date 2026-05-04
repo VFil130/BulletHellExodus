@@ -247,7 +247,7 @@ MonoBehaviour:
   currentMoveSpeed: 0
   tmpEnemy: 0
   enemyLifeTime: 0
-  projectilePrefab: {fileID: 5415221874097496720, guid: 2775cec535746324c8de602fa65c698a, type: 3}
+  projectilePrefab: {fileID: 5415221874097496720, guid: d4fe27a2a27ed3e42bf3ff50b70ccaf5, type: 3}
   attackRange: 10
   attackCooldown: 1
   firePoint: {fileID: 4470209971467370202}
